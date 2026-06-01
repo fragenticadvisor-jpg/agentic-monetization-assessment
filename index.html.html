@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FR Advisory — SaaS to Agentic Readiness Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;--paper:#f5f2ec;--gold:#b8922a;--gold-lt:#f0e4c3;--gold-dk:#a07820;
+  --dark:#1a1a1a;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+  --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);min-height:100vh;margin:0}
+.w{max-width:700px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,0.08)}
+.hero{background:var(--dark);color:#f5f2ec;padding:2.5rem 2.5rem 1.75rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border:1px solid rgba(184,146,42,0.15);border-radius:50%}
+.hero::after{content:'';position:absolute;top:-15px;right:-15px;width:130px;height:130px;border:1px solid rgba(184,146,42,0.1);border-radius:50%}
+.eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.6rem}
+.h-title{font-family:'DM Serif Display',serif;font-size:28px;line-height:1.15;margin-bottom:0.6rem;color:#f5f2ec}
+.h-sub{font-size:13px;color:rgba(245,242,236,0.6);line-height:1.65;max-width:500px}
+.prog-bar{height:2px;background:rgba(245,242,236,0.08);margin-top:1.75rem}
+.prog-fill{height:100%;background:var(--gold);transition:width 0.4s ease}
+.prog-meta{display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em}
+.body{padding:1.75rem 2.5rem}
+.dim-tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.85rem}
+.dim-tag::before{content:'';width:18px;height:1px;background:var(--gold)}
+.qt{font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink);line-height:1.3;margin-bottom:0.4rem}
+.qs{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:1.35rem;max-width:560px}
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:1.75rem}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:5px;cursor:pointer;background:var(--white);transition:all 0.15s ease}
+.opt:hover{border-color:var(--gold);background:var(--gold-lt)}
+.opt.sel{border-color:var(--gold);background:var(--gold-lt);box-shadow:inset 3px 0 0 var(--gold)}
+.opt-s{min-width:24px;height:24px;border-radius:50%;background:var(--paper);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--muted);flex-shrink:0;margin-top:1px}
+.opt.sel .opt-s{background:var(--gold);border-color:var(--gold);color:#fff}
+.opt-t{font-size:13px;color:var(--ink);line-height:1.5}
+.nav{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid var(--border)}
+.btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:9px 20px;border-radius:4px;cursor:pointer;transition:all 0.15s ease;letter-spacing:0.02em}
+.btn-g{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.btn-g:hover{border-color:var(--muted);color:var(--ink)}
+.btn-p{background:var(--ink);border:1px solid var(--ink);color:#f5f2ec}
+.btn-p:hover{background:#333}
+.btn-gold{background:var(--gold);border:1px solid var(--gold);color:#fff;width:100%;padding:13px;font-size:13px;border-radius:4px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.qc{font-size:11px;color:var(--muted)}
+.inp{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:var(--white);margin-bottom:9px;outline:none}
+.inp:focus{border-color:var(--gold)}
+.inp::placeholder{color:var(--muted)}
+.divider{height:1px;background:var(--border);margin:1.5rem 0}
+.fade{animation:fi 0.25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.hidden{display:none}
+.gate-badge{display:inline-block;background:var(--gold-lt);border:1px solid var(--gold);color:var(--gold-dk);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 13px;border-radius:3px;margin-bottom:1.25rem}
+.tscore-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:1.25rem 0}
+.tsc{padding:12px 10px;border:1px solid var(--border);border-radius:5px;background:var(--white);position:relative;overflow:hidden;text-align:left}
+.tsc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.tsc.open::after{background:var(--green)}
+.tsc.locked::after{background:var(--border)}
+.tsc.locked{opacity:0.5}
+.tsc-lbl{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;line-height:1.3}
+.tsc-val{font-family:'DM Serif Display',serif;font-size:20px}
+.audit-intro{background:var(--blue-lt);border:1px solid #B5D4F4;border-radius:5px;padding:1rem 1.25rem;margin-bottom:1.5rem}
+.audit-intro-title{font-size:13px;font-weight:500;color:var(--blue-dk);margin-bottom:3px}
+.audit-intro-text{font-size:12px;color:var(--blue);line-height:1.6}
+.rh{background:var(--dark);padding:2rem 2.5rem 1.75rem;color:#f5f2ec}
+.score-wrap{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.ring{position:relative;flex-shrink:0}
+.ring-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'DM Serif Display',serif;color:#f5f2ec}
+.band-pill{display:inline-block;padding:3px 11px;border-radius:3px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;margin-bottom:0.6rem}
+.rh-title{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:0.35rem}
+.rh-desc{font-size:12px;color:rgba(245,242,236,0.6);line-height:1.65;max-width:460px}
+.dim-r{padding:0.85rem 0;border-bottom:1px solid var(--border)}
+.dim-r:last-child{border-bottom:none}
+.dim-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.dim-name{font-size:12px;font-weight:500;color:var(--ink)}
+.dim-pill{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:500}
+.bar-bg{height:4px;background:var(--border);border-radius:3px}
+.bar-f{height:100%;border-radius:3px}
+.dim-note{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}
+.audit-results{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1.25rem;margin-bottom:1rem}
+.ar-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:1rem}
+.ar-title{font-size:13px;font-weight:500;color:var(--ink)}
+.checklist{list-style:none}
+.cl-item{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--ink);line-height:1.5;align-items:flex-start}
+.cl-item:last-child{border-bottom:none}
+.cl-icon{flex-shrink:0;margin-top:1px;font-size:15px}
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.pc{border:1px solid var(--border);border-radius:6px;padding:1.1rem;background:var(--white);position:relative}
+.pc.feat{border-color:var(--gold);border-width:2px}
+.pc-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 11px;border-radius:20px;white-space:nowrap}
+.pc-name{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.4rem}
+.pc-price{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);margin-bottom:0.2rem}
+.pc-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:0.85rem}
+.pc-feats{list-style:none;margin-bottom:0.85rem}
+.pc-feats li{font-size:11px;color:var(--ink);padding:3px 0;display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.pc-feats li::before{content:'✓';color:var(--green);font-weight:500;flex-shrink:0}
+.upsell{background:var(--dark);border-radius:5px;padding:1.1rem 1.35rem;margin-top:0.85rem;display:flex;gap:0.85rem;align-items:flex-start}
+.upsell-t{font-size:12px;font-weight:500;color:#f5f2ec;margin-bottom:2px}
+.upsell-s{font-size:11px;color:rgba(245,242,236,0.5);line-height:1.55}
+.mkt{padding:1.5rem 2.5rem;background:var(--white);border-top:1px solid var(--border)}
+.mkt-title{font-family:'DM Serif Display',serif;font-size:15px;color:var(--ink);margin-bottom:0.85rem}
+.mkt-tags{display:flex;flex-wrap:wrap;gap:7px}
+.mkt-tag{font-size:10px;padding:4px 11px;border:1px solid var(--border);border-radius:3px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="w" id="app">
+
+<div class="hero">
+  <div class="eyebrow">FR Advisory</div>
+  <div class="h-title">SaaS to Agentic<br>Readiness Assessment</div>
+  <div class="h-sub">Diagnose whether your commercial model is built to capture value in the agentic AI era — or quietly losing ground with every agent you ship.</div>
+  <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+  <div class="prog-meta"><span id="step-lbl">Dimension 1 of 5</span><span id="step-pct">0%</span></div>
+</div>
+
+<div class="body" id="main-body">
+  <div id="qpanel">
+    <div class="dim-tag" id="dtag"></div>
+    <div class="qt" id="qtext"></div>
+    <div class="qs" id="qsub"></div>
+    <div class="opts" id="olist"></div>
+    <div class="nav">
+      <button class="btn btn-g" id="bbk" onclick="goBack()">← Back</button>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <span class="qc" id="qctr"></span>
+        <button class="btn btn-p" onclick="goNext()">Continue →</button>
+      </div>
+    </div>
+  </div>
+  <div id="gpanel" class="hidden"></div>
+  <div id="rpanel" class="hidden"></div>
+</div>
+
+</div>
+<script>
+var DIMS=[
+  {n:"Value Metric Alignment",s:"Metric Align."},
+  {n:"Revenue Architecture",s:"Revenue Arch."},
+  {n:"Operational Infrastructure",s:"Operations"},
+  {n:"Commercial Enablement",s:"Enablement"},
+  {n:"Customer & Value Comms",s:"Value Comms"}
+];
+
+var QS=[
+  {d:0,q:"How does your current primary pricing metric map to the value customers receive?",s:"Consider whether customers who deploy agents heavily pay more — or the same — as those who don't.",o:[
+    {t:"We price on a firmographic proxy — seats, users, sites, entities, or business units. AI usage has no bearing on what customers pay.",v:1},
+    {t:"We price on a firmographic metric but recognise it may no longer reflect the value agentic AI delivers.",v:2},
+    {t:"We've introduced a consumption or outcome layer alongside our base metric, but it's not yet the primary driver.",v:2},
+    {t:"Our primary metric directly reflects AI outcomes, actions, or compute consumed — not headcount or organisational structure.",v:3}
+  ]},
+  {d:0,q:"Have you mapped which agentic workflows and automations now displace human tasks in your product?",s:"The more work agents do that humans once did manually, the more your firmographic revenue decouples from value delivered.",o:[
+    {t:"We haven't systematically mapped this yet.",v:1},
+    {t:"We have a rough sense but no formal mapping or financial modelling.",v:2},
+    {t:"We've mapped key workflows and can estimate the productivity displacement.",v:2},
+    {t:"We've modelled displacement across workflows and validated the impact on our pricing.",v:3}
+  ]},
+  {d:0,q:"What evidence do you have that AI usage is affecting your licence or seat count trajectory?",s:"A canary in the coal mine: top customers deploying agents but not expanding headcount — or actively reducing it.",o:[
+    {t:"We haven't looked for this signal.",v:1},
+    {t:"We suspect it's happening but don't have clear data.",v:2},
+    {t:"We can see it in certain cohorts — seat growth is flattening despite rising AI usage.",v:2},
+    {t:"We have clear data and have presented this to leadership as a commercial risk.",v:3}
+  ]},
+  {d:0,q:"How well-defined is your candidate consumption unit for a future agentic pricing model?",s:"The unit must be transparent, auditable, and directly connected to the value customers experience.",o:[
+    {t:"We haven't defined a consumption unit.",v:1},
+    {t:"We've had internal conversations but nothing is formally documented.",v:1},
+    {t:"We have a hypothesis (e.g. tasks, agent runs, outcomes) but it's unvalidated.",v:2},
+    {t:"We've defined and customer-validated our consumption unit and can meter it.",v:3}
+  ]},
+  {d:0,q:"To what degree have you validated your value metric hypothesis with customers?",s:"What customers say they'd pay for often differs sharply from what they actually value under an agentic model.",o:[
+    {t:"No customer conversations on pricing have taken place.",v:1},
+    {t:"We've raised it informally but not as a structured research exercise.",v:1},
+    {t:"We've run structured discovery with a sample of key accounts.",v:2},
+    {t:"We've tested pricing concepts and have clear customer signal to build on.",v:3}
+  ]},
+  {d:1,q:"How would you characterise your current revenue architecture?",s:"Firmographic-based models structurally cap upside when agents begin displacing human users.",o:[
+    {t:"Purely firmographic — seats, users, sites, entities, or business units — with no consumption element.",v:1},
+    {t:"Mostly firmographic-based with a small, informal consumption component.",v:2},
+    {t:"Hybrid: a platform or access fee plus some form of consumption layer.",v:2},
+    {t:"Primarily consumption or outcome-based, with a base commitment floor.",v:3}
+  ]},
+  {d:1,q:"Have you modelled the revenue retention impact if agents begin displacing your customers' human users?",s:"GRR is the first casualty — customers reduce seats before you ever get to expansion. Most SaaS models assume firmographic growth tracks product value. Agentic AI inverts this assumption entirely.",o:[
+    {t:"No — we haven't stress-tested either GRR or NRR against agent-driven displacement.",v:1},
+    {t:"We've considered the risk qualitatively but haven't modelled GRR or NRR impact.",v:2},
+    {t:"We have scenario models covering both GRR and NRR but they haven't been reviewed by finance and leadership.",v:2},
+    {t:"We have board-reviewed models quantifying both GRR erosion risk and NRR upside scenarios.",v:3}
+  ]},
+  {d:1,q:"How mature is your design for a hybrid pricing model (platform base + consumption layer)?",s:"The hybrid model is emerging as the structural answer: base ARR predictability plus consumption-driven upside.",o:[
+    {t:"We haven't designed anything beyond our current model.",v:1},
+    {t:"We have a conceptual sketch but no formal model design.",v:2},
+    {t:"We have a detailed model design including tier structure and commitment levels.",v:2},
+    {t:"Our hybrid model is designed, commercially tested, and ready for broader rollout.",v:3}
+  ]},
+  {d:1,q:"How are legacy customers handled in your transition planning?",s:"The migration path for existing customers is often the hardest and highest-risk part of any model transition.",o:[
+    {t:"Legacy customers are not yet part of our thinking.",v:1},
+    {t:"We know it's a challenge but haven't created a migration framework.",v:1},
+    {t:"We have principles for the transition but no detailed customer playbook.",v:2},
+    {t:"We have a segmented transition plan with specific approaches for high-value cohorts.",v:3}
+  ]},
+  {d:1,q:"How clearly is minimum ARR commitment defined in your new model?",s:"A commitment floor protects base ARR while the consumption layer drives expansion. Without it, revenue becomes volatile.",o:[
+    {t:"Not defined — we're entirely on a firmographic model with no consumption or commitment floor.",v:1},
+    {t:"We have a vague concept of a base fee but it's not formally modelled.",v:2},
+    {t:"We have minimum commitment levels designed and ready for commercial testing.",v:2},
+    {t:"Minimum commitments are live, tested, and performing as modelled.",v:3}
+  ]},
+  {d:2,q:"Can you track AI agent activity and consumption at the action or task level in real time?",s:"Without granular telemetry, consumption pricing is a commercial ambition with no operational foundation.",o:[
+    {t:"No — we have no action-level usage tracking today.",v:1},
+    {t:"We have some logging but it's not real-time and not connected to billing.",v:1},
+    {t:"We have telemetry in place but it covers only a portion of AI workflows.",v:2},
+    {t:"Full real-time telemetry exists and feeds directly into billing without manual steps.",v:3}
+  ]},
+  {d:2,q:"How well do you understand agent adoption across your customer base — breadth, velocity, and variety of use cases?",s:"A single power user running one agent workflow is not adoption. True agentic value realisation shows up as expanding use case variety, accelerating automation velocity, and adoption spreading across teams and functions.",o:[
+    {t:"We have no visibility into how broadly or deeply agents are being adopted by customers.",v:1},
+    {t:"We rely on anecdotal signals — customer conversations and support tickets — rather than structured data.",v:2},
+    {t:"We track basic adoption metrics (active agents, runs) but lack breadth and use case variety data.",v:2},
+    {t:"We have a structured adoption framework tracking breadth, velocity, and use case variety across our customer base.",v:3}
+  ]},
+  {d:2,q:"Can your billing platform handle variable consumption charges, credit models, and overage alerts?",s:"Most billing stacks are built for fixed recurring revenue — consumption requires a fundamentally different capability.",o:[
+    {t:"Our billing platform only handles fixed subscription fees.",v:1},
+    {t:"We've explored options but haven't implemented consumption billing.",v:2},
+    {t:"We can handle basic variable charges but lack credits, caps, and alerts.",v:2},
+    {t:"Full consumption billing is live: variable charges, credits, spend caps, and alerts.",v:3}
+  ]},
+  {d:2,q:"Does your CPQ system have SKUs or structures that represent AI consumption?",s:"Sales teams can only sell what they can quote. Consumption SKUs are a prerequisite for commercial execution.",o:[
+    {t:"No AI consumption SKUs exist in our CPQ system.",v:1},
+    {t:"We're managing it through workarounds — manual quotes, custom line items.",v:1},
+    {t:"We have basic consumption SKUs but they're not fully integrated with contracts.",v:2},
+    {t:"Consumption SKUs are live, integrated, and actively used by the sales team.",v:3}
+  ]},
+  {d:2,q:"Can finance separately report and forecast consumption revenue versus base platform fees?",s:"Blended reporting hides the true growth lever — and makes investor conversations significantly harder.",o:[
+    {t:"Revenue reporting is entirely blended — we can't separate base from consumption.",v:1},
+    {t:"We can approximate it manually but it's not automated.",v:2},
+    {t:"We have separated reporting for some segments but not consistently.",v:2},
+    {t:"Consumption and base fee revenue are fully separated in our financial reporting.",v:3}
+  ]},
+  {d:2,q:"How automated is the pipeline from usage telemetry to customer invoice?",s:"Manual processes between metering and billing introduce errors, delays, and audit risk at scale.",o:[
+    {t:"Entirely manual — someone on the team reconciles usage to billing periodically.",v:1},
+    {t:"Partially automated with manual review steps.",v:2},
+    {t:"Mostly automated but with some manual interventions for edge cases.",v:2},
+    {t:"Fully automated: telemetry flows to billing without manual intervention.",v:3}
+  ]},
+  {d:3,q:"Can your sales team articulate why the hybrid model is better for the customer — not just the mechanics?",s:"Selling consumption requires a shift from licence coverage to ROI and value conversations.",o:[
+    {t:"Our sales team sells exclusively in firmographic terms — seats, sites, entities.",v:1},
+    {t:"A few individuals can have the conversation but it's not consistent across the team.",v:1},
+    {t:"We have training materials but haven't run formal enablement programmes.",v:2},
+    {t:"The full sales team is trained and actively selling hybrid models with confidence.",v:3}
+  ]},
+  {d:3,q:"How equipped is your sales team to handle consumption-model objections — budget uncertainty, audit anxiety?",s:"The most common blockers: 'I can't predict spend' and 'I don't know what counts as billable'.",o:[
+    {t:"No objection-handling frameworks exist for consumption-specific concerns.",v:1},
+    {t:"Reps handle it ad hoc — inconsistently and without structured support.",v:2},
+    {t:"We have talk tracks and playbooks but they haven't been battle-tested in deals.",v:2},
+    {t:"Structured playbooks are live, tested in real deals, and regularly refined.",v:3}
+  ]},
+  {d:3,q:"How deeply does your Customer Success team understand each customer's agentic health — consumption, breadth of adoption, and realised ROI?",s:"Consumption volume alone is a lagging and misleading signal. Healthy looks like expanding use case variety, cross-functional adoption, and measurable business outcomes customers can articulate back to you.",o:[
+    {t:"CS tracks renewal dates and NPS. Agentic health — consumption, breadth, or ROI — isn't monitored.",v:1},
+    {t:"Some CSMs track basic consumption but breadth of adoption and ROI are not systematically measured.",v:2},
+    {t:"We track consumption and adoption breadth but ROI quantification is inconsistent or anecdotal.",v:2},
+    {t:"CS has a structured agentic health framework covering consumption depth, adoption breadth, use case variety, and customer-validated ROI — reviewed in every QBR.",v:3}
+  ]},
+  {d:3,q:"Does your compensation design reward behaviours aligned with consumption growth?",s:"Commission plans optimised purely for ACV will produce the wrong commercial behaviours in a consumption model.",o:[
+    {t:"Comp is entirely ACV/TCV-focused. Consumption growth isn't incentivised.",v:1},
+    {t:"We've discussed changing comp but nothing has changed yet.",v:2},
+    {t:"We have experimental comp adjustments in select roles or territories.",v:2},
+    {t:"Comp is redesigned across Sales and CS to align with consumption growth.",v:3}
+  ]},
+  {d:3,q:"When did you last formally train commercial teams on consumption-based selling?",s:"Product and pricing model knowledge decays fast. Regular enablement is infrastructure, not a one-off event.",o:[
+    {t:"Never — no formal consumption selling training has taken place.",v:1},
+    {t:"More than 12 months ago, or a single ad-hoc session.",v:1},
+    {t:"Within the last 12 months, structured but infrequent.",v:2},
+    {t:"Regular, structured enablement — at least quarterly — with clear learning objectives.",v:3}
+  ]},
+  {d:4,q:"Do your customers have real-time visibility into AI consumption and the controls to actively govern their spend?",s:"Visibility without control is anxiety, not empowerment. Enterprise buyers need both — a real-time consumption dashboard and an admin console where they can set caps at the user, team, or workflow level on daily, weekly, or monthly cycles.",o:[
+    {t:"Customers have no visibility into AI usage and no spend controls whatsoever.",v:1},
+    {t:"Customers receive periodic usage statements but have no real-time view and no self-serve controls.",v:2},
+    {t:"A real-time usage dashboard exists but spend controls are limited — no granular caps at user, team, or workflow level.",v:2},
+    {t:"Customers have a full admin console with real-time consumption visibility and granular spend caps configurable at user, team, and workflow level across daily, weekly, and monthly cycles.",v:3}
+  ]},
+  {d:4,q:"How clearly have you defined and communicated what constitutes a billable AI action?",s:"'Audit anxiety' — not knowing what triggers charges — is a top adoption barrier for consumption models.",o:[
+    {t:"No customer-facing taxonomy of billable actions exists.",v:1},
+    {t:"It's buried in contract terms but not surfaced in the product or onboarding.",v:1},
+    {t:"We have a taxonomy but customer awareness of it is low.",v:2},
+    {t:"A clear, customer-facing taxonomy is surfaced in-product, in docs, and in onboarding.",v:3}
+  ]},
+  {d:4,q:"Do you have ROI dashboards that quantify the business impact of AI consumption?",s:"If customers can't see the return, consumption pricing feels like cost — not investment.",o:[
+    {t:"No outcome or ROI visibility is provided to customers.",v:1},
+    {t:"We share data in QBRs but there's no self-serve ROI view in-product.",v:2},
+    {t:"A basic ROI summary exists but it's not deeply connected to consumption data.",v:2},
+    {t:"In-product ROI dashboards connect AI consumption directly to measurable business outcomes.",v:3}
+  ]},
+  {d:4,q:"Do you have customer-facing proof points or case studies demonstrating ROI from consumption-based pricing?",s:"Social proof is the fastest way to shift buyer psychology from cost-anxiety to value-confidence.",o:[
+    {t:"No case studies or ROI proof points exist for our agentic or consumption model.",v:1},
+    {t:"We have internal anecdotes but nothing formalised or customer-approved.",v:2},
+    {t:"One or two case studies exist but they're not systematically used in sales.",v:2},
+    {t:"A library of ROI case studies is actively deployed across sales and marketing.",v:3}
+  ]},
+  {d:4,q:"How proactively do you communicate pricing model changes and consumption updates to customers?",s:"Trust erodes fast when customers feel surprised by charges or left in the dark about model changes. Proactive, transparent communication is a commercial capability, not a courtesy.",o:[
+    {t:"We communicate reactively — customers hear about changes when they receive an invoice or raise a query.",v:1},
+    {t:"We notify customers of changes but it's inconsistent and not tied to a structured communication framework.",v:2},
+    {t:"We have a communication process for major changes but consumption updates and in-period alerts are lacking.",v:2},
+    {t:"We have a proactive communication framework covering model changes, in-period consumption alerts, and regular value updates — customers are never surprised.",v:3}
+  ]}
+];
+
+var AQ=[
+  {q:"How well can you decompose your current ARR by pricing metric, customer segment, and product line?",s:"Building a custom pricing model without clean ARR decomposition is guesswork. We need to understand what you're earning, from whom, and on what basis — before we can design what comes next.",o:[
+    {t:"Our ARR is reported as a single blended number — we can't decompose it meaningfully.",v:1},
+    {t:"We can split by customer segment or product line but not by pricing metric or consumption type.",v:2},
+    {t:"We can decompose ARR across most dimensions but some data requires manual extraction.",v:2},
+    {t:"We have clean, readily accessible ARR decomposition by segment, product line, and pricing metric.",v:3}
+  ]},
+  {q:"Do you have historical usage and consumption data that could inform a new value metric?",s:"The best consumption unit is rarely invented — it's discovered in your existing usage data. Without it, value metric design is based on assumption rather than evidence.",o:[
+    {t:"We have no historical usage data at the action, task, or workflow level.",v:1},
+    {t:"We have some usage logs but they're inconsistent, incomplete, or hard to access.",v:2},
+    {t:"We have reasonably clean usage data but it hasn't been analysed through a pricing lens.",v:2},
+    {t:"We have comprehensive, accessible usage data that has been mapped to customer value and outcomes.",v:3}
+  ]},
+  {q:"How well segmented is your customer base in terms of agentic maturity, use case variety, and commercial potential?",s:"A custom pricing model needs to work across your customer spectrum — from early adopters running complex multi-agent workflows to customers yet to deploy a single agent.",o:[
+    {t:"We have basic firmographic segmentation — size, industry, geography — but nothing agentic-specific.",v:1},
+    {t:"We can identify heavy AI users versus light users but lack structured segmentation by maturity or use case.",v:2},
+    {t:"We have a segmentation framework but it hasn't been validated against commercial potential or pricing sensitivity.",v:2},
+    {t:"We have a robust, validated segmentation model covering agentic maturity, use case variety, and commercial potential.",v:3}
+  ]},
+  {q:"Do you have any willingness-to-pay research or pricing sensitivity data for your agentic features?",s:"Willingness-to-pay data is the difference between a pricing model built on evidence and one built on internal opinion. Even directional research — a handful of structured customer conversations — is significantly better than nothing.",o:[
+    {t:"No willingness-to-pay or pricing sensitivity research exists.",v:1},
+    {t:"We have informal signals from sales conversations but nothing structured or documented.",v:2},
+    {t:"We have conducted some pricing research but it predates our agentic feature set.",v:2},
+    {t:"We have recent, structured willingness-to-pay research specific to our agentic capabilities and consumption model.",v:3}
+  ]},
+  {q:"How well do you understand the competitive pricing landscape for agentic AI in your category?",s:"Pricing in a vacuum is dangerous. Understanding how competitors are monetising agentic capabilities — and where the market is heading — is essential context for designing a model that wins commercially.",o:[
+    {t:"We have no structured view of how competitors are pricing agentic capabilities.",v:1},
+    {t:"We have anecdotal awareness from sales calls and win/loss conversations but nothing systematic.",v:2},
+    {t:"We have conducted competitive pricing research but it's not current or comprehensive enough to act on.",v:2},
+    {t:"We have a current, structured view of competitive agentic pricing across our category that is actively used in our pricing decisions.",v:3}
+  ]},
+  {q:"How readily available are your core commercial performance metrics — ARR growth, GRR, NRR, CAC, and LTV — and do they reflect the impact of agentic AI on your business?",s:"These metrics are the diagnostic baseline for any pricing transformation. Critically, we need to know whether they're already showing the strain of agentic displacement — or whether that signal is yet to appear.",o:[
+    {t:"We don't have consistent, accessible reporting across these metrics.",v:1},
+    {t:"We can access most of these metrics but they're not tracked with agentic impact in mind.",v:2},
+    {t:"We have clean reporting across all key metrics but haven't isolated the agentic AI effect on them.",v:2},
+    {t:"We have comprehensive, current reporting across all metrics with clear visibility of how agentic AI is affecting each one.",v:3}
+  ]}
+];
+
+var ans=new Array(QS.length).fill(null);
+var aAns=new Array(AQ.length).fill(null);
+var cur=0;
+var phase='main';
+var aCur=0;
+var gateShown=false;
+
+function dimScores(){
+  var sc=[0,0,0,0,0],ct=[0,0,0,0,0];
+  QS.forEach(function(q,i){if(ans[i]!==null){sc[q.d]+=ans[i];ct[q.d]++;}});
+  return sc.map(function(s,i){return{raw:s,max:ct[i]*3,pct:ct[i]?Math.round(s/ct[i]/3*100):0};});
+}
+
+function auditScore(){
+  var s=0,c=0;
+  aAns.forEach(function(a){if(a!==null){s+=a;c++;}});
+  return{raw:s,max:c*3,pct:c?Math.round(s/c/3*100):0};
+}
+
+function totalScore(){
+  var s=0;
+  ans.forEach(function(a){if(a!==null)s+=a;});
+  return{raw:s,max:QS.length*3,pct:Math.round(s/(QS.length*3)*100)};
+}
+
+function updateProg(){
+  var total=QS.length+AQ.length;
+  var done=ans.filter(function(a){return a!==null;}).length+aAns.filter(function(a){return a!==null;}).length;
+  var pct=Math.round(done/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('step-pct').textContent=pct+'%';
+  if(phase==='audit'){
+    document.getElementById('step-lbl').textContent='Pricing Audit Readiness — Q'+(aCur+1)+' of '+AQ.length;
+  } else if(cur<QS.length){
+    var d=QS[cur].d;
+    document.getElementById('step-lbl').textContent='Dimension '+(d+1)+' of 5 — '+DIMS[d].n;
+  }
+}
+
+function renderQ(){
+  var q=QS[cur];
+  document.getElementById('dtag').textContent=DIMS[q.d].n;
+  document.getElementById('qtext').textContent=q.q;
+  document.getElementById('qsub').textContent=q.s;
+  var ol=document.getElementById('olist');
+  ol.innerHTML='';
+  var intro=ol.previousElementSibling;
+  if(intro&&intro.classList.contains('audit-intro'))intro.remove();
+  q.o.forEach(function(opt,i){
+    var div=document.createElement('div');
+    var selIdx=q.o.findIndex(function(o){return o.v===ans[cur];});
+    div.className='opt'+(i===selIdx?' sel':'');
+    div.innerHTML='<div class="opt-s">'+opt.v+'</div><div class="opt-t">'+opt.t+'</div>';
+    (function(idx,val){
+      div.onclick=function(){
+        ans[cur]=val;
+        Array.from(ol.children).forEach(function(d,j){d.className='opt'+(j===idx?' sel':'');});
+      };
+    })(i,opt.v);
+    ol.appendChild(div);
+  });
+  var dqs=QS.filter(function(x){return x.d===q.d;});
+  var dqi=dqs.indexOf(q);
+  document.getElementById('qctr').textContent='Q'+(dqi+1)+' of '+dqs.length+' in this dimension';
+  document.getElementById('bbk').style.visibility=cur===0?'hidden':'visible';
+  updateProg();
+}
+
+function renderAQ(){
+  var q=AQ[aCur];
+  document.getElementById('dtag').textContent='Pricing Audit Readiness';
+  document.getElementById('qtext').textContent=q.q;
+  document.getElementById('qsub').textContent=q.s;
+  var ol=document.getElementById('olist');
+  ol.innerHTML='';
+  var prev=ol.previousElementSibling;
+  if(prev&&prev.classList.contains('audit-intro'))prev.remove();
+  if(aCur===0){
+    var intro=document.createElement('div');
+    intro.className='audit-intro';
+    intro.innerHTML='<div class="audit-intro-title">Pricing Audit Readiness — 6 questions</div><div class="audit-intro-text">These questions determine how prepared you are for a custom pricing model. Your answers shape the data readiness score and preparation checklist shown in your results — and directly inform the advisor session agenda.</div>';
+    ol.insertAdjacentElement('beforebegin',intro);
+  }
+  q.o.forEach(function(opt,i){
+    var div=document.createElement('div');
+    var selIdx=q.o.findIndex(function(o){return o.v===aAns[aCur];});
+    div.className='opt'+(i===selIdx?' sel':'');
+    div.innerHTML='<div class="opt-s">'+opt.v+'</div><div class="opt-t">'+opt.t+'</div>';
+    (function(idx,val){
+      div.onclick=function(){
+        aAns[aCur]=val;
+        Array.from(ol.children).forEach(function(d,j){d.className='opt'+(j===idx?' sel':'');});
+      };
+    })(i,opt.v);
+    ol.appendChild(div);
+  });
+  document.getElementById('qctr').textContent='Q'+(aCur+1)+' of '+AQ.length;
+  document.getElementById('bbk').style.visibility=aCur===0?'hidden':'visible';
+  updateProg();
+}
+
+function goNext(){
+  if(phase==='main'){
+    if(ans[cur]===null){flash();return;}
+    if(cur===4&&!gateShown){gateShown=true;showGate();return;}
+
+    if(cur<QS.length-1){cur++;renderQ();}
+    else{phase='audit';aCur=0;renderAQ();}
+  } else {
+    if(aAns[aCur]===null){flash();return;}
+    if(aCur<AQ.length-1){aCur++;renderAQ();}
+    else showResults();
+  }
+}
+
+function goBack(){
+  if(phase==='audit'&&aCur===0){phase='main';cur=QS.length-1;renderQ();}
+  else if(phase==='audit'){aCur--;renderAQ();}
+  else if(cur>0){cur--;renderQ();}
+}
+
+function flash(){
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.style.borderColor='var(--red)';
+    setTimeout(function(){o.style.borderColor='';},700);
+  });
+}
+
+function scoreLabel(pct){
+  if(pct>=80)return{l:'Advanced',c:'var(--green)',b:'var(--green-lt)',dt:'var(--green-dk)'};
+  if(pct>=60)return{l:'Developing',c:'var(--amber)',b:'var(--amber-lt)',dt:'var(--amber-dk)'};
+  if(pct>=40)return{l:'Early stage',c:'var(--red)',b:'var(--red-lt)',dt:'var(--red-dk)'};
+  return{l:'At risk',c:'#A32D2D',b:'#FCEBEB',dt:'#501313'};
+}
+
+function dimNote(d,pct){
+  var n=[
+    ['Value metric is well-aligned to agentic delivery. Focus on optimisation and tier design.',
+     'Formalise the consumption unit — your value metric is partially aligned but needs structure.',
+     'Firmographic pricing is decoupling from value. Map agent displacement workflows urgently.'],
+    ['Revenue architecture is structured to capture consumption upside. Optimise commitment tiers.',
+     'Hybrid model is underway — prioritise minimum commitment levels and ARR floor design.',
+     'Firmographic architecture is exposed. Model the GRR and NRR risk at board level now.'],
+    ['Operational infrastructure can support consumption billing at scale.',
+     'Core plumbing exists — telemetry-to-billing automation and CPQ SKUs need attention.',
+     'Critical infrastructure gaps will block consumption pricing from launching. Prioritise now.'],
+    ['Commercial teams are equipped to sell and retain on a consumption model.',
+     'Enablement exists — comp design and CS agentic health motion need realignment.',
+     'GTM teams are still in seat-selling mode. Transformation required before any model rollout.'],
+    ['Customers have visibility, spend control, and ROI evidence to adopt consumption pricing.',
+     'Customer trust infrastructure is partial — ROI dashboards and spend controls are the priority.',
+     'Consumption opacity will drive objections and slow adoption. Build visibility and control tools first.']
+  ];
+  return n[d][pct>=70?0:pct>=40?1:2];
+}
+
+function showGate(){
+  document.getElementById('qpanel').classList.add('hidden');
+  var gp=document.getElementById('gpanel');
+  gp.classList.remove('hidden');
+  var scores=dimScores();
+  var sc0=scores[0];
+  var pct0=sc0.max?Math.round(sc0.raw/sc0.max*100):0;
+  var col0=pct0>=70?'var(--green)':pct0>=40?'var(--amber)':'var(--red)';
+  var pb0=pct0>=70?'var(--green-lt)':pct0>=40?'var(--amber-lt)':'var(--red-lt)';
+  var pt0=pct0>=70?'var(--green-dk)':pct0>=40?'var(--amber-dk)':'var(--red-dk)';
+
+  var thtml='<div class="tscore-grid">';
+  DIMS.forEach(function(d,i){
+    var locked=i>0;
+    thtml+='<div class="tsc '+(locked?'locked':'open')+'">';
+    thtml+='<div class="tsc-lbl">'+d.s+'</div>';
+    if(locked){
+      thtml+='<div style="font-size:18px;color:var(--border)">&#128274;</div><div style="font-size:10px;color:var(--muted);margin-top:3px">Gated</div>';
+    } else {
+      thtml+='<div class="tsc-val" style="color:'+col0+'">'+sc0.raw+'<span style="font-size:13px;color:var(--muted)">/'+sc0.max+'</span></div>';
+      thtml+='<div style="font-size:10px;color:var(--muted);margin-top:2px">'+(pct0>=70?'Strong':'Needs work')+'</div>';
+    }
+    thtml+='</div>';
+  });
+  thtml+='</div>';
+
+  gp.innerHTML=
+    '<div style="text-align:center;padding:1rem 0 0.5rem">'
+    +'<div class="gate-badge">Dimension 1 complete</div>'
+    +'<div style="font-family:\'DM Serif Display\',serif;font-size:22px;color:var(--ink);margin-bottom:0.6rem;line-height:1.2">You\'ve completed the first<br>diagnostic dimension</div>'
+    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 1rem">Dimensions 2–5 and the full Pricing Audit Readiness section are unlocked with the full assessment. Enter your details below to save your progress — then choose your path.</div>'
+    +thtml
+    +'</div>'
+
+    +'<div style="max-width:420px;margin:0 auto">'
+
+    +'<div style="margin-bottom:1rem">'
+    +'<input class="inp" type="text" id="gname" placeholder="Your first name">'
+    +'<input class="inp" type="email" id="gemail" placeholder="Work email address">'
+    +'<input class="inp" type="text" id="gco" placeholder="Company name">'
+    +'</div>'
+
+    +'<div style="background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1rem">'
+    +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem">'
+    +'<div>'
+    +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Full Assessment</div>'
+    +'<div style="font-family:\'DM Serif Display\',serif;font-size:26px;color:#f5f2ec">£995</div>'
+    +'</div>'
+    +'<div style="background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-top:4px">Recommended</div>'
+    +'</div>'
+    +'<div style="font-size:11px;color:rgba(245,242,236,0.55);line-height:1.6;margin-bottom:1rem">All 5 scored dimensions · Prioritised transformation roadmap · Dimension-by-dimension recommendations · PDF report within 48 hours</div>'
+    +'<button class="btn-gold" onclick="payAndContinue()" style="font-size:13px;padding:12px">Pay £995 &amp; unlock full assessment &#8594;</button>'
+    +'</div>'
+
+    +'<div style="background:var(--white);border:2px solid var(--gold);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1rem;position:relative">'
+    +'<div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap">Most valuable</div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem">'
+    +'<div>'
+    +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Assessment + Expert Advisor</div>'
+    +'<div style="font-family:\'DM Serif Display\',serif;font-size:26px;color:var(--ink)">£2,495</div>'
+    +'</div>'
+    +'</div>'
+    +'<div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:1rem">Everything in Full Assessment · 2-hour 1:1 session with Fessal · Live results walkthrough · Custom pricing model design · Preparation checklist actioned together · 30-day follow-up Q&amp;A</div>'
+    +'<button class="btn-gold" onclick="bookAdvisor()" style="font-size:13px;padding:12px;background:var(--ink);border-color:var(--ink)">Book Assessment + Advisor session &#8594;</button>'
+    +'</div>'
+
+    +'<div style="font-size:10px;color:var(--muted);text-align:center;padding-bottom:1.5rem">No spam. Your details are used solely to send your results and follow up on your assessment.</div>'
+    +'</div>';
+
+  updateProg();
+}
+
+function payAndContinue(){
+  var name=document.getElementById('gname').value.trim();
+  var email=document.getElementById('gemail').value.trim();
+  if(!name||!email||email.indexOf('@')<0){
+    ['gname','gemail'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el.value.trim()||(el.type==='email'&&el.value.indexOf('@')<0)){
+        el.style.borderColor='var(--red)';setTimeout(function(){el.style.borderColor='';},700);
+      }
+    });
+    return;
+  }
+  window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank');
+  document.getElementById('gpanel').classList.add('hidden');
+  document.getElementById('qpanel').classList.remove('hidden');
+  cur=5;renderQ();
+}
+
+function bookAdvisor(){
+  var name=document.getElementById('gname').value.trim();
+  var email=document.getElementById('gemail').value.trim();
+  if(!name||!email||email.indexOf('@')<0){
+    ['gname','gemail'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el.value.trim()||(el.type==='email'&&el.value.indexOf('@')<0)){
+        el.style.borderColor='var(--red)';setTimeout(function(){el.style.borderColor='';},700);
+      }
+    });
+    return;
+  }
+  window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package — Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name)+'. Please send me next steps.';
+  document.getElementById('gpanel').classList.add('hidden');
+  document.getElementById('qpanel').classList.remove('hidden');
+  cur=5;renderQ();
+}
+
+
+
+function showResults(){
+  document.getElementById('qpanel').classList.add('hidden');
+  document.getElementById('gpanel').classList.add('hidden');
+  document.getElementById('step-lbl').textContent='Assessment complete';
+  document.getElementById('step-pct').textContent='100%';
+  document.getElementById('prog').style.width='100%';
+
+  var ts=totalScore();
+  var ds=dimScores();
+  var as=auditScore();
+  var band=scoreLabel(ts.pct);
+  var aband=scoreLabel(as.pct);
+  var circ=2*Math.PI*34;
+  var dash=Math.round(ts.pct/100*circ);
+  var adash=Math.round(as.pct/100*circ);
+
+  var desc=ts.pct>=80?'Strong commercial foundations. Focus shifts to optimisation, packaging, and competitive differentiation.'
+    :ts.pct>=60?'Key foundations exist but gaps remain. Address your lowest-scoring dimension before enabling commercial teams.'
+    :ts.pct>=40?'Significant work required. Sequence carefully: infrastructure before enablement, value metric before architecture.'
+    :'Your model is structurally misaligned for the agentic era. This warrants board-level attention, not a project team.';
+
+  var adesc=as.pct>=80?'Your data is in excellent shape. An advisor session can move directly to model design and scenario planning.'
+    :as.pct>=60?'Most data assets are available. A few gaps to address before or during the advisory session.'
+    :as.pct>=40?'Partial data available. The preparation checklist below outlines what to gather before your session.'
+    :'Significant data gaps exist. The advisor session will include a data collection framework to get you ready.';
+
+  var clItems=[
+    {lbl:'ARR decomposition by segment, pricing metric & product line',key:0},
+    {lbl:'Historical usage & consumption data mapped to customer value',key:1},
+    {lbl:'Customer segmentation by agentic maturity & commercial potential',key:2},
+    {lbl:'Willingness-to-pay research for agentic features',key:3},
+    {lbl:'Competitive agentic pricing landscape analysis',key:4},
+    {lbl:'Core metrics (ARR growth, GRR, NRR, CAC, LTV) with agentic impact isolated',key:5}
+  ];
+
+  var clHtml='';
+  clItems.forEach(function(item){
+    var v=aAns[item.key];
+    var ready=v>=3,partial=v===2,gap=v<=1;
+    var icon=ready?'&#10003;':partial?'&#9679;':'&#9675;';
+    var iconCol=ready?'var(--green)':partial?'var(--amber)':'var(--red)';
+    var note=ready?'Ready to bring to session':partial?'Partial — gather remaining data before session':'Gap — build into session agenda';
+    var noteCol=ready?'var(--green)':partial?'var(--amber)':'var(--red)';
+    clHtml+='<li class="cl-item">'
+      +'<span class="cl-icon" style="color:'+iconCol+'">'+icon+'</span>'
+      +'<div><div>'+item.lbl+'</div>'
+      +'<div style="font-size:10px;color:'+noteCol+';margin-top:1px">'+note+'</div>'
+      +'</div></li>';
+  });
+
+  var dimHtml='';
+  ds.forEach(function(sc,i){
+    var pct=sc.pct;
+    var col=pct>=70?'var(--green)':pct>=40?'var(--amber)':'var(--red)';
+    var pb=pct>=70?'var(--green-lt)':pct>=40?'var(--amber-lt)':'var(--red-lt)';
+    var pt=pct>=70?'var(--green-dk)':pct>=40?'var(--amber-dk)':'var(--red-dk)';
+    dimHtml+='<div class="dim-r">'
+      +'<div class="dim-row"><span class="dim-name">'+DIMS[i].n+'</span>'
+      +'<span class="dim-pill" style="background:'+pb+';color:'+pt+'">'+sc.raw+'/'+sc.max+'</span></div>'
+      +'<div class="bar-bg"><div class="bar-f" style="width:'+pct+'%;background:'+col+'"></div></div>'
+      +'<div class="dim-note">'+dimNote(i,pct)+'</div>'
+      +'</div>';
+  });
+
+  var rp=document.getElementById('rpanel');
+  rp.classList.remove('hidden');
+  rp.innerHTML=
+    '<div class="rh">'
+      +'<div class="score-wrap">'
+        +'<div class="ring" style="width:80px;height:80px">'
+          +'<svg width="80" height="80" viewBox="0 0 80 80">'
+            +'<circle cx="40" cy="40" r="34" fill="none" stroke="rgba(245,242,236,0.08)" stroke-width="5"/>'
+            +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+band.c+'" stroke-width="5" stroke-dasharray="'+dash+' '+circ+'" stroke-linecap="round" transform="rotate(-90 40 40)"/>'
+          +'</svg>'
+          +'<div class="ring-num" style="font-size:21px">'+ts.pct+'</div>'
+        +'</div>'
+        +'<div>'
+          +'<div class="band-pill" style="background:'+band.b+';color:'+band.dt+'">'+band.l+'</div>'
+          +'<div class="rh-title">Overall readiness: '+ts.raw+'/'+ts.max+'</div>'
+          +'<div class="rh-desc">'+desc+'</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>'
+
+    +'<div class="body">'
+      +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.85rem;font-weight:500">Dimension breakdown</div>'
+      +dimHtml
+
+      +'<div class="divider"></div>'
+      +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.85rem;font-weight:500">Pricing audit readiness</div>'
+
+      +'<div class="audit-results">'
+        +'<div class="ar-header">'
+          +'<div style="flex:1">'
+            +'<div class="ar-title">Data &amp; commercial readiness score</div>'
+            +'<div style="font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5">'+adesc+'</div>'
+          +'</div>'
+          +'<div style="display:flex;align-items:center;gap:10px;flex-shrink:0">'
+            +'<div class="ring" style="width:60px;height:60px">'
+              +'<svg width="60" height="60" viewBox="0 0 80 80">'
+                +'<circle cx="40" cy="40" r="34" fill="none" stroke="var(--border)" stroke-width="5"/>'
+                +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+aband.c+'" stroke-width="5" stroke-dasharray="'+adash+' '+circ+'" stroke-linecap="round" transform="rotate(-90 40 40)"/>'
+              +'</svg>'
+              +'<div class="ring-num" style="font-size:15px;color:var(--ink)">'+as.pct+'</div>'
+            +'</div>'
+            +'<div>'
+              +'<div class="band-pill" style="background:'+aband.b+';color:'+aband.dt+';font-size:9px">'+aband.l+'</div>'
+              +'<div style="font-size:11px;color:var(--muted)">'+as.raw+'/'+as.max+'</div>'
+            +'</div>'
+          +'</div>'
+        +'</div>'
+        +'<div style="font-size:11px;font-weight:500;color:var(--ink);margin-bottom:8px">Advisor session preparation checklist</div>'
+        +'<ul class="checklist">'+clHtml+'</ul>'
+      +'</div>'
+
+      +'<div class="divider"></div>'
+      +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;font-weight:500">Unlock the full assessment</div>'
+      +'<div style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:1.1rem">Your free results cover two of five diagnostic dimensions. The full report includes all five scored dimensions, dimension-specific recommendations, and a prioritised transformation roadmap tailored to your readiness band.</div>'
+
+      +'<div class="pcards">'
+        +'<div class="pc">'
+          +'<div class="pc-name">Full Assessment</div>'
+          +'<div class="pc-price">£995</div>'
+          +'<div class="pc-desc">Complete five-dimension diagnostic with prioritised recommendations.</div>'
+          +'<ul class="pc-feats">'
+            +'<li>All 5 scored dimensions revealed</li>'
+            +'<li>Dimension-by-dimension recommendations</li>'
+            +'<li>Prioritised transformation roadmap</li>'
+            +'<li>Readiness band and risk rating</li>'
+            +'<li>PDF report delivered within 48 hours</li>'
+          +'</ul>'
+          +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.open(\'https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058\',\'_blank\')">Pay &amp; get full report &#8594;</button>'
+        +'</div>'
+        +'<div class="pc feat">'
+          +'<div class="pc-badge">Most valuable</div>'
+          +'<div class="pc-name">Assessment + Advisor</div>'
+          +'<div class="pc-price">£2,495</div>'
+          +'<div class="pc-desc">Full report plus 2 hours of dedicated advisory time with Fessal.</div>'
+          +'<ul class="pc-feats">'
+            +'<li>Everything in Full Assessment</li>'
+            +'<li>2-hour 1:1 session with Fessal</li>'
+            +'<li>Live results walkthrough</li>'
+            +'<li>Custom pricing model design input</li>'
+            +'<li>Checklist actioned together in session</li>'
+            +'<li>30-day follow-up Q&amp;A by email</li>'
+          +'</ul>'
+          +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.location.href=\'mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package — Agentic Readiness&body=Hi Fessal, I have completed the assessment and would like to book the Assessment + Advisor package (£2,495). Please send me next steps.\'">Book advisor session &#8594;</button>'
+        +'</div>'
+      +'</div>'
+
+      +'<div class="upsell">'
+        +'<div style="font-size:20px;color:var(--gold);flex-shrink:0;margin-top:1px">&#128161;</div>'
+        +'<div>'
+          +'<div class="upsell-t">Every agentic feature you ship without a matching commercial model trains customers to expect AI for free</div>'
+          +'<div class="upsell-s">The pricing problem compounds with every release. The companies winning in the agentic era aren\'t those with the best AI — they\'re those who know how to price it.</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>'
+
+    +'<div class="mkt">'
+      +'<div class="mkt-title">Where to reach SaaS leaders</div>'
+      +'<div class="mkt-tags">'
+        +'<span class="mkt-tag">LinkedIn — CPO / CFO / CRO targeting</span>'
+        +'<span class="mkt-tag">Pavilion (SaaS exec community)</span>'
+        +'<span class="mkt-tag">SaaStr / SaaS Open</span>'
+        +'<span class="mkt-tag">PE &amp; VC portfolio newsletters</span>'
+        +'<span class="mkt-tag">Product-Led Alliance</span>'
+        +'<span class="mkt-tag">RevOps Co-op</span>'
+        +'<span class="mkt-tag">OpenView Partners content</span>'
+        +'<span class="mkt-tag">CFO Connect</span>'
+        +'<span class="mkt-tag">Substack — pricing &amp; monetisation niche</span>'
+      +'</div>'
+    +'</div>';
+}
+
+renderQ();
+</script>
+</body>
+</html>
