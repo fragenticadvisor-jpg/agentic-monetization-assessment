@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FR Advisory — Agentic Monetisation Playbooks</title>
+<meta name="description" content="The complete playbook suite for SaaS leaders navigating the transition to agentic pricing. Free diagnostic assessment plus five paid playbooks covering every dimension of the transition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;--paper:#f5f2ec;--gold:#b8922a;--gold-lt:#f0e4c3;--gold-dk:#8a6a1a;
+  --dark:#1a1a1a;--darker:#0d0d0d;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--darker);color:var(--ink);margin:0;overflow-x:hidden}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes floatA{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+@keyframes floatB{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(-1deg)}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:.8}}
+@keyframes lineGrow{from{width:0}to{width:100%}}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.85rem 2.5rem;display:flex;justify-content:space-between;align-items:center;transition:all .3s ease;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(12px);border-bottom-color:rgba(184,146,42,.1)}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#f5f2ec;letter-spacing:.02em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:12px;color:rgba(245,242,236,.45);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-link:hover{color:rgba(245,242,236,.85)}
+.nav-cta{background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:8px 18px;border-radius:3px;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:background .2s}
+.nav-cta:hover{background:var(--gold-dk)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--darker);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,146,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(184,146,42,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 50% 50%,black 30%,transparent 80%)}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(184,146,42,.06) 0%,transparent 65%);pointer-events:none}
+.hero-ring1{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(184,146,42,.05);border-radius:50%;animation:pulse 4s ease-in-out infinite}
+.hero-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(184,146,42,.03);border-radius:50%;animation:pulse 4s 1s ease-in-out infinite}
+.hero-inner{max-width:900px;margin:0 auto;padding:0 2.5rem;text-align:center;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.75rem;padding:5px 14px;border:1px solid rgba(184,146,42,.2);border-radius:20px;background:rgba(184,146,42,.05)}
+.hero-title{font-family:'DM Serif Display',serif;font-size:64px;line-height:1.0;color:#f5f2ec;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
+.hero-title em{font-style:italic;color:var(--gold);background:linear-gradient(135deg,var(--gold),#e8c060,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shimmer 3s linear infinite}
+.hero-sub{font-size:17px;color:rgba(245,242,236,.45);line-height:1.75;max-width:580px;margin:0 auto 2.5rem;animation:fadeUp .8s .15s ease both}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;margin-bottom:3.5rem}
+.btn-primary{background:var(--gold);color:#fff;font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:var(--gold-dk);transform:translateY(-1px);box-shadow:0 8px 24px rgba(184,146,42,.3)}
+.btn-secondary{background:transparent;color:rgba(245,242,236,.65);font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(245,242,236,.15)}
+.btn-secondary:hover{border-color:rgba(245,242,236,.35);color:#f5f2ec}
+.hero-stats{display:flex;gap:0;justify-content:center;border:1px solid rgba(184,146,42,.12);border-radius:6px;overflow:hidden;max-width:560px;margin:0 auto;animation:fadeUp .8s .45s ease both;background:rgba(255,255,255,.02)}
+.hero-stat{flex:1;padding:1.25rem;text-align:center;border-right:1px solid rgba(184,146,42,.1)}
+.hero-stat:last-child{border-right:none}
+.hs-n{font-family:'DM Serif Display',serif;font-size:28px;color:var(--gold);display:block;margin-bottom:3px}
+.hs-l{font-size:10px;color:rgba(245,242,236,.3);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── PROBLEM STRIP ── */
+.problem-strip{background:var(--gold);padding:1rem 2.5rem;text-align:center}
+.ps-text{font-size:13px;color:#fff;font-weight:500;letter-spacing:.02em}
+.ps-text em{font-style:italic;font-family:'DM Serif Display',serif;font-size:15px}
+
+/* ── SECTION BASE ── */
+.section{padding:6rem 0}
+.container{max-width:1080px;margin:0 auto;padding:0 2.5rem}
+.section-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.section-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(184,146,42,.3),transparent)}
+.section-title{font-family:'DM Serif Display',serif;font-size:38px;color:#f5f2ec;line-height:1.1;margin-bottom:.75rem}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{font-size:14px;color:rgba(245,242,236,.45);line-height:1.75;max-width:540px}
+
+/* ── PROBLEM SECTION ── */
+.problem-section{background:var(--dark)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(245,242,236,.06);margin-top:3rem;border:1px solid rgba(245,242,236,.06);border-radius:6px;overflow:hidden}
+.pg-cell{background:var(--darker);padding:2rem;transition:background .2s}
+.pg-cell:hover{background:#1e1e1e}
+.pg-icon{font-size:28px;margin-bottom:1rem}
+.pg-title{font-size:14px;font-weight:600;color:#f5f2ec;margin-bottom:.5rem}
+.pg-text{font-size:12px;color:rgba(245,242,236,.4);line-height:1.75}
+.pg-stat{font-family:'DM Serif Display',serif;font-size:32px;color:var(--gold);display:block;margin-bottom:.4rem}
+
+/* ── ASSESSMENT SECTION ── */
+.assessment-section{background:var(--darker)}
+.assessment-card{background:var(--dark);border:1px solid rgba(184,146,42,.15);border-radius:8px;overflow:hidden;margin-top:3rem}
+.ac-top{padding:2.5rem;display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap}
+.ac-left{flex:1;min-width:280px}
+.ac-badge{display:inline-block;background:var(--gold);color:#fff;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:1rem;font-weight:500}
+.ac-title{font-family:'DM Serif Display',serif;font-size:28px;color:#f5f2ec;line-height:1.1;margin-bottom:.6rem}
+.ac-title em{font-style:italic;color:var(--gold)}
+.ac-sub{font-size:13px;color:rgba(245,242,236,.45);line-height:1.7}
+.ac-right{display:flex;flex-direction:column;gap:10px;min-width:200px}
+.ac-dim{display:flex;align-items:center;gap:10px;padding:.65rem .85rem;background:rgba(245,242,236,.03);border:1px solid rgba(245,242,236,.06);border-radius:4px}
+.ac-dim-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.ac-dim-name{font-size:11px;color:rgba(245,242,236,.55)}
+.ac-bottom{border-top:1px solid rgba(245,242,236,.06);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:rgba(0,0,0,.2)}
+.ac-price-row{display:flex;align-items:baseline;gap:.5rem}
+.ac-price{font-family:'DM Serif Display',serif;font-size:32px;color:var(--gold)}
+.ac-price-label{font-size:11px;color:rgba(245,242,236,.3);letter-spacing:.06em;text-transform:uppercase}
+.ac-free{font-size:11px;color:rgba(245,242,236,.35);margin-top:4px}
+
+/* ── PLAYBOOKS SECTION ── */
+.playbooks-section{background:var(--dark)}
+.pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:3rem}
+.pb-card{background:var(--darker);border:1px solid rgba(245,242,236,.06);border-radius:6px;padding:1.75rem;position:relative;overflow:hidden;transition:all .25s ease;cursor:default}
+.pb-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transition:opacity .25s}
+.pb-card:hover{border-color:rgba(184,146,42,.2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.pb-card:hover::before{opacity:1}
+.pb-num{font-family:'DM Serif Display',serif;font-size:48px;color:rgba(184,146,42,.12);position:absolute;top:1rem;right:1.25rem;line-height:1}
+.pb-tag{display:inline-block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:.85rem;font-weight:500}
+.pb-title{font-family:'DM Serif Display',serif;font-size:20px;color:#f5f2ec;margin-bottom:.5rem;line-height:1.2;position:relative;z-index:1}
+.pb-sub{font-size:12px;color:rgba(245,242,236,.4);line-height:1.65;margin-bottom:1.1rem;position:relative;z-index:1}
+.pb-features{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:1.25rem}
+.pb-features li{font-size:11px;color:rgba(245,242,236,.35);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
+.pb-features li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:10px;margin-top:1px}
+.pb-footer{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid rgba(245,242,236,.06)}
+.pb-price{font-family:'DM Serif Display',serif;font-size:22px;color:var(--gold)}
+.pb-price-sub{font-size:10px;color:rgba(245,242,236,.25);letter-spacing:.06em;text-transform:uppercase}
+.pb-btn{font-size:11px;font-weight:500;padding:7px 16px;border-radius:3px;background:rgba(184,146,42,.12);color:var(--gold);border:1px solid rgba(184,146,42,.2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;text-decoration:none;display:inline-block;letter-spacing:.04em}
+.pb-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.pb-card.free-card{border-color:rgba(184,146,42,.15);background:rgba(184,146,42,.03)}
+.pb-card.free-card::before{background:var(--gold);opacity:1}
+
+/* ── BUNDLE SECTION ── */
+.bundle-section{background:var(--darker)}
+.bundle-card{background:var(--dark);border:2px solid var(--gold);border-radius:8px;overflow:hidden;margin-top:3rem;position:relative}
+.bundle-badge{position:absolute;top:1.5rem;right:1.5rem;background:var(--gold);color:#fff;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;font-weight:500}
+.bc-body{padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.bc-left{}
+.bc-eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;font-weight:500}
+.bc-title{font-family:'DM Serif Display',serif;font-size:32px;color:#f5f2ec;line-height:1.1;margin-bottom:.75rem}
+.bc-title em{font-style:italic;color:var(--gold)}
+.bc-desc{font-size:13px;color:rgba(245,242,236,.45);line-height:1.75;margin-bottom:1.5rem}
+.bc-includes{display:flex;flex-direction:column;gap:8px}
+.bc-item{display:flex;gap:10px;font-size:12px;color:rgba(245,242,236,.55);line-height:1.5;align-items:flex-start}
+.bc-item::before{content:'✓';color:var(--green);flex-shrink:0;font-weight:600;margin-top:1px}
+.bc-right{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.bc-price-block{margin-bottom:1.5rem}
+.bc-price{font-family:'DM Serif Display',serif;font-size:48px;color:var(--gold);line-height:1}
+.bc-price-period{font-size:13px;color:rgba(245,242,236,.3);margin-top:4px;letter-spacing:.04em}
+.bc-saving{display:inline-block;background:var(--green-lt);color:var(--green-dk);font-size:11px;font-weight:500;padding:4px 12px;border-radius:3px;margin-top:.5rem}
+.bc-bottom{border-top:1px solid rgba(245,242,236,.06);padding:1.5rem 2.5rem;background:rgba(0,0,0,.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.bc-guarantee{font-size:11px;color:rgba(245,242,236,.3);display:flex;align-items:center;gap:6px}
+
+/* ── WHO IT'S FOR ── */
+.who-section{background:var(--dark)}
+.who-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:3rem}
+.who-card{background:var(--darker);border:1px solid rgba(245,242,236,.06);border-radius:6px;padding:1.5rem;text-align:center;transition:all .2s}
+.who-card:hover{border-color:rgba(184,146,42,.2);transform:translateY(-2px)}
+.who-icon{font-size:32px;margin-bottom:.85rem}
+.who-role{font-size:13px;font-weight:600;color:#f5f2ec;margin-bottom:.4rem}
+.who-desc{font-size:11px;color:rgba(245,242,236,.35);line-height:1.6}
+
+/* ── TESTIMONIAL / QUOTE ── */
+.quote-section{background:var(--darker);padding:5rem 0}
+.quote-inner{max-width:720px;margin:0 auto;padding:0 2.5rem;text-align:center}
+.quote-mark{font-family:'DM Serif Display',serif;font-size:80px;color:rgba(184,146,42,.15);line-height:.5;margin-bottom:1.5rem;display:block}
+.quote-text{font-family:'DM Serif Display',serif;font-size:26px;color:#f5f2ec;line-height:1.4;margin-bottom:1.5rem}
+.quote-text em{font-style:italic;color:var(--gold)}
+.quote-attr{font-size:11px;color:rgba(245,242,236,.3);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── ABOUT ── */
+.about-section{background:var(--dark)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.about-left{}
+.about-tag{display:inline-block;background:rgba(184,146,42,.1);color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:1rem;font-weight:500}
+.about-title{font-family:'DM Serif Display',serif;font-size:28px;color:#f5f2ec;line-height:1.2;margin-bottom:1rem}
+.about-title em{font-style:italic;color:var(--gold)}
+.about-text{font-size:13px;color:rgba(245,242,236,.45);line-height:1.8;margin-bottom:1rem}
+.about-credentials{display:flex;flex-direction:column;gap:8px;margin-top:1.5rem}
+.ac2{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:rgba(245,242,236,.45);line-height:1.5}
+.ac2::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px}
+.about-right{background:var(--darker);border:1px solid rgba(184,146,42,.12);border-radius:6px;padding:2rem}
+.ar-title{font-family:'DM Serif Display',serif;font-size:18px;color:#f5f2ec;margin-bottom:1.25rem}
+.ar-stats{display:flex;flex-direction:column;gap:1rem}
+.ar-stat{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid rgba(245,242,236,.06)}
+.ar-stat:last-child{border-bottom:none}
+.ar-stat-n{font-family:'DM Serif Display',serif;font-size:26px;color:var(--gold)}
+.ar-stat-l{font-size:11px;color:rgba(245,242,236,.35);text-align:right;max-width:160px;line-height:1.45}
+
+/* ── FAQ ── */
+.faq-section{background:var(--darker)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:3rem}
+.faq-item{background:var(--dark);border:1px solid rgba(245,242,236,.06);border-radius:5px;padding:1.5rem;cursor:pointer;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(184,146,42,.2)}
+.faq-item.open{border-color:rgba(184,146,42,.25)}
+.faq-q{font-size:13px;font-weight:500;color:#f5f2ec;margin-bottom:0;display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.faq-toggle{color:var(--gold);font-size:18px;flex-shrink:0;transition:transform .2s;margin-top:-2px}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{font-size:12px;color:rgba(245,242,236,.45);line-height:1.75;margin-top:.75rem;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ── FINAL CTA ── */
+.final-cta{background:var(--dark);padding:7rem 0;position:relative;overflow:hidden}
+.fc-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,146,42,.07) 0%,transparent 65%)}
+.fc-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border:1px solid rgba(184,146,42,.04);border-radius:50%}
+.fc-inner{max-width:680px;margin:0 auto;padding:0 2.5rem;text-align:center;position:relative;z-index:1}
+.fc-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;font-weight:500}
+.fc-title{font-family:'DM Serif Display',serif;font-size:44px;color:#f5f2ec;line-height:1.05;margin-bottom:1rem}
+.fc-title em{font-style:italic;color:var(--gold)}
+.fc-sub{font-size:14px;color:rgba(245,242,236,.4);line-height:1.75;margin-bottom:2.5rem}
+.fc-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.fc-divider{height:1px;background:linear-gradient(to right,transparent,rgba(184,146,42,.2),transparent);margin:2rem 0}
+.fc-note{font-size:11px;color:rgba(245,242,236,.2);letter-spacing:.06em;text-transform:uppercase}
+
+/* ── FOOTER ── */
+footer{background:var(--darker);padding:2.5rem;border-top:1px solid rgba(245,242,236,.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:16px;color:rgba(245,242,236,.4)}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-link{font-size:11px;color:rgba(245,242,236,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-link:hover{color:rgba(245,242,236,.6)}
+.footer-copy{font-size:11px;color:rgba(245,242,236,.15);letter-spacing:.04em}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:.85rem 1.5rem}
+  .nav-links{display:none}
+  .hero-title{font-size:38px}
+  .hero-sub{font-size:14px}
+  .hero-stats{flex-wrap:wrap}
+  .hero-stat{min-width:50%}
+  .problem-grid{grid-template-columns:1fr}
+  .pb-grid{grid-template-columns:1fr}
+  .bc-body{grid-template-columns:1fr}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .section-title{font-size:28px}
+  .fc-title{font-size:32px}
+  .container{padding:0 1.5rem}
+  .section{padding:4rem 0}
+  .bundle-badge{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">FR <span>Advisory</span></div>
+  <div class="nav-links">
+    <a href="#playbooks" class="nav-link">Playbooks</a>
+    <a href="#assessment" class="nav-link">Assessment</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="/" class="nav-cta">Free Assessment →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ring1"></div>
+  <div class="hero-ring2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow" style="animation:fadeUp .6s ease both">FR Advisory · Agentic Monetisation</div>
+    <h1 class="hero-title">Stop shipping AI<br>for <em>free</em></h1>
+    <p class="hero-sub">Every agentic feature you ship without a matching commercial model trains your customers to expect AI for free. The complete playbook suite for SaaS leaders who are ready to fix that.</p>
+    <div class="hero-actions">
+      <a href="/" class="btn-primary">Take the free assessment →</a>
+      <a href="#playbooks" class="btn-secondary">See the playbooks ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hs-n">5</span><span class="hs-l">Dimensions</span></div>
+      <div class="hero-stat"><span class="hs-n">31</span><span class="hs-l">Questions</span></div>
+      <div class="hero-stat"><span class="hs-n">5</span><span class="hs-l">Playbooks</span></div>
+      <div class="hero-stat"><span class="hs-n">1</span><span class="hs-l">Expert advisor</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  <div class="ps-text">The companies winning in the agentic era aren't those with the best AI. <em>They're those who know how to price it.</em></div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section class="section problem-section" id="problem">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">The problem</div>
+      <h2 class="section-title">The seat model is <em>quietly failing</em></h2>
+      <p class="section-sub">Most SaaS businesses are shipping agentic AI into a commercial model built for 2012. The revenue consequences are only just beginning to show up in the data.</p>
+    </div>
+    <div class="problem-grid fade-up">
+      <div class="pg-cell">
+        <div class="pg-icon">📉</div>
+        <span class="pg-stat">Decoupling</span>
+        <div class="pg-title">Seat growth is flattening</div>
+        <div class="pg-text">Your most agentic customers are extracting more value than ever — but they're not adding seats. The revenue-to-value ratio is breaking in your most important accounts first.</div>
+      </div>
+      <div class="pg-cell">
+        <div class="pg-icon">🔒</div>
+        <span class="pg-stat">Capped</span>
+        <div class="pg-title">NRR upside is structurally blocked</div>
+        <div class="pg-text">Expansion under a seat model requires headcount growth. When agents displace headcount, the expansion motion dies. Your NRR ceiling just got much lower than your product's potential.</div>
+      </div>
+      <div class="pg-cell">
+        <div class="pg-icon">⚡</div>
+        <span class="pg-stat">Compounding</span>
+        <div class="pg-title">Every sprint makes it worse</div>
+        <div class="pg-text">Every new agent feature ships into the base licence with no commercial signal. You're training customers — and competitors — that AI is a feature, not a value layer. The gap widens with every release.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT SECTION -->
+<section class="section assessment-section" id="assessment">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">Start here — it's free</div>
+      <h2 class="section-title">The Agentic Readiness <em>Assessment</em></h2>
+      <p class="section-sub">31 questions across five dimensions. Diagnose exactly where your commercial model is exposed — and get a scored roadmap showing what to fix first.</p>
+    </div>
+    <div class="assessment-card fade-up">
+      <div class="ac-top">
+        <div class="ac-left">
+          <div class="ac-badge">Free diagnostic</div>
+          <div class="ac-title">SaaS to Agentic<br><em>Readiness Assessment</em></div>
+          <div class="ac-sub">Diagnose whether your commercial model is built to capture value in the agentic AI era — or quietly losing ground with every agent you ship. Takes 8–12 minutes. Results include dimension scores, risk ratings, and prioritised recommendations.</div>
+        </div>
+        <div class="ac-right">
+          <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,242,236,.3);margin-bottom:.5rem">Five scored dimensions</div>
+          <div class="ac-dim"><div class="ac-dim-dot" style="background:var(--blue)"></div><div class="ac-dim-name">Value Metric Alignment</div></div>
+          <div class="ac-dim"><div class="ac-dim-dot" style="background:var(--green)"></div><div class="ac-dim-name">Revenue Architecture</div></div>
+          <div class="ac-dim"><div class="ac-dim-dot" style="background:var(--amber)"></div><div class="ac-dim-name">Operational Infrastructure</div></div>
+          <div class="ac-dim"><div class="ac-dim-dot" style="background:var(--gold)"></div><div class="ac-dim-name">Commercial Enablement</div></div>
+          <div class="ac-dim"><div class="ac-dim-dot" style="background:var(--red)"></div><div class="ac-dim-name">Customer &amp; Value Comms</div></div>
+        </div>
+      </div>
+      <div class="ac-bottom">
+        <div>
+          <div class="ac-price-row">
+            <div class="ac-price">Free</div>
+            <div class="ac-price-label">— no card required</div>
+          </div>
+          <div class="ac-free">Dimension 1 results included. Full report available from £995.</div>
+        </div>
+        <a href="/" class="btn-primary">Start the assessment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYBOOKS SECTION -->
+<section class="section playbooks-section" id="playbooks">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">The playbook suite</div>
+      <h2 class="section-title">Five playbooks. <em>One complete system.</em></h2>
+      <p class="section-sub">Each playbook maps to a dimension of the assessment. Low score in a dimension — there's a playbook for it. Together they cover the full transition from seat pricing to a hybrid agentic model.</p>
+    </div>
+    <div class="pb-grid fade-up">
+
+      <!-- Free -->
+      <div class="pb-card free-card" style="grid-column:1/-1">
+        <div class="pb-num">0</div>
+        <div class="pb-tag" style="background:var(--gold-lt);color:var(--gold-dk)">Free resource</div>
+        <div class="pb-title">Pricing Audit Prep Kit</div>
+        <div class="pb-sub">The six data assets every SaaS company needs before designing an agentic pricing model. Mark your readiness, identify gaps, and arrive at any advisor conversation ready to build.</div>
+        <ul class="pb-features">
+          <li>Six data asset checklist with action guidance for each gap</li>
+          <li>Three-state readiness scoring with live score calculation</li>
+          <li>Practical tips for closing gaps before your advisor session</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">Free</div><div class="pb-price-sub">Lead magnet</div></div>
+          <a href="fr-advisory-pricing-audit-prep-kit.html" target="_blank" class="pb-btn" style="background:var(--gold);color:#fff;border-color:var(--gold)">Download →</a>
+        </div>
+      </div>
+
+      <!-- PB1 -->
+      <div class="pb-card">
+        <div class="pb-num">01</div>
+        <div class="pb-tag" style="background:var(--blue-lt);color:var(--blue-dk)">Value Metric Alignment</div>
+        <div class="pb-title">From Seats to Signals</div>
+        <div class="pb-sub">How to choose the right value metric for an agentic pricing model — and stop leaving revenue on the table with every AI feature you ship.</div>
+        <ul class="pb-features">
+          <li>The three agentic metric types compared</li>
+          <li>Interactive metric explorer — pick your agent type, get a recommendation</li>
+          <li>The five signals your metric is already failing</li>
+          <li>30-day validation action plan</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">£49</div><div class="pb-price-sub">Standalone</div></div>
+          <a href="https://checkout.revolut.com/pay/2b0c4a78-278c-4e6a-9d6f-d1ff2dda23f5" target="_blank" class="pb-btn">Get playbook →</a>
+        </div>
+      </div>
+
+      <!-- PB2 -->
+      <div class="pb-card">
+        <div class="pb-num">02</div>
+        <div class="pb-tag" style="background:var(--green-lt);color:var(--green-dk)">Revenue Architecture</div>
+        <div class="pb-title">The Hybrid Model Playbook</div>
+        <div class="pb-sub">How to design a base + consumption revenue architecture that protects ARR predictability, captures agentic upside, and survives the legacy transition.</div>
+        <ul class="pb-features">
+          <li>The four-layer hybrid revenue stack</li>
+          <li>Interactive tier builder — drag sliders to see your model</li>
+          <li>Three migration paths for legacy customers</li>
+          <li>Five objection handling talk tracks</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">£99</div><div class="pb-price-sub">Standalone</div></div>
+          <a href="https://checkout.revolut.com/pay/cdcfb5bf-1e3d-473d-90f1-4c490df7cbbb" target="_blank" class="pb-btn">Get playbook →</a>
+        </div>
+      </div>
+
+      <!-- PB3 -->
+      <div class="pb-card">
+        <div class="pb-num">03</div>
+        <div class="pb-tag" style="background:var(--amber-lt);color:var(--amber-dk)">Operational Infrastructure</div>
+        <div class="pb-title">Metering to Money</div>
+        <div class="pb-sub">How to build the telemetry, billing, and CPQ infrastructure that makes consumption pricing operationally viable — not just commercially desirable.</div>
+        <ul class="pb-features">
+          <li>The six infrastructure layers with a gap audit matrix</li>
+          <li>Billing platform comparison (Stripe, Zuora, Orb, Lago)</li>
+          <li>CPQ and finance reporting requirements</li>
+          <li>45-day infrastructure action plan</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">£79</div><div class="pb-price-sub">Standalone</div></div>
+          <a href="https://checkout.revolut.com/pay/4a60b852-2344-4efe-80e8-d84a5068d997" target="_blank" class="pb-btn">Get playbook →</a>
+        </div>
+      </div>
+
+      <!-- PB4 -->
+      <div class="pb-card">
+        <div class="pb-num">04</div>
+        <div class="pb-tag" style="background:var(--gold-lt);color:var(--gold-dk)">Commercial Enablement</div>
+        <div class="pb-title">Selling Consumption</div>
+        <div class="pb-sub">How to equip your sales and CS teams to sell, retain, and expand on a consumption model — with discovery frameworks, persona guides, and comp design principles.</div>
+        <ul class="pb-features">
+          <li>Four-stage discovery framework with question sets</li>
+          <li>CPO, CFO, and CRO persona playbooks with talk tracks</li>
+          <li>CS agentic health scorer</li>
+          <li>Comp design framework for hybrid models</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">£99</div><div class="pb-price-sub">Standalone</div></div>
+          <a href="https://checkout.revolut.com/pay/527bcc1b-4349-430d-b4fa-fd8d1852f243" target="_blank" class="pb-btn">Get playbook →</a>
+        </div>
+      </div>
+
+      <!-- PB5 -->
+      <div class="pb-card">
+        <div class="pb-num">05</div>
+        <div class="pb-tag" style="background:var(--red-lt);color:var(--red-dk)">Customer &amp; Value Comms</div>
+        <div class="pb-title">The Transparency Stack</div>
+        <div class="pb-sub">How to build the spend visibility, ROI dashboards, and proactive communication frameworks that make customers trust — and advocate for — your consumption model.</div>
+        <ul class="pb-features">
+          <li>Five-layer transparency stack with status audit</li>
+          <li>ROI dashboard framework and case study generator</li>
+          <li>Three ready-to-use communication templates</li>
+          <li>Proof point hierarchy and 30-day build plan</li>
+        </ul>
+        <div class="pb-footer">
+          <div><div class="pb-price">£79</div><div class="pb-price-sub">Standalone</div></div>
+          <a href="https://checkout.revolut.com/pay/522ab9c4-0ed1-43ef-90c2-3e5cccbf0c34" target="_blank" class="pb-btn">Get playbook →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE SECTION -->
+<section class="section bundle-section" id="bundle">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">Best value</div>
+      <h2 class="section-title">The complete <em>transition package</em></h2>
+      <p class="section-sub">For SaaS leaders who want to move fast. Everything you need to design, launch, and operationalise a hybrid agentic pricing model.</p>
+    </div>
+    <div class="bundle-card fade-up">
+      <div class="bundle-badge">Most valuable</div>
+      <div class="bc-body">
+        <div class="bc-left">
+          <div class="bc-eyebrow">Assessment + Advisor session</div>
+          <div class="bc-title">Custom pricing model <em>designed for your product</em></div>
+          <div class="bc-desc">You've done the reading. Now build it. A two-hour session with FR Advisory, working directly from your assessment results and your specific product, pricing, and customer base.</div>
+          <div class="bc-includes">
+            <div class="bc-item">Full 5-dimension assessment with scored PDF report</div>
+            <div class="bc-item">2-hour 1:1 advisor session with FR Advisory</div>
+            <div class="bc-item">Live results walkthrough — dimension by dimension</div>
+            <div class="bc-item">Custom pricing model design for your product</div>
+            <div class="bc-item">Pricing audit prep checklist actioned together</div>
+            <div class="bc-item">30-day follow-up Q&amp;A by email</div>
+            <div class="bc-item">All 5 playbooks included</div>
+          </div>
+        </div>
+        <div class="bc-right">
+          <div class="bc-price-block">
+            <div class="bc-price">£2,495</div>
+            <div class="bc-price-period">One-time · includes everything</div>
+            <div class="bc-saving">Saves £325 vs buying separately</div>
+          </div>
+          <a href="mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package — Agentic Readiness&body=Hi FR Advisory, I would like to book the Assessment + Advisor package (£2,495). Please send me next steps." class="btn-primary" style="width:100%;justify-content:center;margin-bottom:.75rem">Book advisor session →</a>
+          <a href="https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;font-size:12px">Full assessment only — £995 →</a>
+        </div>
+      </div>
+      <div class="bc-bottom">
+        <div class="bc-guarantee">🔒 Sessions are available within 5 business days. PDF report delivered within 48 hours of completing the assessment.</div>
+        <div style="font-size:11px;color:rgba(245,242,236,.25)">fragenticadvisor@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section who-section" id="who">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">Who it's for</div>
+      <h2 class="section-title">Built for the people <em>making the decision</em></h2>
+    </div>
+    <div class="who-grid fade-up">
+      <div class="who-card">
+        <div class="who-icon">🧭</div>
+        <div class="who-role">CPO / VP Product</div>
+        <div class="who-desc">Shipping AI features into a pricing model that doesn't capture their value. Needs a commercial framework that scales with the product roadmap.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">📊</div>
+        <div class="who-role">CFO / VP Finance</div>
+        <div class="who-desc">Watching NRR metrics that don't yet reflect the problem — but will. Needs scenario models and a transition plan before the board starts asking questions.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🎯</div>
+        <div class="who-role">CRO / VP Sales</div>
+        <div class="who-desc">Sales team still selling seats into accounts that are automating headcount. Needs a new GTM motion, comp design, and objection handling before the next quarter.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🏗️</div>
+        <div class="who-role">Founder / CEO</div>
+        <div class="who-desc">PE or VC-backed SaaS business at the inflection point. Needs the commercial model to match the AI narrative before the next fundraise or M&amp;A conversation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner fade-up">
+    <span class="quote-mark">"</span>
+    <div class="quote-text">The pricing problem <em>compounds</em> with every release. The companies winning in the agentic era aren't those with the best AI — they're those who know how to price it.</div>
+    <div class="quote-attr"> · FR Advisory</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid fade-up">
+      <div class="about-left">
+        <div class="about-tag">About FR Advisory</div>
+        <h2 class="about-title">Commercial expertise at the <em>agentic inflection point</em></h2>
+        <div class="about-text">FR Advisory is the practice of Fessal — a commercial operator and monetisation specialist with deep expertise in pricing and packaging for SaaS, PE-backed, and VC-backed technology businesses.</div>
+        <div class="about-text">The agentic pricing transition is the most significant commercial model shift in SaaS since the move from perpetual licence to subscription. FR Advisory exists to help the leaders navigating it make the right decisions faster — with fewer expensive mistakes.</div>
+        <div class="about-credentials">
+          <div class="ac2">Fractional CCO and commercial advisor to multiple SaaS businesses</div>
+          <div class="ac2">Pricing and packaging expertise across PE and VC portfolio companies</div>
+          <div class="ac2">Specialist in consumption model transitions and hybrid pricing design</div>
+          <div class="ac2">Founder of the SaaS to Agentic Readiness Assessment framework</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="ar-title">What FR Advisory delivers</div>
+        <div class="ar-stats">
+          <div class="ar-stat">
+            <div><div style="font-size:12px;font-weight:500;color:#f5f2ec">Value metric design</div><div style="font-size:11px;color:rgba(245,242,236,.35);margin-top:2px">Identify and validate the right agentic consumption unit</div></div>
+            <div class="ar-stat-n">→</div>
+          </div>
+          <div class="ar-stat">
+            <div><div style="font-size:12px;font-weight:500;color:#f5f2ec">Hybrid model architecture</div><div style="font-size:11px;color:rgba(245,242,236,.35);margin-top:2px">Base + consumption structure designed for your product</div></div>
+            <div class="ar-stat-n">→</div>
+          </div>
+          <div class="ar-stat">
+            <div><div style="font-size:12px;font-weight:500;color:#f5f2ec">Legacy migration strategy</div><div style="font-size:11px;color:rgba(245,242,236,.35);margin-top:2px">Segmented transition plans for the existing customer base</div></div>
+            <div class="ar-stat-n">→</div>
+          </div>
+          <div class="ar-stat">
+            <div><div style="font-size:12px;font-weight:500;color:#f5f2ec">GTM enablement</div><div style="font-size:11px;color:rgba(245,242,236,.35);margin-top:2px">Sales motion, comp design, and CS health framework</div></div>
+            <div class="ar-stat-n">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">Common questions</div>
+      <h2 class="section-title">What people <em>ask first</em></h2>
+    </div>
+    <div class="faq-grid fade-up">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is the assessment really free?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes. The first dimension (Value Metric Alignment) is fully scored and included at no cost. The full five-dimension report is available for £995, or as part of the Assessment + Advisor package at £2,495.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How are the playbooks delivered?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Each playbook is a fully interactive HTML document you can open in any browser, use on mobile, and save as a PDF. They include interactive tools — tier builders, discovery frameworks, audit matrices — that you can work through with your team.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What does the advisor session involve?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">A two-hour 1:1 session with FR Advisory, working directly from your assessment results. The session covers live results walkthrough, custom pricing model design for your specific product, and the audit prep checklist actioned together. Followed by 30-day email Q&amp;A.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">We're early-stage — is this relevant for us?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes — the best time to design the right commercial model is before you've signed 200 legacy customers onto the wrong one. The assessment and playbooks are relevant from Series A onwards. Earlier-stage companies benefit most from Playbooks 01 and 02.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">We already have a consumption model — is this still useful?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Absolutely. Many businesses have launched a consumption layer but haven't addressed the underlying infrastructure gaps, the GTM motion, or the customer trust layer. The assessment will surface which of the five dimensions need attention regardless of where you are in the transition.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I buy just one playbook?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes. Each playbook is available standalone. If you have a clear gap in one dimension — your assessment will identify it — you can buy the relevant playbook directly. Email fragenticadvisor@gmail.com with the playbook number and we'll send it over.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="fc-bg"></div>
+  <div class="fc-ring"></div>
+  <div class="fc-inner fade-up">
+    <div class="fc-eyebrow">Start today</div>
+    <h2 class="fc-title">The window is <em>shorter</em><br>than it feels</h2>
+    <p class="fc-sub">The companies that transition their commercial model before the market forces them to retain pricing power. The ones that wait transition from a position of weakness. Take the free assessment — it takes 8 minutes.</p>
+    <div class="fc-actions">
+      <a href="/" class="btn-primary">Take the free assessment →</a>
+      <a href="mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package" class="btn-secondary">Book an advisor session →</a>
+    </div>
+    <div class="fc-divider"></div>
+    <div class="fc-note">fragenticadvisor@gmail.com · FR Advisory · </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FR <span>Advisory</span></div>
+  <div class="footer-links">
+    <a href="/" class="footer-link">Assessment</a>
+    <a href="#playbooks" class="footer-link">Playbooks</a>
+    <a href="mailto:fragenticadvisor@gmail.com" class="footer-link">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 FR Advisory · </div>
+</footer>
+
+<script>
+// Scroll nav
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Fade-up on scroll
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+
+// FAQ
+function toggleFaq(el){
+  var was=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(f){f.classList.remove('open')});
+  if(!was)el.classList.add('open');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+</body>
+</html>
