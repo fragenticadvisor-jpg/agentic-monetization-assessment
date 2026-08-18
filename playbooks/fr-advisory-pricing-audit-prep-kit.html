@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Audit Prep Kit — FR Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;--paper:#f5f2ec;--gold:#b8922a;--gold-lt:#f0e4c3;--gold-dk:#a07820;
+  --dark:#1a1a1a;--darker:#111;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+}
+
+body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+
+/* LAYOUT */
+.page{max-width:760px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
+
+/* COVER */
+.cover{background:var(--dark);padding:3.5rem 3rem 2.5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(184,146,42,0.1);border-radius:50%}
+.cover::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border:1px solid rgba(184,146,42,0.07);border-radius:50%}
+.cover-inner{position:relative;z-index:1}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cover-title{font-family:'DM Serif Display',serif;font-size:38px;line-height:1.1;color:#f5f2ec;margin-bottom:0.75rem}
+.cover-title em{font-style:italic;color:var(--gold)}
+.cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:500px;margin-bottom:2rem}
+.cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.cover-stat{border-left:1px solid rgba(184,146,42,0.3);padding-left:0.85rem}
+.cover-stat-n{font-family:'DM Serif Display',serif;font-size:22px;color:var(--gold)}
+.cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+
+/* PROGRESS SUMMARY */
+.progress-bar-wrap{background:var(--dark);padding:1rem 3rem;border-bottom:1px solid rgba(184,146,42,0.15)}
+.prog-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.prog-label{font-size:11px;color:rgba(245,242,236,0.45);letter-spacing:0.06em;text-transform:uppercase}
+.prog-count{font-size:11px;color:var(--gold);font-weight:500}
+.prog-track{height:2px;background:rgba(245,242,236,0.08);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease;width:0%}
+
+/* BODY */
+.body{padding:2.5rem 3rem}
+
+/* INTRO BLOCK */
+.intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(184,146,42,0.1);border-radius:50%}
+.intro-block-title{font-family:'DM Serif Display',serif;font-size:17px;color:#f5f2ec;margin-bottom:0.5rem}
+.intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
+
+/* SECTION HEADERS */
+.section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+/* CHECKLIST ITEMS */
+.checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:2.5rem}
+.check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
+.check-item:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(184,146,42,0.08)}
+.check-item.done{background:var(--green-lt);border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.check-item.partial{background:var(--amber-lt);border-color:var(--amber);box-shadow:inset 3px 0 0 var(--amber)}
+.check-item.gap{background:var(--red-lt);border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.check-box{width:22px;height:22px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;background:var(--paper)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.partial .check-box{background:var(--amber);border-color:var(--amber)}
+.check-item.gap .check-box{background:var(--red);border-color:var(--red)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon,.check-item.partial .check-icon,.check-item.gap .check-icon{display:block}
+.check-content{flex:1}
+.check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.check-status-row{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'DM Sans',sans-serif;letter-spacing:0.04em}
+.status-btn:hover{border-color:var(--muted)}
+.status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
+.status-btn.active-partial{background:var(--amber);border-color:var(--amber);color:#fff}
+.status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
+.check-action{font-size:10px;margin-top:6px;padding:5px 10px;border-radius:3px;line-height:1.5;display:none}
+.check-item.partial .check-action,.check-item.gap .check-action{display:block}
+.check-item.partial .check-action{background:var(--amber-lt);color:var(--amber-dk);border:1px solid rgba(186,117,23,0.2)}
+.check-item.gap .check-action{background:var(--red-lt);color:var(--red-dk);border:1px solid rgba(216,90,48,0.2)}
+
+/* SCORE SUMMARY */
+.score-summary{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;display:none}
+.score-summary.visible{display:block}
+.ss-title{font-family:'DM Serif Display',serif;font-size:17px;color:#f5f2ec;margin-bottom:1rem}
+.ss-bars{display:flex;flex-direction:column;gap:10px}
+.ss-bar-row{display:flex;align-items:center;gap:10px}
+.ss-bar-label{font-size:11px;color:rgba(245,242,236,0.5);width:60px;flex-shrink:0;text-align:right}
+.ss-bar-track{flex:1;height:4px;background:rgba(245,242,236,0.08);border-radius:3px;overflow:hidden}
+.ss-bar-fill{height:100%;border-radius:3px;transition:width 0.6s ease}
+.ss-bar-val{font-size:11px;font-weight:500;width:28px;flex-shrink:0}
+
+/* READINESS SCORE */
+.readiness-card{border:1px solid var(--border);border-radius:6px;padding:1.5rem;background:var(--white);margin-bottom:2rem;display:none}
+.readiness-card.visible{display:block}
+.rc-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.rc-ring{position:relative;flex-shrink:0}
+.rc-ring svg{display:block}
+.rc-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink)}
+.rc-text{}
+.rc-band{display:inline-block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:3px;font-weight:500;margin-bottom:4px}
+.rc-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.rc-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:2rem 0}
+
+/* CTA BLOCK */
+.cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(184,146,42,0.08);border-radius:50%}
+.cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.cta-title{font-family:'DM Serif Display',serif;font-size:20px;color:#f5f2ec;margin-bottom:0.5rem;line-height:1.2}
+.cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
+.cta-card.highlight{border-color:var(--gold);position:relative}
+.cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
+.cta-card-price{font-family:'DM Serif Display',serif;font-size:24px;color:#f5f2ec;margin-bottom:4px}
+.cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.btn-dark{display:block;background:#333;color:#f5f2ec;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark:hover{background:#444}
+
+/* TIPS SECTION */
+.tip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem}
+.tip-card{border:1px solid var(--border);border-radius:5px;padding:1rem;background:var(--white)}
+.tip-num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);margin-bottom:0.4rem}
+.tip-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.tip-text{font-size:11px;color:var(--muted);line-height:1.65}
+
+/* PRINT HINT */
+.print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
+.print-hint a{color:var(--gold);text-decoration:none;cursor:pointer}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .cover{padding:2rem 1.5rem 1.75rem}
+  .body{padding:1.75rem 1.5rem}
+  .progress-bar-wrap{padding:1rem 1.5rem}
+  .cta-cards{grid-template-columns:1fr}
+  .tip-grid{grid-template-columns:1fr}
+  .cover-title{font-size:28px}
+}
+
+@media print{
+  .status-btn{display:none}
+  .cta-block{display:none}
+  .print-hint{display:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">FR Advisory</div>
+      <div class="cover-title">Pricing Audit<br><em>Prep Kit</em></div>
+      <div class="cover-sub">Six data assets every SaaS company needs before designing an agentic pricing model. Mark your readiness, identify your gaps, and arrive at your advisor session ready to build.</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <div class="cover-stat-n">6</div>
+          <div class="cover-stat-l">Data assets</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">3</div>
+          <div class="cover-stat-l">Readiness tiers</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">1</div>
+          <div class="cover-stat-l">Session ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-wrap">
+    <div class="prog-row">
+      <span class="prog-label">Checklist completion</span>
+      <span class="prog-count" id="prog-count">0 of 6 assessed</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <div class="intro-block">
+      <div class="intro-block-title">Why this checklist exists</div>
+      <div class="intro-block-text">Building a custom agentic pricing model without clean commercial data is guesswork. These six assets form the diagnostic foundation — they determine which pricing structures are viable, which customer segments to prioritise, and where the transition risks are highest. For each item, mark your current readiness. Gaps become your preparation agenda before any advisor session or model design work begins.</div>
+    </div>
+
+    <div class="section-label">The six data assets</div>
+
+    <div class="checklist" id="checklist">
+
+      <!-- Item 1 -->
+      <div class="check-item" id="item-0">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">ARR decomposition by segment, pricing metric &amp; product line</div>
+          <div class="check-why">Building a new pricing model without clean ARR decomposition is guesswork. You need to understand what you're earning, from whom, and on what basis — before designing what comes next. A blended ARR number hides the structural vulnerabilities that agentic pricing is designed to fix.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(0,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(0,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(0,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-0"></div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="check-item" id="item-1">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Historical usage &amp; consumption data mapped to customer value</div>
+          <div class="check-why">The best consumption unit is rarely invented — it's discovered in your existing usage data. Without it, value metric design is based on assumption rather than evidence. Usage logs that have never been analysed through a pricing lens are a hidden asset waiting to be unlocked.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(1,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(1,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(1,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-1"></div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="check-item" id="item-2">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Customer segmentation by agentic maturity, use case variety &amp; commercial potential</div>
+          <div class="check-why">A custom pricing model needs to work across your customer spectrum — from early adopters running complex multi-agent workflows to customers yet to deploy a single agent. Firmographic segmentation alone (size, industry, geography) tells you nothing about pricing sensitivity or transition risk.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(2,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(2,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(2,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-2"></div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="check-item" id="item-3">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Willingness-to-pay research for agentic features</div>
+          <div class="check-why">Willingness-to-pay data is the difference between a pricing model built on evidence and one built on internal opinion. Even directional research — a handful of structured customer conversations — is significantly better than nothing. What customers say they'd pay for often differs sharply from what they actually value.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(3,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(3,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(3,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-3"></div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="check-item" id="item-4">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Competitive agentic pricing landscape analysis</div>
+          <div class="check-why">Pricing in a vacuum is dangerous. Understanding how competitors are monetising agentic capabilities — and where the market is heading — is essential context for designing a model that wins commercially. Anecdotal awareness from sales calls is not the same as structured competitive intelligence.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(4,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(4,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(4,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-4"></div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="check-item" id="item-5">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Core metrics — ARR growth, GRR, NRR, CAC, LTV — with agentic impact isolated</div>
+          <div class="check-why">These metrics are the diagnostic baseline for any pricing transformation. Critically, you need to know whether they're already showing the strain of agentic displacement — or whether that signal is yet to appear. Blended metrics hide early warning signs until the problem is structural.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(5,'ready',this)">✓ Ready to bring</button>
+            <button class="status-btn" onclick="setStatus(5,'partial',this)">◐ Partially available</button>
+            <button class="status-btn" onclick="setStatus(5,'gap',this)">○ Not yet available</button>
+          </div>
+          <div class="check-action" id="action-5"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- READINESS SCORE -->
+    <div class="readiness-card" id="readiness-card">
+      <div class="section-label">Your readiness score</div>
+      <div class="rc-row">
+        <div class="rc-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="34" fill="none" stroke="#e8e2d8" stroke-width="5"/>
+            <circle cx="40" cy="40" r="34" fill="none" id="rc-arc" stroke="#b8922a" stroke-width="5" stroke-dasharray="0 213" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+          </svg>
+          <div class="rc-num" id="rc-num">0%</div>
+        </div>
+        <div class="rc-text">
+          <div class="rc-band" id="rc-band">—</div>
+          <div class="rc-title" id="rc-title">Assessing...</div>
+          <div class="rc-desc" id="rc-desc">Mark all six items to see your readiness rating.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCORE BARS -->
+    <div class="score-summary" id="score-summary">
+      <div class="ss-title">Breakdown</div>
+      <div class="ss-bars">
+        <div class="ss-bar-row">
+          <div class="ss-bar-label">Ready</div>
+          <div class="ss-bar-track"><div class="ss-bar-fill" id="bar-ready" style="background:var(--green);width:0%"></div></div>
+          <div class="ss-bar-val" id="val-ready" style="color:var(--green)">0</div>
+        </div>
+        <div class="ss-bar-row">
+          <div class="ss-bar-label">Partial</div>
+          <div class="ss-bar-track"><div class="ss-bar-fill" id="bar-partial" style="background:var(--amber);width:0%"></div></div>
+          <div class="ss-bar-val" id="val-partial" style="color:var(--amber)">0</div>
+        </div>
+        <div class="ss-bar-row">
+          <div class="ss-bar-label">Gap</div>
+          <div class="ss-bar-track"><div class="ss-bar-fill" id="bar-gap" style="background:var(--red);width:0%"></div></div>
+          <div class="ss-bar-val" id="val-gap" style="color:var(--red)">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TIPS -->
+    <div class="section-label">How to close the gaps</div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-title">Start with ARR decomposition</div>
+        <div class="tip-text">If your ARR is a single blended number, work with Finance to break it down by customer segment, product line, and pricing metric first. Everything else builds on this.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-title">Mine your usage logs</div>
+        <div class="tip-text">Don't build a new telemetry layer before analysing what you already have. Most SaaS products log more than they realise — start with event data and map it to customer outcomes.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-title">Run five WTP conversations</div>
+        <div class="tip-text">Five structured customer conversations with your most agentic accounts will give you more signal than any internal pricing committee. Focus on value, not mechanics.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-title">Map three competitors</div>
+        <div class="tip-text">You don't need a complete landscape — you need to know how your top three competitors are structuring agentic pricing. Check their pricing pages, help docs, and G2 reviews.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-title">Isolate agentic cohorts</div>
+        <div class="tip-text">Tag customers by agentic adoption level in your CRM. Even a rough cut — high, medium, none — lets you see whether GRR and NRR are already diverging by adoption tier.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-title">Bring what you have</div>
+        <div class="tip-text">Gaps are expected. An advisor session is designed to work with partial data — the prep kit ensures you arrive knowing what you have, what's missing, and what to prioritise building.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-eyebrow">Ready to build your model?</div>
+      <div class="cta-title">Turn this checklist into<br>a custom pricing model</div>
+      <div class="cta-sub">The prep kit gets you ready. The advisor session is where the model gets built — working through your data, your customer segments, and your competitive position to design a hybrid pricing structure you can actually take to market.</div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-name">Full Assessment</div>
+          <div class="cta-card-price">£995</div>
+          <div class="cta-card-desc">All 5 scored dimensions, prioritised roadmap, PDF report within 48 hours.</div>
+          <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
+        </div>
+        <div class="cta-card highlight">
+          <div class="cta-card-badge">Most valuable</div>
+          <div class="cta-card-name">Assessment + Advisor</div>
+          <div class="cta-card-price">£2,495</div>
+          <div class="cta-card-desc">Full report plus 2-hour 1:1 session with Fessal. Custom model design included.</div>
+          <button class="btn-dark" onclick="window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the Pricing Audit Prep Kit and would like to book the Assessment + Advisor package.'">Book session →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-hint">
+      <a onclick="window.print()">Print or save as PDF</a> &nbsp;·&nbsp; FR Advisory &nbsp;·&nbsp; fragenticadvisor@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+var statuses = [null,null,null,null,null,null];
+
+var ACTIONS = {
+  ready: '',
+  partial: [
+    'Gather the missing dimensions: if product line or pricing metric breakdown is incomplete, ask Finance for a manual cut before your session.',
+    'Export what you have from your billing system and flag which fields are estimated versus confirmed.',
+    'Run a quick agentic usage filter in your CRM — tag accounts as high/medium/none even without full segmentation data.',
+    'Treat the existing conversations as directional — document key signals and note gaps to fill in 2–3 targeted calls.',
+    'Document what you have, note the sources, and flag which competitors are unresearched — that becomes the session agenda.',
+    'Pull the metrics you have and note where agentic impact is estimated versus isolated. Flagged gaps are better than silence.'
+  ],
+  gap: [
+    'Ask Finance to produce an ARR waterfall by segment and product line before your session. If unavailable, bring your best estimate with clear assumptions documented.',
+    'Ask Engineering for any event logs, agent run data, or workflow completion data. Even raw logs are a starting point — bring a sample.',
+    'Create a simple 3-tier tagging exercise: identify your 10 most agentic accounts, 10 least, and the middle. This is your baseline segmentation.',
+    'Schedule 3–5 discovery calls with your most agentic customers before the session. One structured question: "If we priced by [outcome/action], what would that mean for you?"',
+    'Spend 90 minutes on competitors: pricing page, help docs, and 3 G2 reviews each. Structured notes beat no research.',
+    'Pull ARR growth, GRR, and NRR from your BI tool. If agentic impact isn\'t isolated, note which cohorts are most likely affected — that\'s enough to start.'
+  ]
+};
+
+function setStatus(idx, status, btn) {
+  statuses[idx] = status;
+  var item = document.getElementById('item-'+idx);
+  item.className = 'check-item ' + (status === 'ready' ? 'done' : status === 'partial' ? 'partial' : 'gap');
+
+  // update icon
+  var icon = item.querySelector('.check-icon');
+  icon.textContent = status === 'ready' ? '✓' : status === 'partial' ? '◐' : '○';
+
+  // update active button
+  var btns = item.querySelectorAll('.status-btn');
+  btns.forEach(function(b){ b.className = 'status-btn'; });
+  btn.className = 'status-btn active-' + (status === 'ready' ? 'ready' : status === 'partial' ? 'partial' : 'gap');
+
+  // show action text
+  var action = document.getElementById('action-'+idx);
+  if(status === 'ready'){
+    action.textContent = '';
+  } else {
+    action.textContent = ACTIONS[status][idx];
+  }
+
+  updateProgress();
+  updateScore();
+}
+
+function updateProgress(){
+  var done = statuses.filter(function(s){ return s !== null; }).length;
+  document.getElementById('prog-count').textContent = done + ' of 6 assessed';
+  document.getElementById('prog-fill').style.width = Math.round(done/6*100) + '%';
+}
+
+function updateScore(){
+  var ready = statuses.filter(function(s){ return s==='ready'; }).length;
+  var partial = statuses.filter(function(s){ return s==='partial'; }).length;
+  var gap = statuses.filter(function(s){ return s==='gap'; }).length;
+  var assessed = ready + partial + gap;
+
+  if(assessed === 0) return;
+
+  // show cards
+  document.getElementById('readiness-card').className = 'readiness-card visible';
+  document.getElementById('score-summary').className = 'score-summary visible';
+
+  // score: ready=3, partial=2, gap=1
+  var score = (ready*3 + partial*2 + gap*1);
+  var maxScore = assessed * 3;
+  var pct = Math.round(score/maxScore*100);
+
+  // ring
+  var circ = 2*Math.PI*34;
+  var dash = Math.round(pct/100*circ);
+  document.getElementById('rc-arc').setAttribute('stroke-dasharray', dash+' '+circ);
+  document.getElementById('rc-num').textContent = pct+'%';
+
+  // band
+  var band, bandBg, bandCol, title, desc;
+  if(pct >= 80){
+    band='Session ready'; bandBg='var(--green-lt)'; bandCol='var(--green-dk)';
+    title='Your data is in strong shape';
+    desc='The advisor session can move directly into model design and scenario planning. Bring your assets and we\'ll build from day one.';
+    document.getElementById('rc-arc').setAttribute('stroke','var(--green)');
+  } else if(pct >= 60){
+    band='Mostly ready'; bandBg='var(--amber-lt)'; bandCol='var(--amber-dk)';
+    title='A few gaps to close first';
+    desc='Most assets are available. Address the partial and gap items using the actions above before your session — it will significantly accelerate the model design work.';
+    document.getElementById('rc-arc').setAttribute('stroke','var(--amber)');
+  } else {
+    band='Preparation needed'; bandBg='var(--red-lt)'; bandCol='var(--red-dk)';
+    title='Significant gaps to address';
+    desc='The advisor session will include a data collection framework to get you ready. Use the action notes above to close gaps in priority order before we meet.';
+    document.getElementById('rc-arc').setAttribute('stroke','var(--red)');
+  }
+
+  document.getElementById('rc-band').textContent = band;
+  document.getElementById('rc-band').style.background = bandBg;
+  document.getElementById('rc-band').style.color = bandCol;
+  document.getElementById('rc-title').textContent = title;
+  document.getElementById('rc-desc').textContent = desc;
+
+  // bars
+  document.getElementById('bar-ready').style.width = Math.round(ready/6*100)+'%';
+  document.getElementById('bar-partial').style.width = Math.round(partial/6*100)+'%';
+  document.getElementById('bar-gap').style.width = Math.round(gap/6*100)+'%';
+  document.getElementById('val-ready').textContent = ready;
+  document.getElementById('val-partial').textContent = partial;
+  document.getElementById('val-gap').textContent = gap;
+}
+</script>
+<div style="background:#1a1a1a;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,242,236,.4);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:DM Sans,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,242,236,.8)'" onmouseout="this.style.color='rgba(245,242,236,.4)'">← FR Advisory · All Playbooks</a><a href="/" style="font-size:11px;color:#b8922a;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:DM Sans,sans-serif">Free Assessment →</a></div></body>
+</html>
