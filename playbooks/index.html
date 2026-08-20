@@ -31,17 +31,6 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.85rem 2.5rem;display:flex;justify-content:space-between;align-items:center;transition:all .3s ease;border-bottom:1px solid transparent}
-nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(12px);border-bottom-color:rgba(201,168,76,.1)}
-.nav-logo{font-family:'Spectral',serif;font-size:18px;color:#F5F0E8;letter-spacing:.02em}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-link{font-size:12px;color:rgba(245,242,236,.45);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.nav-link:hover{color:rgba(245,242,236,.85)}
-.nav-cta{background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:8px 18px;border-radius:3px;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:background .2s}
-.nav-cta:hover{background:var(--gold-dk)}
-
 /* ── HERO ── */
 .hero{min-height:100vh;background:var(--darker);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 50% 50%,black 30%,transparent 80%)}
@@ -617,7 +606,7 @@ footer{background:var(--darker);padding:2.5rem;border-top:1px solid rgba(245,242
         <div class="faq-q">Is the assessment really free?<span class="faq-toggle">+</span></div>
         <div class="faq-a">Yes. The first dimension (Value Metric Alignment) is fully scored and included at no cost. The full five-dimension report is available for £995, or as part of the Assessment + Advisor package at £2,495.</div>
       </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
+      div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">How are the playbooks delivered?<span class="faq-toggle">+</span></div>
         <div class="faq-a">Each playbook is a fully interactive HTML document you can open in any browser, use on mobile, and save as a PDF. They include interactive tools — tier builders, discovery frameworks, audit matrices — that you can work through with your team.</div>
       </div>
