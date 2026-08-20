@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing Audit Prep Kit — FR Advisory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0e0e0e;--paper:#f5f2ec;--gold:#b8922a;--gold-lt:#f0e4c3;--gold-dk:#a07820;
-  --dark:#1a1a1a;--darker:#111;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --ink:#0D1B2A;--paper:#F5F0E8;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#A8853A;
+  --dark:#122033;--darker:#0D1B2A;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
   --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
   --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
   --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
 }
 
-body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
 
 /* LAYOUT */
 .page{max-width:760px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
@@ -28,12 +29,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 .cover-inner{position:relative;z-index:1}
 .eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
 .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
-.cover-title{font-family:'DM Serif Display',serif;font-size:38px;line-height:1.1;color:#f5f2ec;margin-bottom:0.75rem}
+.cover-title{font-family:'Spectral',serif;font-size:38px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
 .cover-title em{font-style:italic;color:var(--gold)}
 .cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:500px;margin-bottom:2rem}
 .cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
 .cover-stat{border-left:1px solid rgba(184,146,42,0.3);padding-left:0.85rem}
-.cover-stat-n{font-family:'DM Serif Display',serif;font-size:22px;color:var(--gold)}
+.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
 .cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
 
 /* PROGRESS SUMMARY */
@@ -50,7 +51,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 /* INTRO BLOCK */
 .intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(184,146,42,0.1);border-radius:50%}
-.intro-block-title{font-family:'DM Serif Display',serif;font-size:17px;color:#f5f2ec;margin-bottom:0.5rem}
+.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
 .intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
 
 /* SECTION HEADERS */
@@ -74,7 +75,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 .check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
 .check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
 .check-status-row{display:flex;gap:6px;flex-wrap:wrap}
-.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'DM Sans',sans-serif;letter-spacing:0.04em}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
 .status-btn:hover{border-color:var(--muted)}
 .status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
 .status-btn.active-partial{background:var(--amber);border-color:var(--amber);color:#fff}
@@ -87,7 +88,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 /* SCORE SUMMARY */
 .score-summary{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;display:none}
 .score-summary.visible{display:block}
-.ss-title{font-family:'DM Serif Display',serif;font-size:17px;color:#f5f2ec;margin-bottom:1rem}
+.ss-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:1rem}
 .ss-bars{display:flex;flex-direction:column;gap:10px}
 .ss-bar-row{display:flex;align-items:center;gap:10px}
 .ss-bar-label{font-size:11px;color:rgba(245,242,236,0.5);width:60px;flex-shrink:0;text-align:right}
@@ -101,7 +102,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 .rc-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
 .rc-ring{position:relative;flex-shrink:0}
 .rc-ring svg{display:block}
-.rc-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink)}
+.rc-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Spectral',serif;font-size:20px;color:var(--ink)}
 .rc-text{}
 .rc-band{display:inline-block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:3px;font-weight:500;margin-bottom:4px}
 .rc-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
@@ -114,24 +115,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
 .cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(184,146,42,0.08);border-radius:50%}
 .cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
-.cta-title{font-family:'DM Serif Display',serif;font-size:20px;color:#f5f2ec;margin-bottom:0.5rem;line-height:1.2}
+.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
 .cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
 .cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
 .cta-card.highlight{border-color:var(--gold);position:relative}
 .cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
 .cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
-.cta-card-price{font-family:'DM Serif Display',serif;font-size:24px;color:#f5f2ec;margin-bottom:4px}
+.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
 .cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
-.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
 .btn-gold:hover{background:var(--gold-dk)}
-.btn-dark{display:block;background:#333;color:#f5f2ec;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
 .btn-dark:hover{background:#444}
 
 /* TIPS SECTION */
 .tip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem}
 .tip-card{border:1px solid var(--border);border-radius:5px;padding:1rem;background:var(--white)}
-.tip-num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);margin-bottom:0.4rem}
+.tip-num{font-family:'Spectral',serif;font-size:24px;color:var(--gold);margin-bottom:0.4rem}
 .tip-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:4px}
 .tip-text{font-size:11px;color:var(--muted);line-height:1.65}
 
@@ -153,10 +154,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
   .status-btn{display:none}
   .cta-block{display:none}
   .print-hint{display:none}
+  .site-header{display:none}
+  .site-footer{display:none}
+  body{padding-top:0}
 }
 </style>
 </head>
-<body>
+<body data-nav="playbooks">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/content">Content</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
 <div class="page">
 
   <!-- COVER -->
@@ -302,7 +323,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--darker);min-height:100vh;
         <div class="rc-ring">
           <svg width="80" height="80" viewBox="0 0 80 80">
             <circle cx="40" cy="40" r="34" fill="none" stroke="#e8e2d8" stroke-width="5"/>
-            <circle cx="40" cy="40" r="34" fill="none" id="rc-arc" stroke="#b8922a" stroke-width="5" stroke-dasharray="0 213" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+            <circle cx="40" cy="40" r="34" fill="none" id="rc-arc" stroke="#C9A84C" stroke-width="5" stroke-dasharray="0 213" stroke-linecap="round" transform="rotate(-90 40 40)"/>
           </svg>
           <div class="rc-num" id="rc-num">0%</div>
         </div>
@@ -514,5 +535,38 @@ function updateScore(){
   document.getElementById('val-gap').textContent = gap;
 }
 </script>
-<div style="background:#1a1a1a;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,242,236,.4);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:DM Sans,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,242,236,.8)'" onmouseout="this.style.color='rgba(245,242,236,.4)'">← FR Advisory · All Playbooks</a><a href="/assessment" style="font-size:11px;color:#b8922a;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:DM Sans,sans-serif">Free Assessment →</a></div></body>
+<div class="no-print" style="background:#122033;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,240,232,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.9)'" onmouseout="this.style.color='rgba(245,240,232,.55)'">← All Playbooks</a><a href="/assessment" style="font-size:11px;color:#C9A84C;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif">Take the Assessment →</a></div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/assessment">Take the Assessment</a>
+        <a href="/playbooks">Playbooks</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
 </html>
