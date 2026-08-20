@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Content — Books, Ebooks &amp; Writing | Fessal Rahman</title>
+<meta name="description" content="The complete Agentic Commercial Model library: two books, three ebooks, a nine-part essay series, and a newsletter — all from Fessal Rahman." />
+<link rel="canonical" href="https://agenticcommercialmodel.com/content" />
+<meta property="og:title" content="Content — Books, Ebooks &amp; Writing | Fessal Rahman" />
+<meta property="og:description" content="The complete Agentic Commercial Model library." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agenticcommercialmodel.com/content" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
+
+<style>
+  .content-hero{ background:var(--navy); color:var(--cream); padding:6rem 2rem 3.5rem; }
+  .content-hero-inner{ max-width:1100px; margin:0 auto; }
+  .content-hero h1{ font-family:var(--serif); font-weight:700; font-size:clamp(2.3rem,4.8vw,3.2rem); color:var(--white); margin-bottom:1rem; }
+  .content-hero p{ font-size:1.02rem; color:var(--mist); max-width:60ch; line-height:1.75; }
+  .content-nav{ display:flex; gap:2rem; margin-top:2.25rem; flex-wrap:wrap; }
+  .content-nav a{ font-size:.78rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px; }
+  .content-nav a:hover{ color:var(--gold-lt); }
+
+  /* BOOKS */
+  .book-card{ display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start; border:1px solid var(--rule); padding:2.5rem; background:var(--navy2); position:relative; margin-bottom:2rem; }
+  .book-card::before{ content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--gold); }
+  .book-cover{ background:var(--navy); border:1px solid var(--rule); padding:2rem 1.5rem; text-align:center; }
+  .book-cover-title{ font-family:var(--serif); font-size:1.4rem; color:var(--white); line-height:1.2; margin-bottom:.5rem; }
+  .book-cover-sub{ font-size:.78rem; color:var(--mist); line-height:1.5; margin-bottom:1rem; }
+  .book-cover-author{ font-size:.72rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+  .book-info-label{ font-size:.7rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:.75rem; }
+  .book-info h3{ font-family:var(--serif); font-size:clamp(1.3rem,2.5vw,1.8rem); color:var(--white); margin-bottom:.5rem; }
+  .book-info-subtitle{ font-size:.88rem; color:var(--gold); font-style:italic; margin-bottom:1.1rem; }
+  .book-info p.desc{ font-size:.9rem; color:var(--mist); line-height:1.75; margin-bottom:1rem; }
+  .book-formats{ display:flex; gap:.6rem; margin-bottom:1.25rem; flex-wrap:wrap; }
+  .book-format-tag{ font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--mist); border:1px solid var(--rule); padding:.25rem .65rem; }
+
+  /* WRITING */
+  .writing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .article-card{ border:1px solid var(--rule-lt); padding:1.75rem 1.5rem; text-decoration:none; display:block; background:var(--white); transition:border-color .2s, transform .15s; }
+  .article-card:hover{ border-color:var(--gold-dk); transform:translateY(-2px); }
+  .article-tag{ font-size:.66rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:.65rem; }
+  .article-card h3{ font-family:var(--serif); font-size:1rem; color:var(--ink); line-height:1.35; margin-bottom:.5rem; }
+  .article-card p{ font-size:.8rem; color:var(--stone); line-height:1.6; }
+  .article-arrow{ display:block; margin-top:1rem; font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dk); }
+
+  /* EBOOKS */
+  .ebook-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .ebook-card{ border:1px solid var(--rule); background:var(--navy2); padding:2rem 1.65rem; display:flex; flex-direction:column; position:relative; transition:border-color .2s, transform .15s; }
+  .ebook-card:hover{ border-color:var(--gold); transform:translateY(-2px); }
+  .ebook-card::before{ content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--gold); opacity:.5; }
+  .ebook-num{ font-size:.66rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem; }
+  .ebook-card h3{ font-family:var(--serif); font-size:1.1rem; color:var(--white); line-height:1.3; margin-bottom:.45rem; }
+  .ebook-sub{ font-size:.8rem; color:var(--gold-lt); font-style:italic; line-height:1.5; margin-bottom:.85rem; }
+  .ebook-desc{ font-size:.82rem; color:var(--mist); line-height:1.65; margin-bottom:1.2rem; flex-grow:1; }
+  .ebook-meta{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--rule); padding-top:.9rem; margin-top:auto; }
+  .ebook-price{ font-family:var(--serif); font-size:1.2rem; color:var(--gold); }
+  .ebook-formats{ font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--mist); }
+  .ebook-buy{ display:block; text-align:center; margin-top:1rem; border:1px solid var(--gold); color:var(--gold); font-weight:500; font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.65rem 1rem; transition:background .2s, color .2s; }
+  .ebook-buy:hover{ background:var(--gold); color:var(--navy); }
+
+  /* NEWSLETTER */
+  .nl-card{ display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; border:1px solid var(--rule-lt); background:var(--white); padding:2.75rem; }
+  .nl-card h3{ font-family:var(--serif); font-size:1.4rem; color:var(--ink); margin-bottom:.5rem; }
+  .nl-card p{ font-size:.9rem; color:var(--stone); max-width:48ch; }
+
+  @media (max-width:860px){
+    .book-card{ grid-template-columns:1fr; gap:2rem; }
+    .writing-grid, .ebook-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body data-nav="content">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/content">Content</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="content-hero">
+  <div class="content-hero-inner">
+    <p class="eyebrow">Content</p>
+    <h1>Books, ebooks &amp; the essay series</h1>
+    <p>The complete Agentic Commercial Model library — two books, three focused ebooks, a nine-part essay series, and a newsletter. Free to read, or go deeper with the paid work.</p>
+    <div class="content-nav">
+      <a href="#books">Books</a>
+      <a href="#writing">Writing</a>
+      <a href="#ebooks">Ebooks</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="section" id="books" style="background:var(--navy);color:var(--cream);">
+  <p class="eyebrow">The Books</p>
+  <h2 class="display">The Agentic Commercial Model Series</h2>
+  <p class="lede" style="margin-bottom:2.5rem;">Two books, available on Amazon in ebook, paperback, and hardcover.</p>
+
+  <div class="book-card">
+    <div class="book-cover">
+      <div class="book-cover-title">Dead Model Walking</div>
+      <div class="book-cover-sub">Why Agentic AI Breaks the Business of Software, and the Model That Wins</div>
+      <div class="book-cover-author">Fessal Rahman</div>
+    </div>
+    <div class="book-info">
+      <p class="book-info-label">About the Book</p>
+      <h3>Dead Model Walking</h3>
+      <p class="book-info-subtitle">Why Agentic AI Breaks the Business of Software, and the Model That Wins</p>
+      <p class="desc">Every major business is racing to deploy AI. Almost none of them have asked what happens to their commercial model when it works. The pricing models, compensation plans, and revenue metrics that built SaaS were designed for a world where humans were the buyers, the users, and the expanders. AI agents are replacing all three.</p>
+      <p class="desc">Dead Model Walking makes the case that most commercial leaders are not transforming their model — they are relabelling it. Salesforce changed Agentforce pricing three times in eighteen months. Zendesk charges per resolution on top of per-seat fees, not instead of them. First-mover advantage in the agentic era is now close to permanent.</p>
+      <div class="book-formats"><span class="book-format-tag">Ebook</span><span class="book-format-tag">Paperback</span><span class="book-format-tag">Hardcover</span></div>
+      <a class="btn btn-gold" href="https://www.amazon.co.uk/dp/B0H78DPGNK" target="_blank" rel="noopener">Get it on Amazon →</a>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-cover">
+      <div class="book-cover-title"><span style="color:var(--gold);">Dead</span> Gods Walking</div>
+      <div class="book-cover-sub">How Agentic AI Builds Around Business Leaders Who Won't Adapt</div>
+      <div class="book-cover-author">Fessal Rahman</div>
+    </div>
+    <div class="book-info">
+      <p class="book-info-label">Book Two</p>
+      <h3>Dead Gods Walking</h3>
+      <p class="book-info-subtitle">How Agentic AI Builds Around Business Leaders Who Won't Adapt</p>
+      <p class="desc">The sequel to Dead Model Walking. Where the first book killed the commercial model, this one is about the people still defending it. It reimagines Charles Handy's Gods of Management as Greek archetypes — Cronus, Zeus, Sisyphus, Narcissus, and Midas — none of whom survive the agentic era.</p>
+      <p class="desc">The central argument: leaders who will not adapt are not fired. They are built around. Still in the building, still on the org chart, no longer load-bearing. Grounded in named, real-world cases, from Intel to Salesforce to Broadcom's acquisition of VMware.</p>
+      <div class="book-formats"><span class="book-format-tag">Ebook</span><span class="book-format-tag">Paperback</span><span class="book-format-tag">Hardcover</span></div>
+      <a class="btn btn-gold" href="https://www.amazon.co.uk/dp/B0HDTYM9LT" target="_blank" rel="noopener">Get it on Amazon →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section class="section band-light" id="writing">
+  <p class="eyebrow">The Series</p>
+  <h2 class="display">Published Writing</h2>
+  <p class="lede" style="margin-bottom:2.5rem;">Nine pieces published on Medium and Substack. Each stands alone; together they form the complete framework.</p>
+
+  <div class="writing-grid">
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/your-ai-is-ready-37e01829ee67" target="_blank" rel="noopener">
+      <p class="article-tag">Issue 01</p><h3>Your AI Is Ready. Your Commercial Model Isn't.</h3>
+      <p>The opening argument. Why the gap between AI deployment and commercial architecture is the defining business problem of the agentic era.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-agentic-commercial-model-the-consumption-problem-issue-02-06849d0bd747" target="_blank" rel="noopener">
+      <p class="article-tag">Issue 02</p><h3>The Consumption Problem</h3>
+      <p>Why seat-based pricing breaks the moment AI agents become the buyer, the user, and the decision-maker simultaneously.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-agentic-commercial-model-6978614bacdd" target="_blank" rel="noopener">
+      <p class="article-tag">Issue 03</p><h3>The Broken Comp Plan</h3>
+      <p>Sales incentive structures were designed for a world where humans expanded licences. That world is ending.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-agentic-commercial-model-8d556a278d54" target="_blank" rel="noopener">
+      <p class="article-tag">Issue 04</p><h3>NRR Is Lying to You</h3>
+      <p>Net Revenue Retention tells you where you were. By the time it signals a problem, the shift underneath it is irreversible.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-agentic-commercial-model-c20a4ed3a7ec" target="_blank" rel="noopener">
+      <p class="article-tag">Issue 05</p><h3>The GTM Collapse</h3>
+      <p>The go-to-market motion built for human buyers is collapsing under the weight of agentic AI.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-agentic-commercial-model-special-2da7ae826009" target="_blank" rel="noopener">
+      <p class="article-tag">Special Edition</p><h3>The Moat You're Building Without Realising It</h3>
+      <p>Every customer you onboard today is training your model on exactly how they work. That calibration doesn't transfer.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-half-pivot-why-agentic-failures-get-blamed-on-execution-when-the-model-was-never-built-9c16c773bbcc" target="_blank" rel="noopener">
+      <p class="article-tag">The Half-Pivot</p><h3>Why Agentic Failures Get Blamed on Execution</h3>
+      <p>The post-mortem always blames execution. It is almost never execution. There was no commercial model to execute.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/the-one-way-door-who-actually-gets-paid-in-the-agentic-economy-105455c6beff" target="_blank" rel="noopener">
+      <p class="article-tag">The One-Way Door</p><h3>Who Actually Gets Paid in the Agentic Economy</h3>
+      <p>When AI agents become the workload, the buyer, and the decision-maker, the model that survives looks nothing like today's.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+    <a class="article-card" href="https://medium.com/@fragenticadvisor/companies-are-firing-people-to-pay-for-ai-it-isnt-working-1bb61e773e23" target="_blank" rel="noopener">
+      <p class="article-tag">Contrarian Take</p><h3>Companies Are Firing People to Pay for AI. It Isn't Working.</h3>
+      <p>The freed capacity has a value, and it is not the salary you just saved.</p>
+      <span class="article-arrow">Read on Medium →</span>
+    </a>
+  </div>
+</section>
+
+<!-- EBOOKS -->
+<section class="section" id="ebooks" style="background:var(--navy);color:var(--cream);">
+  <p class="eyebrow">The Ebooks</p>
+  <h2 class="display">Go Deeper on One Problem</h2>
+  <p class="lede" style="margin-bottom:2.5rem;">Three short, focused ebooks. Each takes a single argument further than the articles do, with diagnostics, contrast models, and action plans. PDF and ePub, readable on any device.</p>
+
+  <div class="ebook-grid">
+    <div class="ebook-card">
+      <p class="ebook-num">Ebook 01</p><h3>The Half-Pivot</h3>
+      <p class="ebook-sub">Why agentic failures get blamed on execution when the model was never built</p>
+      <p class="ebook-desc">The post-mortem always blames execution. It almost never is. Includes a five-question binary diagnostic and a five-step 30-day plan.</p>
+      <div class="ebook-meta"><span class="ebook-price">£4.99</span><span class="ebook-formats">PDF · ePub</span></div>
+      <a class="ebook-buy" href="https://fradvisory.lemonsqueezy.com/checkout/buy/5feff62d-70aa-4d73-8ec6-2045b0aeef82" target="_blank" rel="noopener">Get the Ebook →</a>
+    </div>
+    <div class="ebook-card">
+      <p class="ebook-num">Ebook 02</p><h3>The Compounding Moat</h3>
+      <p class="ebook-sub">Why first-mover advantage in agentic SaaS is now permanent</p>
+      <p class="ebook-desc">Switching costs used to be logistical. Now they are epistemological. Three named case studies and six architectural decisions.</p>
+      <div class="ebook-meta"><span class="ebook-price">£4.99</span><span class="ebook-formats">PDF · ePub</span></div>
+      <a class="ebook-buy" href="https://fradvisory.lemonsqueezy.com/checkout/buy/e5130250-20ac-415e-8ae0-9361e787743c" target="_blank" rel="noopener">Get the Ebook →</a>
+    </div>
+    <div class="ebook-card">
+      <p class="ebook-num">Ebook 03</p><h3>The Operator's Guide</h3>
+      <p class="ebook-sub">Monetisation, GTM, enablement, comp, and the metrics that actually matter</p>
+      <p class="ebook-desc">The working document for CCOs and CROs running a transformation, ending with a 90-day implementation sequence.</p>
+      <div class="ebook-meta"><span class="ebook-price">£9.99</span><span class="ebook-formats">PDF · ePub</span></div>
+      <a class="ebook-buy" href="https://fradvisory.lemonsqueezy.com/checkout/buy/a644c290-25ce-4bdb-9ce4-8e0c8c6fd489" target="_blank" rel="noopener">Get the Ebook →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section band-light" id="newsletter">
+  <div class="nl-card">
+    <div>
+      <h3>The Agentic Commercial Model newsletter</h3>
+      <p>New essays and frameworks, straight from Substack. No spam, unsubscribe any time.</p>
+    </div>
+    <a class="btn btn-gold" href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Subscribe on Substack →</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/assessment">Take the Assessment</a>
+        <a href="/playbooks">Playbooks</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
