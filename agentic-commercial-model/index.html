@@ -65,19 +65,22 @@
 }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
 <style>
   :root {
     --navy: #0D1B2A;
     --navy2: #122033;
     --gold: #C9A84C;
-    --white: #F4F1EA;
-    --mist: #9FB0C3;
-    --rule: #24374d;
+    --paper: #F4F1EA;
+    --mist2: #9FB0C3;
+    --rule2: #24374d;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--navy);
-    color: var(--white);
+    color: var(--paper);
     font-family: Georgia, 'Times New Roman', serif;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -120,11 +123,11 @@
     margin: 2rem 0 0.4rem;
     text-transform: none;
   }
-  p { margin-bottom: 1.3rem; font-size: 1.08rem; color: var(--white); }
-  .lede { font-size: 1.18rem; color: var(--mist); }
+  p { margin-bottom: 1.3rem; font-size: 1.08rem; color: var(--paper); }
+  .lede { font-size: 1.18rem; color: var(--mist2); }
   .definition {
     background: var(--navy2);
-    border: 1px solid var(--rule);
+    border: 1px solid var(--rule2);
     border-left: 3px solid var(--gold);
     padding: 1.8rem 2rem;
     margin: 2rem 0;
@@ -135,7 +138,7 @@
   ol.layers li {
     counter-increment: layer;
     padding: 1rem 0 1rem 3.5rem;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule2);
     position: relative;
     font-size: 1.05rem;
   }
@@ -150,23 +153,40 @@
     color: var(--gold);
   }
   ol.layers li strong { display: block; font-family: 'Barlow', Arial, sans-serif; margin-bottom: 0.2rem; }
-  ol.layers li span { color: var(--mist); font-size: 0.98rem; }
+  ol.layers li span { color: var(--mist2); font-size: 0.98rem; }
   .callout {
     font-size: 1.25rem;
     line-height: 1.5;
     margin: 2.5rem 0;
     padding: 1.5rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule2);
+    border-bottom: 1px solid var(--rule2);
   }
   .faq-q { color: var(--gold); font-family: 'Barlow', Arial, sans-serif; font-size: 1.1rem; margin-top: 1.8rem; margin-bottom: 0.3rem; }
   a { color: var(--gold); }
-  .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.95rem; color: var(--mist); }
+  .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule2); font-size: 0.95rem; color: var(--mist2); }
   .footer a { text-decoration: none; }
   @media (max-width: 600px) { h1 { font-size: 1.9rem; } .wrap { padding: 2.5rem 1.2rem 4rem; } }
 </style>
 </head>
-<body>
+<body data-nav="model">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/content">Content</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
 <div class="wrap">
 
   <p class="eyebrow">The Agentic Commercial Model</p>
@@ -249,5 +269,37 @@
   </div>
 
 </div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/assessment">Take the Assessment</a>
+        <a href="/playbooks">Playbooks</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
 </body>
 </html>
