@@ -82,7 +82,8 @@ body{
 body[data-nav="model"] .site-nav a[href="/agentic-commercial-model"],
 body[data-nav="content"] .site-nav a[href="/content"],
 body[data-nav="playbooks"] .site-nav a[href="/playbooks"],
-body[data-nav="about"] .site-nav a[href="/about"]{
+body[data-nav="about"] .site-nav a[href="/about"],
+body[data-nav="contact"] .site-nav a[href="/contact"]{
   color: var(--gold);
 }
 
