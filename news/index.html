@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>News — Agentic Commercial Model</title>
+<meta name="description" content="Weekly briefing on agentic AI product releases, MCP servers, and pricing and packaging moves across commercial software — curated by Fessal Rahman." />
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/news" />
+<meta property="og:title" content="News — Agentic Commercial Model" />
+<meta property="og:description" content="Weekly briefing on agentic AI product releases and pricing and packaging moves across commercial software." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/news" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="News — Agentic Commercial Model" />
+<meta name="twitter:description" content="Weekly briefing on agentic AI product releases and pricing and packaging moves." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
+<style>
+.news-hero{ background:var(--navy); color:var(--cream); padding:6rem 2rem 4.5rem; }
+.news-hero-inner{ max-width:860px; margin:0 auto; }
+.news-hero h1{ margin:0.5rem 0 1.25rem; }
+.news-list{ max-width:800px; margin:0 auto; }
+.news-item{ padding:2.25rem 0; border-bottom:1px solid var(--rule-lt); }
+.news-item:first-of-type{ padding-top:0; }
+.news-meta{ display:flex; gap:0.75rem; align-items:center; margin-bottom:0.7rem; font-size:0.75rem; color:var(--stone); text-transform:uppercase; letter-spacing:0.05em; }
+.news-cat{ background:var(--gold); color:var(--navy); padding:0.2rem 0.6rem; border-radius:2px; font-weight:700; font-size:0.68rem; }
+.news-item h3{ margin:0 0 0.65rem; font-size:1.25rem; color:var(--ink); }
+.news-item p{ color:var(--stone); line-height:1.7; margin:0 0 0.65rem; }
+.news-take{ font-style:italic; color:var(--ink); }
+.news-source a{ color:var(--gold-dk); text-decoration:none; border-bottom:1px solid var(--gold-dk); }
+.news-note{ max-width:800px; margin:0 auto 2.5rem; padding:1rem 1.25rem; background:var(--rule-lt); border-left:3px solid var(--gold); font-size:0.85rem; color:var(--stone); }
+</style>
+</head>
+<body data-nav="news">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/content">Content</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/news">News</a>
+      <a href="https://agenticreadystack.com" target="_blank" rel="noopener">Agentic Tech Stack <span aria-hidden="true">&#8599;</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">&rarr;</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="news-hero">
+  <div class="news-hero-inner">
+    <p class="eyebrow">News</p>
+    <h1 class="display">Agentic Commercial Model News</h1>
+    <p class="lede" style="color:var(--mist);">A weekly briefing on agentic AI product releases, MCP servers, and pricing and packaging moves &mdash; the developments that actually change what a commercial model has to account for. Curated, not aggregated, with a note on why each one matters.</p>
+  </div>
+</section>
+
+<div class="band-light">
+<section class="section">
+
+  <div class="news-note">Published weekly. Every item links to a primary source &mdash; vendor documentation or an official announcement, not secondhand coverage. A quiet week means fewer items, not padded ones.</div>
+
+  <div class="news-list" id="newsList">
+  <!-- NEWS_INSERT_POINT -->
+
+  <article class="news-item">
+    <div class="news-meta"><span class="news-cat">MCP &amp; Agent Interfaces</span><span>21 Aug 2026</span></div>
+    <h3>HubSpot ships a first-party MCP server with scope-gated CRM read/write access</h3>
+    <p>A remote MCP server, separate from the in-product Breeze copilot, with admin-authorised scopes covering CRM objects and engagements.</p>
+    <p class="news-take">This is the shape most categories will eventually converge on &mdash; a permissioned agent interface that sits apart from the chat copilot. If your CRM vendor doesn't have an answer to this yet, that's worth asking about directly.</p>
+    <p class="news-source"><a href="https://developers.hubspot.com/" target="_blank" rel="noopener nofollow">HubSpot developer documentation &rarr;</a></p>
+  </article>
+
+  <article class="news-item">
+    <div class="news-meta"><span class="news-cat">MCP &amp; Agent Interfaces</span><span>21 Aug 2026</span></div>
+    <h3>Metronome publishes @metronome/mcp with write access to contracts and usage ingestion</h3>
+    <p>Bearer-token authenticated, bundled in Metronome's official Node SDK, exposing writes including contract creation, not just usage queries.</p>
+    <p class="news-take">Billing is usually the last system anyone lets an agent touch. A metering vendor shipping write scopes here, not just read, is a signal the rest of the category will have to match it.</p>
+    <p class="news-source"><a href="https://docs.metronome.com/" target="_blank" rel="noopener nofollow">Metronome documentation &rarr;</a></p>
+  </article>
+
+  <article class="news-item">
+    <div class="news-meta"><span class="news-cat">Pricing &amp; Packaging</span><span>21 Aug 2026</span></div>
+    <h3>PROS divests its B2B CPQ and pricing line to Conga, repositions around airline retailing</h3>
+    <p>PROS is no longer the B2B pricing-science vendor it was categorised as even a year ago &mdash; that product line now sits with Conga.</p>
+    <p class="news-take">A reminder to re-check vendor category maps on a cycle, not just build them once. "Best-in-class B2B pricing software" lists compiled a year ago may be citing a product that no longer exists in that market.</p>
+    <p class="news-source"><a href="https://www.pros.com/" target="_blank" rel="noopener nofollow">PROS / Conga announcement &rarr;</a></p>
+  </article>
+
+  <article class="news-item">
+    <div class="news-meta"><span class="news-cat">MCP &amp; Agent Interfaces</span><span>21 Aug 2026</span></div>
+    <h3>ActiveCampaign documents a first-party MCP server with real write actions</h3>
+    <p>A per-account remote MCP server, generated under Settings &rarr; Developer, supporting writes across contacts, lists, tags, automations and campaign sends.</p>
+    <p class="news-take">More than the rule-based automation layer this category is usually credited with. Worth revisiting any "automation-only, not agentic" assumptions about marketing automation vendors generally.</p>
+    <p class="news-source"><a href="https://developers.activecampaign.com/" target="_blank" rel="noopener nofollow">ActiveCampaign developer documentation &rarr;</a></p>
+  </article>
+
+  </div>
+
+</section>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/assessment">Take the Assessment</a>
+        <a href="/playbooks">Playbooks</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
