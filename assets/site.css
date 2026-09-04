@@ -59,11 +59,13 @@ body{
   white-space: nowrap;
 }
 .site-brand:hover{ color: var(--gold-lt); }
-.site-nav{ display:flex; align-items:center; gap: 2.1rem; }
+.site-nav{ display:flex; align-items:center; gap: 1.8rem; }
 .site-nav a{
+  display:inline-flex; align-items:center; gap:0.3em;
   color: var(--mist); text-decoration:none; font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.09em; text-transform: uppercase; transition: color .2s;
   padding: 4px 0; border-bottom: 1px solid transparent;
+  white-space: nowrap;
 }
 .site-nav a:hover{ color: var(--cream); }
 .site-header-actions{ display:flex; align-items:center; gap: 1.25rem; }
@@ -93,7 +95,7 @@ body[data-nav="contact"] .site-nav a[href="/contact"]{
 }
 .site-nav-toggle span{ display:block; width: 20px; height: 1.5px; background: var(--cream); transition: transform .2s, opacity .2s; }
 
-@media (max-width: 860px){
+@media (max-width: 1220px){
   .site-nav{
     position: fixed; top: var(--header-h); left:0; right:0;
     background: var(--navy); border-bottom: 1px solid var(--rule);
@@ -101,7 +103,7 @@ body[data-nav="contact"] .site-nav a[href="/contact"]{
     max-height: 0; overflow: hidden; transition: max-height .3s ease;
   }
   .site-nav.is-open{ max-height: 400px; }
-  .site-nav a{ width:100%; padding: 1rem 2rem; border-bottom: 1px solid var(--rule-lt); }
+  .site-nav a{ width:100%; padding: 1rem 2rem; border-bottom: 1px solid var(--rule-lt); white-space: normal; }
   .site-nav-toggle{ display:flex; }
   .site-header-inner{ padding: 0 1.25rem; }
   .site-cta{ padding: 0.55rem 0.9rem; font-size: 0.7rem; }
