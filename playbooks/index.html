@@ -25,24 +25,15 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-@keyframes floatA{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-@keyframes floatB{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(-1deg)}}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:.8}}
-@keyframes lineGrow{from{width:0}to{width:100%}}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 
 /* ── HERO ── */
-.hero{min-height:100vh;background:var(--darker);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 50% 50%,black 30%,transparent 80%)}
-.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 65%);pointer-events:none}
-.hero-ring1{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(201,168,76,.05);border-radius:50%;animation:pulse 4s ease-in-out infinite}
-.hero-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border:1px solid rgba(201,168,76,.03);border-radius:50%;animation:pulse 4s 1s ease-in-out infinite}
+.hero{background:var(--darker);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem;border-bottom:1px solid rgba(201,168,76,.15)}
 .hero-inner{max-width:900px;margin:0 auto;padding:0 2.5rem;text-align:center;position:relative;z-index:1}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.75rem;padding:5px 14px;border:1px solid rgba(201,168,76,.2);border-radius:20px;background:rgba(201,168,76,.05)}
-.hero-title{font-family:'Spectral',serif;font-size:64px;line-height:1.0;color:#F5F0E8;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
-.hero-title em{font-style:italic;color:var(--gold);background:linear-gradient(135deg,var(--gold),#e8c060,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shimmer 3s linear infinite}
+.hero-title{font-family:'Spectral',serif;font-size:56px;line-height:1.1;color:#F5F0E8;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
+.hero-title em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:17px;color:rgba(245,242,236,.45);line-height:1.75;max-width:580px;margin:0 auto 2.5rem;animation:fadeUp .8s .15s ease both}
 .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;margin-bottom:3.5rem}
 .btn-primary{background:var(--gold);color:#fff;font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Barlow',sans-serif}
@@ -258,10 +249,6 @@ footer{background:var(--darker);padding:2.5rem;border-top:1px solid rgba(245,242
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-ring1"></div>
-  <div class="hero-ring2"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow" style="animation:fadeUp .6s ease both">FR Advisory · Agentic Monetisation</div>
     <h1 class="hero-title">Stop shipping AI<br>for <em>free</em></h1>
@@ -611,7 +598,7 @@ footer{background:var(--darker);padding:2.5rem;border-top:1px solid rgba(245,242
         <div class="faq-q">Is the assessment really free?<span class="faq-toggle">+</span></div>
         <div class="faq-a">Yes. The first dimension (Value Metric Alignment) is fully scored and included at no cost. The full five-dimension report is available for £995, or as part of the Assessment + Advisor package at £2,495.</div>
       </div>
-      div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">How are the playbooks delivered?<span class="faq-toggle">+</span></div>
         <div class="faq-a">Each playbook is a fully interactive HTML document you can open in any browser, use on mobile, and save as a PDF. They include interactive tools — tier builders, discovery frameworks, audit matrices — that you can work through with your team.</div>
       </div>
