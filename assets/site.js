@@ -44,3 +44,23 @@
   s.src = '/_vercel/insights/script.js';
   document.head.appendChild(s);
 })();
+
+/* Tally embed loader (email capture forms) — only runs on pages with a Tally iframe */
+(function () {
+  if (!document.querySelector('iframe[data-tally-src]')) return;
+  var d = document, w = 'https://tally.so/widgets/embed.js';
+  var v = function () {
+    if (typeof Tally !== 'undefined') { Tally.loadEmbeds(); }
+    else {
+      d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (e) {
+        e.src = e.dataset.tallySrc;
+      });
+    }
+  };
+  if (typeof Tally !== 'undefined') { v(); }
+  else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s2 = d.createElement('script');
+    s2.src = w; s2.onload = v; s2.onerror = v;
+    d.body.appendChild(s2);
+  } else { v(); }
+})();
