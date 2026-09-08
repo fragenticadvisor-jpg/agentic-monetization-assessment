@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The State of Agentic Commercial Readiness | Fessal Rahman</title>
+<meta name="description" content="A first-edition report: 34 software vendors audited for real agent access across the nine layers of the Agentic Commercial Model. 53% ship an MCP server. Two layers that decide price and pay have none." />
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/report" />
+<meta property="og:title" content="The State of Agentic Commercial Readiness" />
+<meta property="og:description" content="34 vendors, 8 categories, one documentation audit: where agent access is real, and where it stops the moment money is involved." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/report" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
+
+<style>
+  .report-hero{ background:var(--navy); color:var(--cream); padding:6.5rem 2rem 4rem; }
+  .report-hero-inner{ max-width:860px; margin:0 auto; }
+  .report-hero h1{ font-family:var(--serif); font-weight:700; font-size:clamp(2.1rem,4.6vw,3.1rem); line-height:1.14; color:var(--white); margin:.75rem 0 1.15rem; }
+  .report-hero .lede{ max-width:62ch; color:var(--mist); font-size:1.06rem; line-height:1.75; }
+  .report-meta{ font-size:.78rem; color:var(--gold-lt); margin-top:1.5rem; letter-spacing:.03em; }
+
+  .stat-band{ background:var(--navy2); border-bottom:1px solid var(--rule); }
+  .stat-grid{ max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
+  .stat-item .num{ font-family:var(--serif); font-weight:700; font-size:clamp(1.8rem,3.4vw,2.5rem); color:var(--gold); line-height:1; margin-bottom:.6rem; }
+  .stat-item p{ font-size:.82rem; color:var(--mist); line-height:1.5; }
+
+  .report-wrap{ max-width:820px; margin:0 auto; padding:4.5rem 2rem 2rem; }
+  .report-wrap h2{ font-family:var(--serif); font-weight:600; font-size:1.65rem; color:var(--ink); margin:3rem 0 1.15rem; }
+  .report-wrap h2:first-child{ margin-top:0; }
+  .report-wrap p{ font-size:1.02rem; color:var(--stone); line-height:1.85; margin-bottom:1.35rem; }
+  .report-wrap p strong{ color:var(--ink); }
+
+  .cat-table{ width:100%; border-collapse:collapse; margin:1.5rem 0 1rem; font-size:.9rem; }
+  .cat-table th{ text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--stone); padding:.6rem .75rem; border-bottom:2px solid var(--rule); }
+  .cat-table td{ padding:.85rem .75rem; border-bottom:1px solid var(--rule-lt); color:var(--ink); vertical-align:top; }
+  .cat-table td.num{ font-family:var(--serif); color:var(--gold-dk); font-weight:600; white-space:nowrap; }
+  .cat-table td.note{ color:var(--stone); font-size:.85rem; }
+  .table-wrap{ overflow-x:auto; margin:0 -0.25rem; padding:0 0.25rem; }
+
+  .layer-readiness{ display:flex; flex-direction:column; gap:0; margin:1.5rem 0 1rem; border-top:1px solid var(--rule-lt); }
+  .lr-row{ display:grid; grid-template-columns:auto 1fr auto; gap:1.25rem; align-items:center; padding:1.1rem 0; border-bottom:1px solid var(--rule-lt); }
+  .lr-row .lr-num{ font-family:var(--serif); font-size:1.1rem; color:var(--gold-dk); min-width:1.5rem; }
+  .lr-row .lr-name{ font-weight:600; color:var(--ink); font-size:.95rem; }
+  .lr-row .lr-name a{ color:var(--ink); text-decoration:none; }
+  .lr-row .lr-name a:hover{ color:var(--gold-dk); }
+  .lr-row .lr-sub{ font-size:.82rem; color:var(--stone); margin-top:.15rem; }
+  .lr-score{ font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; font-weight:700; padding:.3rem .6rem; border-radius:2px; white-space:nowrap; }
+  .lr-score.high{ background:#e8f0e6; color:#3a6b34; }
+  .lr-score.mid{ background:#f3ecd9; color:var(--gold-dk); }
+  .lr-score.low{ background:#f4e3e0; color:#a1372c; }
+  .lr-score.na{ background:var(--rule-lt); color:var(--stone); }
+  @media (max-width:640px){ .lr-row{ grid-template-columns:auto 1fr; } .lr-score{ grid-column:2; justify-self:start; margin-top:.35rem; } }
+
+  .report-callout{ border:1px solid var(--rule-lt); background:var(--cream2); padding:1.75rem 2rem; margin:2rem 0; }
+  .report-callout p{ margin-bottom:0; font-size:.95rem; }
+  .report-callout p + p{ margin-top:.85rem; }
+
+  .report-cta{ display:flex; gap:1rem; flex-wrap:wrap; padding-top:1.75rem; margin-top:1rem; border-top:1px solid var(--rule-lt); }
+
+  .nl-strip{ border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-top:3rem; }
+  .nl-strip-inner{ max-width:1100px; margin:0 auto; padding:3.5rem 2rem; display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem; align-items:center; }
+  .nl-strip-eyebrow{ font-size:.74rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+  .nl-strip-inner h2{ font-family:var(--serif); font-weight:600; font-size:clamp(1.35rem,2.4vw,1.9rem); color:var(--white); margin-bottom:.75rem; line-height:1.3; }
+  .nl-strip-copy p{ font-size:.92rem; color:var(--mist); max-width:42ch; line-height:1.65; }
+  .nl-strip-form iframe{ display:block; }
+
+  .method-note{ max-width:820px; margin:0 auto; padding:3rem 2rem 5rem; }
+  .method-note h3{ font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:.85rem; }
+  .method-note p{ font-size:.88rem; color:var(--stone); line-height:1.75; margin-bottom:.9rem; }
+  .method-note a{ color:var(--gold-dk); }
+
+  @media (max-width:760px){
+    .stat-grid{ grid-template-columns:1fr 1fr; }
+    .report-wrap{ padding:3rem 1.5rem 1rem; }
+    .nl-strip-inner{ grid-template-columns:1fr; gap:1.75rem; }
+  }
+</style>
+</head>
+<body data-nav="report">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/news">News</a>
+      <a href="https://agenticreadystack.com" target="_blank" rel="noopener">Agentic Tech Stack <span aria-hidden="true">&#8599;</span></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="report-hero">
+  <div class="report-hero-inner">
+    <p class="eyebrow">Flagship Report · First Edition</p>
+    <h1>The State of Agentic Commercial Readiness</h1>
+    <p class="lede">Thirty-four commercial software vendors, audited against their own developer documentation for one question: can an AI agent actually act inside this system, not just chat next to it. The pattern that emerges maps almost exactly onto where the money is.</p>
+    <p class="report-meta">First edition · September 2026 · Fessal Rahman, in partnership with the Agentic Tech Stack registry</p>
+  </div>
+</section>
+
+<div class="stat-band">
+  <div class="stat-grid">
+    <div class="stat-item"><p class="num">34</p><p>Vendors audited across 8 commercial software categories, mapped to the nine layers of the Agentic Commercial Model.</p></div>
+    <div class="stat-item"><p class="num">53%</p><p>Publish an official, documented MCP server or first-party agent interface &mdash; not a roadmap promise, a verified one.</p></div>
+    <div class="stat-item"><p class="num">74%</p><p>Offer some documented path for an agent to write, not just read &mdash; via MCP or a scoped API.</p></div>
+    <div class="stat-item"><p class="num">0%</p><p>Of vendors in Pricing &amp; Packaging or Sales Compensation publish any official agent interface at all.</p></div>
+  </div>
+</div>
+
+<section class="section band-light">
+<div class="report-wrap">
+
+  <h2>The finding</h2>
+  <p>Agent access is not evenly distributed across the commercial stack. It is concentrated, almost perfectly, in the layers furthest from a P&amp;L decision and absent from the layers closest to one. Marketing automation and outbound sales engagement &mdash; the tools that send emails, log activity, and book meetings &mdash; sit at <strong>100% official MCP adoption</strong>. Pricing and packaging software and sales compensation platforms &mdash; the systems that decide what a customer pays and how a rep gets paid &mdash; sit at <strong>zero</strong>.</p>
+  <p>That is not a coincidence of engineering priority. It is a reasonable, almost defensible sequencing choice by every vendor in this registry, made independently and arriving at the same place: ship agent access first where a mistake costs an email that didn't need sending, and last where a mistake costs a mispriced deal or a comp plan paid out wrong. The problem is that the sequencing choice made independently by 34 vendors becomes, in aggregate, a structural gap &mdash; the exact two layers a business needs an agent-ready commercial model to have covered are the two layers with no vendor coverage at all.</p>
+  <p>Even where an interface exists, access is often narrower than the MCP label implies. In Sales Enablement &amp; Revenue Intelligence, two of three vendors publish an official MCP server &mdash; but one of them is documented as <strong>read-only by design</strong>, and the write scope on the other is unconfirmed. An agent can look at your pipeline in these tools. It very often still can't act on it.</p>
+
+  <h2>Readiness by category</h2>
+  <p>Every vendor was checked against its own developer documentation, not its marketing copy, and scored on three questions: does an official MCP server exist, is there any documented API path with write access, and when was this last verified. The full vendor-level evidence sits in the Agentic Tech Stack's registry; the roll-up by category is below.</p>
+
+  <div class="table-wrap">
+  <table class="cat-table">
+    <thead><tr><th>Category</th><th>Layer</th><th>Official MCP</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Marketing Automation</td><td>L2</td><td class="num">5 / 5</td><td class="note">Full adoption. ActiveCampaign, ClickFunnels, Customer.io, Klaviyo and Semrush all publish a first-party interface.</td></tr>
+      <tr><td>GTM &amp; Sales Engagement</td><td>L2</td><td class="num">3 / 3</td><td class="note">Full adoption. Apollo.io, Clay and Outreach (shipped August 2026) all publish official access.</td></tr>
+      <tr><td>CRM &amp; Pipeline</td><td>L9</td><td class="num">2 / 3</td><td class="note">HubSpot and Pipedrive publish scope-gated servers; the third vendor has no developer portal at all.</td></tr>
+      <tr><td>Customer Success &amp; Adoption</td><td>L7</td><td class="num">3 / 5</td><td class="note">Gainsight, Planhat and Vitally are official; one vendor's claim is press-release only, unconfirmed in docs.</td></tr>
+      <tr><td>Sales Enablement &amp; Revenue Intelligence</td><td>L4</td><td class="num">2 / 3</td><td class="note">Official servers exist, but one is read-only by design and the other's write scope is unconfirmed.</td></tr>
+      <tr><td>Billing &amp; Usage Metering</td><td>L6+8</td><td class="num">2 / 5</td><td class="note">Chargebee and Metronome ship official servers with production write access; the rest rely on REST APIs only.</td></tr>
+      <tr><td>CPQ</td><td>L3</td><td class="num">1 / 3</td><td class="note">One official server (PandaDoc); the rest offer only third-party MCP wrappers around a documented REST API.</td></tr>
+      <tr><td>Pricing &amp; Packaging Strategy</td><td>L3</td><td class="num">0 / 3</td><td class="note">Zero official interfaces. One vendor's MCP is a press-release claim with no supporting documentation.</td></tr>
+      <tr><td>Sales Compensation &amp; Incentive Mgmt</td><td>L5</td><td class="num">0 / 4</td><td class="note">Zero official interfaces. Three of four have a documented write-capable API; none has shipped an agent server.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="report-callout">
+    <p><strong>Reading the two zeroes together.</strong> Pricing &amp; Packaging and Sales Compensation are not adjacent categories by accident &mdash; they are the two systems that jointly determine unit economics. No vendor has published an interface letting an agent touch either one. Until that changes, "agent-native pricing" and "agent-aware compensation" are things a business has to build internally, not buy off the shelf.</p>
+  </div>
+
+  <h2>Readiness by layer</h2>
+  <p>Mapping the registry onto all nine layers of the Agentic Commercial Model &mdash; including Organisation Design, which sits outside any vendor category because no piece of software fixes it. Each layer links through to the full breakdown: what it covers, why it's breaking now, and the essays and playbooks that address it.</p>
+
+  <div class="layer-readiness">
+    <div class="lr-row"><span class="lr-num">01</span><div><div class="lr-name"><a href="/layers/organisation-design">Organisation Design</a></div><div class="lr-sub">Not vendor-addressable &mdash; no category maps to this layer at all.</div></div><span class="lr-score na">Not Applicable</span></div>
+    <div class="lr-row"><span class="lr-num">02</span><div><div class="lr-name"><a href="/layers/go-to-market">Go-to-Market</a></div><div class="lr-sub">Marketing Automation (5/5) and GTM &amp; Sales Engagement (3/3) official.</div></div><span class="lr-score high">100% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">03</span><div><div class="lr-name"><a href="/layers/pricing-packaging">Pricing &amp; Packaging</a></div><div class="lr-sub">CPQ at 1/3; Pricing &amp; Packaging Strategy software at 0/3.</div></div><span class="lr-score low">0&ndash;33% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">04</span><div><div class="lr-name"><a href="/layers/sales-strategy-enablement">Sales Strategy &amp; Enablement</a></div><div class="lr-sub">2/3 official, but effectively read-only where it counts most.</div></div><span class="lr-score mid">Interface Exists, Access Doesn't</span></div>
+    <div class="lr-row"><span class="lr-num">05</span><div><div class="lr-name"><a href="/layers/compensation">Compensation</a></div><div class="lr-sub">Sales Compensation &amp; Incentive Management at 0/4 official.</div></div><span class="lr-score low">0% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">06</span><div><div class="lr-name"><a href="/layers/metering-entitlement">Metering &amp; Entitlement</a></div><div class="lr-sub">Billing &amp; Usage Metering at 2/5 official, 5/5 with some write-capable API.</div></div><span class="lr-score mid">40% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">07</span><div><div class="lr-name"><a href="/layers/adoption-customer-success">Adoption &amp; Customer Success</a></div><div class="lr-sub">Customer Success &amp; Adoption at 3/5 official.</div></div><span class="lr-score mid">60% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">08</span><div><div class="lr-name"><a href="/layers/revenue-architecture">Revenue Architecture</a></div><div class="lr-sub">Shares Billing &amp; Usage Metering coverage with layer six &mdash; same 2/5 official figure.</div></div><span class="lr-score mid">40% Ready</span></div>
+    <div class="lr-row"><span class="lr-num">09</span><div><div class="lr-name"><a href="/layers/commercial-systems">Commercial Systems</a></div><div class="lr-sub">CRM &amp; Pipeline at 2/3 official.</div></div><span class="lr-score mid">67% Ready</span></div>
+  </div>
+
+  <h2>What this means if you run one of these functions</h2>
+  <p>If your GTM and marketing stack already has agent access, that's not a differentiator anymore &mdash; it's the baseline every competitor also has. The layers where you can still build an edge are exactly the ones this registry shows as uncovered: pricing, compensation, and the parts of revenue architecture and CS that depend on them. Buying software won't get you there yet, because the software mostly doesn't exist. That gap is what the nine-layer model and the assessment underneath it are built to close &mdash; not by waiting for a vendor to ship the interface, but by rebuilding the commercial architecture around agentic delivery directly.</p>
+
+  <div class="report-cta">
+    <a class="btn btn-gold" href="/assessment">Take the Free Assessment →</a>
+    <a class="btn btn-ghost" href="/layers">Explore the Nine Layers →</a>
+  </div>
+
+</div>
+</section>
+
+<section class="nl-strip">
+  <div class="nl-strip-inner">
+    <div class="nl-strip-copy">
+      <p class="nl-strip-eyebrow">Next Edition</p>
+      <h2>This registry gets re-audited. You'll get the next edition first.</h2>
+      <p>One email a month with new essays, playbook updates, and the readiness numbers as they move &mdash; no spam, unsubscribe any time.</p>
+    </div>
+    <div class="nl-strip-form">
+      <iframe data-tally-src="https://tally.so/embed/RGNrrp?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1" loading="lazy" width="100%" height="140" frameborder="0" marginheight="0" marginwidth="0" title="The Agentic Commercial Model — Newsletter"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="method-note">
+  <h3>Methodology &amp; sourcing</h3>
+  <p>Vendor-level findings are drawn from the Agentic Tech Stack's Agent-Access Registry, an independent documentation audit covering 34 commercial software vendors across 8 categories, verified 21 August 2026 against each vendor's own developer documentation rather than marketing claims &mdash; distinguishing an official, documented MCP server from a press-release claim, a third-party wrapper, or a scoped API with no MCP layer at all. Category and layer roll-ups above are calculated directly from that vendor-level data. Full vendor-by-vendor evidence, including source links and verification dates, is maintained in the <a href="https://agenticreadystack.com/registry.html" target="_blank" rel="noopener">public registry</a>, with ongoing findings published in <a href="https://agenticreadystack.com/signal" target="_blank" rel="noopener">Signal</a>.</p>
+  <p>The Agentic Tech Stack and the Agentic Commercial Model are both maintained by Fessal Rahman. Inclusion in the registry isn't for sale and doesn't determine a vendor's score; full disclosure is published on the Agentic Tech Stack's <a href="https://agenticreadystack.com/disclosure.html" target="_blank" rel="noopener">disclosure page</a>. This report will be re-issued as the underlying registry is re-audited.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+        <a href="/playbooks">Playbooks</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
