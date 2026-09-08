@@ -30,6 +30,18 @@
 .news-take{ font-style:italic; color:var(--ink); }
 .news-source a{ color:var(--gold-dk); text-decoration:none; border-bottom:1px solid var(--gold-dk); }
 .news-note{ max-width:800px; margin:0 auto 2.5rem; padding:1rem 1.25rem; background:var(--rule-lt); border-left:3px solid var(--gold); font-size:0.85rem; color:var(--stone); }
+.voices-section{ max-width:800px; margin:3.5rem auto 0; padding-top:2.75rem; border-top:1px solid var(--rule-lt); }
+.voices-section .eyebrow{ margin-bottom:0.5rem; }
+.voices-section h2{ font-family:var(--serif); font-weight:600; font-size:1.4rem; color:var(--ink); margin:0 0 0.6rem; }
+.voices-section > p.voices-lede{ color:var(--stone); font-size:0.9rem; line-height:1.65; max-width:64ch; margin:0 0 1.75rem; }
+.voices-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+.voice-card{ padding:1.15rem 1.4rem; background:var(--rule-lt); border-left:3px solid var(--gold); }
+.voice-card h3{ font-size:0.98rem; margin:0 0 0.2rem; color:var(--ink); }
+.voice-pub{ display:block; font-size:0.76rem; color:var(--gold-dk); font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.55rem; }
+.voice-card p{ font-size:0.84rem; color:var(--stone); line-height:1.6; margin:0 0 0.65rem; }
+.voice-card a{ font-size:0.8rem; color:var(--gold-dk); text-decoration:none; border-bottom:1px solid var(--gold-dk); }
+.voices-note{ font-size:0.78rem; color:var(--stone); margin-top:1.5rem; }
+@media (max-width:640px){ .voices-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body data-nav="news">
@@ -133,6 +145,45 @@
     <p class="news-source"><a href="https://developers.activecampaign.com/" target="_blank" rel="noopener nofollow">ActiveCampaign developer documentation &rarr;</a> &middot; <a href="https://agenticreadystack.com/signal/001.html" target="_blank" rel="noopener">full audit: Signal #001 &rarr;</a></p>
   </article>
 
+  </div>
+
+  <div class="voices-section">
+    <p class="eyebrow">Further Reading</p>
+    <h2>Voices to Follow</h2>
+    <p class="voices-lede">The commercial-model side of agentic AI doesn't sit still. These are the writers I actually read for the pricing, GTM and revenue-architecture angle &mdash; not general AI news. New, relevant posts from this list get pulled into the feed above, tagged <span class="news-cat" style="font-size:0.62rem;">Voices</span>.</p>
+    <div class="voices-grid">
+      <div class="voice-card">
+        <h3>Kyle Poyar</h3>
+        <span class="voice-pub">Growth Unhinged</span>
+        <p>Weekly on usage-based pricing, AI monetization benchmarks and expansion mechanics. Publisher of the 2026 State of B2B SaaS &amp; AI Monetization report.</p>
+        <a href="https://www.growthunhinged.com/" target="_blank" rel="noopener">growthunhinged.com &rarr;</a>
+      </div>
+      <div class="voice-card">
+        <h3>Jason Lemkin</h3>
+        <span class="voice-pub">SaaStr</span>
+        <p>Constant, opinionated takes on how AI is reshaping CAC payback, sales cycles and contract economics &mdash; the GTM and sales-comp side of the shift.</p>
+        <a href="https://www.saastr.com/" target="_blank" rel="noopener">saastr.com &rarr;</a>
+      </div>
+      <div class="voice-card">
+        <h3>Tomasz Tunguz</h3>
+        <span class="voice-pub">Theory Ventures</span>
+        <p>Data-driven posts on agent pricing power and where usage-based and outcome-based models are actually heading, from a VC watching the deal data.</p>
+        <a href="https://tomtunguz.com/" target="_blank" rel="noopener">tomtunguz.com &rarr;</a>
+      </div>
+      <div class="voice-card">
+        <h3>Jamin Ball</h3>
+        <span class="voice-pub">Clouded Judgement</span>
+        <p>Weekly public SaaS market data, including the "is seat-based pricing dead" debate and AI-era build-vs-buy economics &mdash; the revenue-architecture lens.</p>
+        <a href="https://cloudedjudgement.substack.com/" target="_blank" rel="noopener">cloudedjudgement.substack.com &rarr;</a>
+      </div>
+      <div class="voice-card">
+        <h3>PricingSaaS</h3>
+        <span class="voice-pub">Newsletter &amp; Community</span>
+        <p>A dedicated pricing research shop: benchmarks, pricing-page teardowns and packaging experiments tracked across hundreds of SaaS vendors.</p>
+        <a href="https://newsletter.pricingsaas.com/" target="_blank" rel="noopener">newsletter.pricingsaas.com &rarr;</a>
+      </div>
+    </div>
+    <p class="voices-note">Have a suggestion for this list? <a href="/contact" style="color:var(--gold-dk);">Get in touch</a>.</p>
   </div>
 
 </section>
