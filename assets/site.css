@@ -80,8 +80,9 @@ body{
 }
 .site-cta:hover{ background: var(--gold-lt); transform: translateY(-1px); }
 
-/* active-page highlight: <body data-nav="model|content|playbooks|about|assessment"> */
+/* active-page highlight: <body data-nav="model|layers|content|playbooks|about|assessment"> */
 body[data-nav="model"] .site-nav a[href="/agentic-commercial-model"],
+body[data-nav="layers"] .site-nav a[href="/layers"],
 body[data-nav="content"] .site-nav a[href="/content"],
 body[data-nav="playbooks"] .site-nav a[href="/playbooks"],
 body[data-nav="about"] .site-nav a[href="/about"],
