@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Spend Governance Audit — Metering & Entitlement Playbook | FR Advisory</title>
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/playbooks/the-spend-governance-audit.html">
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/playbooks/the-spend-governance-audit.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D1B2A;--paper:#F5F0E8;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#A8853A;
+  --dark:#122033;--darker:#0D1B2A;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+  --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
+}
+body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+.page{max-width:800px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
+.cover{background:var(--dark);padding:3.5rem 3rem 2.5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.cover::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border:1px solid rgba(201,168,76,0.07);border-radius:50%}
+.cover-inner{position:relative;z-index:1}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cover-title{font-family:'Spectral',serif;font-size:38px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
+.cover-title em{font-style:italic;color:var(--gold)}
+.cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:520px;margin-bottom:2rem}
+.cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.cover-stat{border-left:1px solid rgba(201,168,76,0.3);padding-left:0.85rem}
+.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.body{padding:2.5rem 3rem}
+.intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
+.intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
+.section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+p.lead{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:2.5rem}
+.metric-card{border:1px solid var(--border);border-radius:6px;padding:1.1rem;background:var(--white)}
+.metric-card.recommended{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.metric-badge{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:.5rem;display:block}
+.metric-name{font-family:'Spectral',serif;font-size:16px;color:var(--ink);margin-bottom:.5rem}
+.metric-eg{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:.6rem}
+.metric-pro,.metric-con{font-size:11px;line-height:1.6;margin-bottom:.3rem;padding-left:1.1rem;position:relative}
+.metric-pro::before{content:'+';position:absolute;left:0;color:var(--green-dk);font-weight:700}
+.metric-con::before{content:'\2013';position:absolute;left:0;color:var(--red-dk);font-weight:700}
+.explorer{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2.5rem}
+.explorer-title{font-family:'Spectral',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
+.explorer-sub{font-size:11px;color:rgba(245,242,236,.5);margin-bottom:1.25rem;line-height:1.6}
+.explorer-q{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;margin-top:1.1rem}
+.explorer-opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s}
+.opt-btn:hover{border-color:var(--gold)}
+.opt-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.explorer-result{margin-top:1.5rem;padding:1.25rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:6px;display:none}
+.explorer-result.visible{display:block}
+.result-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.result-metric{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
+.result-why{font-size:12px;color:rgba(245,242,236,.65);line-height:1.7}
+.checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:1rem}
+.check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
+.check-item:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.08)}
+.check-item.done{background:var(--green-lt);border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.check-item.gap{background:var(--red-lt);border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.check-box{width:22px;height:22px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;background:var(--paper)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.gap .check-box{background:var(--red);border-color:var(--red)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon,.check-item.gap .check-icon{display:block}
+.check-content{flex:1}
+.check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.check-status-row{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
+.status-btn:hover{border-color:var(--muted)}
+.status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
+.status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
+.signal-score{background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:none}
+.signal-score.visible{display:block}
+.ss-title{font-family:'Spectral',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
+.ss-desc{font-size:11px;color:rgba(245,242,236,.55);line-height:1.6}
+.plan-grid{display:flex;flex-direction:column;gap:0;margin-bottom:2.5rem;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.plan-row{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);background:var(--white)}
+.plan-row:last-child{border-bottom:none}
+.plan-week{font-family:'Spectral',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
+.plan-text{font-size:12px;color:var(--ink);line-height:1.6}
+.plan-text b{font-weight:600}
+.divider{height:1px;background:var(--border);margin:2rem 0}
+.cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(201,168,76,0.08);border-radius:50%}
+.cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
+.cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
+.cta-card.highlight{border-color:var(--gold);position:relative}
+.cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
+.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
+.cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark:hover{background:#444}
+.print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
+.print-hint a{color:var(--gold-dk);text-decoration:none;cursor:pointer}
+@media(max-width:600px){
+  .cover{padding:2rem 1.5rem 1.75rem}
+  .body{padding:1.75rem 1.5rem}
+  .cta-cards{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:1fr}
+  .cover-title{font-size:28px}
+}
+@media print{
+  .cta-block{display:none}
+  .print-hint{display:none}
+  .site-header{display:none}
+  .site-footer{display:none}
+  .no-print{display:none}
+  body{padding-top:0}
+}
+</style>
+</head>
+<body data-nav="playbooks">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">FR Advisory · Layer 06 of 9</div>
+      <div class="cover-title">The Spend<br>Governance Audit</div>
+      <div class="cover-sub">The Metering & Entitlement playbook. Find out whether you can actually see and govern what your agents are consuming, before a customer's finance team asks you a question you can't answer.</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <div class="cover-stat-n">1</div>
+          <div class="cover-stat-l">Precondition for any usage-based price</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">5</div>
+          <div class="cover-stat-l">Failure signals</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">30</div>
+          <div class="cover-stat-l">Day action plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="intro-block">
+      <div class="intro-block-title">Why this playbook exists</div>
+      <div class="intro-block-text">Consumption and outcome pricing only work if what's being consumed is actually measured accurately and governably. An agent that can take dozens of actions per task changes the shape of the metering problem entirely: the unit that needs governing is no longer a seat or even a simple API call, it's a chain of actions whose cost and value both need to be visible in real time, to you and to the customer being billed for it.</div>
+    </div>
+
+    <div class="section-label">Two ways companies handle agent spend, compared</div>
+    <p class="lead">Only one of these survives a customer's finance team asking exactly what they're being charged for.</p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <span class="metric-badge">Approach 1</span>
+        <div class="metric-name">Unmetered Access</div>
+        <div class="metric-eg">Agents run with broad access, usage tracked loosely or after the fact</div>
+        <div class="metric-pro">Fast to ship — no metering infrastructure required upfront</div>
+        <div class="metric-pro">No friction for the customer in the moment</div>
+        <div class="metric-con">Neither you nor the customer can answer what specifically drove this month's bill</div>
+        <div class="metric-con">Cost overruns are discovered after they've already happened</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Approach 2</span>
+        <div class="metric-name">Governed Entitlement</div>
+        <div class="metric-eg">Every agent action metered, capped, and attributable to a specific outcome</div>
+        <div class="metric-pro">You and the customer can both see exactly what drove the number</div>
+        <div class="metric-pro">Entitlement limits catch runaway spend before it becomes a bill dispute</div>
+        <div class="metric-con">Requires metering infrastructure built before the pricing model can safely go live</div>
+        <div class="metric-con">Needs ongoing investment as agent behaviour and action types evolve</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Reality check</span>
+        <div class="metric-name">Blind Trust Billing</div>
+        <div class="metric-eg">Usage-based price on paper, no real visibility underneath it</div>
+        <div class="metric-pro">Looks like a modern consumption model from the outside</div>
+        <div class="metric-con">The first billing dispute exposes that no one can actually explain the number</div>
+        <div class="metric-con">Erodes trust faster than seat-based pricing ever did</div>
+      </div>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-title">Spend Governance Reality Check</div>
+      <div class="explorer-sub">Two questions to find out whether your metering can actually support the pricing model you're charging on.</div>
+
+      <div class="explorer-q">Can you attribute this month's bill for any customer to specific, named agent actions?</div>
+      <div class="explorer-opts" id="q1-opts">
+        <button class="opt-btn" data-q="1" data-v="yes">Yes, in detail</button>
+        <button class="opt-btn" data-q="1" data-v="no">Only roughly, or after digging</button>
+      </div>
+
+      <div class="explorer-q">Do customers have visibility into their own consumption before the invoice arrives?</div>
+      <div class="explorer-opts" id="q2-opts">
+        <button class="opt-btn" data-q="2" data-v="yes">Yes — real-time or near-real-time</button>
+        <button class="opt-btn" data-q="2" data-v="no">No — the invoice is often the first they hear of it</button>
+      </div>
+
+      <div class="explorer-result" id="explorer-result">
+        <div class="result-label">Starting recommendation</div>
+        <div class="result-metric" id="result-metric">—</div>
+        <div class="result-why" id="result-why">—</div>
+      </div>
+    </div>
+
+    <div class="section-label">Five signals your metering can't actually support the pricing model you're charging on</div>
+    <p class="lead">Mark each one honestly against your current billing and metering setup.</p>
+
+    <div class="checklist" id="checklist">
+      <div class="check-item" id="item-0">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">You cannot attribute a customer's bill to specific, named agent actions without manual digging</div>
+          <div class="check-why">If attribution requires an engineer pulling logs, it isn't a governance system — it's a forensic exercise you run after a dispute has already started.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(0,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(0,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-1">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Customers see their consumption for the first time on the invoice, not before</div>
+          <div class="check-why">A surprise invoice on a consumption model reads as a billing error even when the number is technically correct, because there was no visibility to build trust in it beforehand.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(1,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(1,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-2">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">There's no entitlement cap or alert before an account's usage spikes unexpectedly</div>
+          <div class="check-why">Without a governance ceiling, a runaway agent loop becomes a customer's problem only when the bill arrives, not when the spike happens.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(2,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(2,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-3">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Finance and product disagree on what unit is actually being metered</div>
+          <div class="check-why">If the two functions closest to the pricing model can't agree on the unit, customers are very unlikely to understand it either.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(3,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(3,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-4">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Metering infrastructure was bolted on after the pricing model launched, not built before it</div>
+          <div class="check-why">Pricing announced ahead of the metering that has to support it is a common pattern, and it's usually where the first billing disputes come from.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(4,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(4,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-score" id="signal-score">
+      <div class="ss-title" id="ss-title">—</div>
+      <div class="ss-desc" id="ss-desc">—</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The 30-day action plan</div>
+    <div class="plan-grid">
+      <div class="plan-row"><div class="plan-week">Week 1</div><div class="plan-text"><b>Pick one account and trace their last bill.</b> Try to attribute every line item to a specific, named agent action — note where the trail goes cold.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 2</div><div class="plan-text"><b>Identify the visibility gap.</b> Compare what you can explain internally to what the customer can see before the invoice arrives.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 3</div><div class="plan-text"><b>Set entitlement guardrails.</b> Define caps or alerts for at least your highest-risk usage pattern so spikes are caught before billing, not after.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 4</div><div class="plan-text"><b>Give customers a consumption view.</b> Even a simple dashboard or monthly summary ahead of invoicing closes most of the trust gap.</div></div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Ready to build the full model?</div>
+      <div class="cta-title">Build metering that can actually support the bill</div>
+      <div class="cta-sub">This playbook flags where your metering can't yet back up your pricing model. The advisor session rebuilds metering, entitlement, and billing together so the number on the invoice is one everyone can explain.</div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-name">Full Assessment</div>
+          <div class="cta-card-price">£995</div>
+          <div class="cta-card-desc">All nine layers scored, prioritised roadmap, PDF report within 48 hours.</div>
+          <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
+        </div>
+        <div class="cta-card highlight">
+          <div class="cta-card-badge">Most valuable</div>
+          <div class="cta-card-name">Assessment + Advisor</div>
+          <div class="cta-card-price">£2,495</div>
+          <div class="cta-card-desc">Full report plus 2-hour 1:1 session with Fessal. Custom model design included.</div>
+          <button class="btn-dark" onclick="window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the The Spend Governance Audit playbook and would like to book the Assessment + Advisor package.'">Book session →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-hint">
+      <a onclick="window.print()">Print or save as PDF</a> &nbsp;·&nbsp; FR Advisory &nbsp;·&nbsp; fragenticadvisor@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+var signals = [null,null,null,null,null];
+function setStatus(idx, status, btn){
+  signals[idx] = status;
+  var item = document.getElementById('item-'+idx);
+  item.className = 'check-item ' + (status === 'ready' ? 'done' : 'gap');
+  var icon = item.querySelector('.check-icon');
+  icon.textContent = status === 'ready' ? '✓' : '○';
+  var btns = item.querySelectorAll('.status-btn');
+  btns.forEach(function(b){ b.className = 'status-btn'; });
+  btn.className = 'status-btn active-' + status;
+  updateSignalScore();
+}
+function updateSignalScore(){
+  var assessed = signals.filter(function(s){return s!==null;}).length;
+  var failing = signals.filter(function(s){return s==='gap';}).length;
+  if(assessed === 0) return;
+  var box = document.getElementById('signal-score');
+  box.className = 'signal-score visible';
+  var title, desc;
+  if(failing === 0){
+    title = 'No active failure signals';
+    desc = 'You can attribute spend and customers can see it coming. Keep auditing as new agent actions get added.';
+  } else if(failing <= 2){
+    title = failing + ' of 5 signals firing';
+    desc = 'Some signals are firing. A visibility gap is quieter than an attribution gap, but just as likely to surface as a dispute.';
+  } else {
+    title = failing + ' of 5 signals firing';
+    desc = 'This is blind trust billing. Fix attribution and customer visibility before the next consumption spike turns into a dispute.';
+  }
+  document.getElementById('ss-title').textContent = title;
+  document.getElementById('ss-desc').textContent = desc;
+}
+
+var explorerAnswers = {1:null, 2:null};
+document.querySelectorAll('.opt-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var q = this.getAttribute('data-q');
+    var v = this.getAttribute('data-v');
+    explorerAnswers[q] = v;
+    document.querySelectorAll('[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    updateExplorer();
+  });
+});
+function updateExplorer(){
+  if(!explorerAnswers[1] || !explorerAnswers[2]) return;
+  var metric, why;
+  if(explorerAnswers[1]==='yes' && explorerAnswers[2]==='yes'){
+    metric = "Your metering can actually support the pricing model";
+    why = "Attribution and customer-facing visibility are the two hardest parts of consumption pricing, and you've built both. Keep auditing as new agent action types get added.";
+  } else if(explorerAnswers[1]==='yes' && explorerAnswers[2]==='no'){
+    metric = "You can explain the bill, the customer can't predict it";
+    why = "You have the data internally but haven't exposed it — this is usually the gap that turns into a billing dispute even when your own numbers are correct.";
+  } else if(explorerAnswers[1]==='no' && explorerAnswers[2]==='yes'){
+    metric = "Customer-facing dashboard ahead of internal attribution";
+    why = "Unusual — worth checking that what customers see actually reconciles with what finance can explain internally before a mismatch surfaces.";
+  } else {
+    metric = "Blind trust billing — the riskiest combination";
+    why = "Neither you nor the customer can currently explain what drove a given bill. This is where a usage-pricing model becomes a trust problem the moment usage spikes unexpectedly.";
+  }
+  document.getElementById('result-metric').textContent = metric;
+  document.getElementById('result-why').textContent = why;
+  document.getElementById('explorer-result').className = 'explorer-result visible';
+}
+</script>
+<div class="no-print" style="background:#122033;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,240,232,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.9)'" onmouseout="this.style.color='rgba(245,240,232,.55)'">← All Playbooks</a><a href="/assessment" style="font-size:11px;color:#C9A84C;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif">Take the Assessment →</a></div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

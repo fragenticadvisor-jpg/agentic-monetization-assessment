@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Seats to Signals — Pricing &amp; Packaging Playbook | FR Advisory</title>
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/playbooks/from-seats-to-signals.html">
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/playbooks/from-seats-to-signals.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D1B2A;--paper:#F5F0E8;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#A8853A;
+  --dark:#122033;--darker:#0D1B2A;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+  --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
+}
+body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+.page{max-width:800px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
+
+/* COVER */
+.cover{background:var(--dark);padding:3.5rem 3rem 2.5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.cover::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border:1px solid rgba(201,168,76,0.07);border-radius:50%}
+.cover-inner{position:relative;z-index:1}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cover-title{font-family:'Spectral',serif;font-size:38px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
+.cover-title em{font-style:italic;color:var(--gold)}
+.cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:520px;margin-bottom:2rem}
+.cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.cover-stat{border-left:1px solid rgba(201,168,76,0.3);padding-left:0.85rem}
+.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+
+.body{padding:2.5rem 3rem}
+.intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
+.intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
+
+.section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+p.lead{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
+
+/* METRIC COMPARISON CARDS */
+.metric-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:2.5rem}
+.metric-card{border:1px solid var(--border);border-radius:6px;padding:1.1rem;background:var(--white)}
+.metric-card.recommended{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.metric-badge{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:.5rem;display:block}
+.metric-name{font-family:'Spectral',serif;font-size:16px;color:var(--ink);margin-bottom:.5rem}
+.metric-eg{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:.6rem}
+.metric-pro,.metric-con{font-size:11px;line-height:1.6;margin-bottom:.3rem;padding-left:1.1rem;position:relative}
+.metric-pro::before{content:'+';position:absolute;left:0;color:var(--green-dk);font-weight:700}
+.metric-con::before{content:'–';position:absolute;left:0;color:var(--red-dk);font-weight:700}
+
+/* METRIC EXPLORER TOOL */
+.explorer{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2.5rem}
+.explorer-title{font-family:'Spectral',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
+.explorer-sub{font-size:11px;color:rgba(245,242,236,.5);margin-bottom:1.25rem;line-height:1.6}
+.explorer-q{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;margin-top:1.1rem}
+.explorer-opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s}
+.opt-btn:hover{border-color:var(--gold)}
+.opt-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.explorer-result{margin-top:1.5rem;padding:1.25rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:6px;display:none}
+.explorer-result.visible{display:block}
+.result-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.result-metric{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
+.result-why{font-size:12px;color:rgba(245,242,236,.65);line-height:1.7}
+
+/* CHECKLIST (reused pattern) */
+.checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:1rem}
+.check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
+.check-item:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.08)}
+.check-item.done{background:var(--green-lt);border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.check-item.gap{background:var(--red-lt);border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.check-box{width:22px;height:22px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;background:var(--paper)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.gap .check-box{background:var(--red);border-color:var(--red)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon,.check-item.gap .check-icon{display:block}
+.check-content{flex:1}
+.check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.check-status-row{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
+.status-btn:hover{border-color:var(--muted)}
+.status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
+.status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
+
+.signal-score{background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:none}
+.signal-score.visible{display:block}
+.ss-title{font-family:'Spectral',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
+.ss-desc{font-size:11px;color:rgba(245,242,236,.55);line-height:1.6}
+
+/* PLAN */
+.plan-grid{display:flex;flex-direction:column;gap:0;margin-bottom:2.5rem;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.plan-row{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);background:var(--white)}
+.plan-row:last-child{border-bottom:none}
+.plan-week{font-family:'Spectral',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
+.plan-text{font-size:12px;color:var(--ink);line-height:1.6}
+.plan-text b{font-weight:600}
+
+.divider{height:1px;background:var(--border);margin:2rem 0}
+
+/* CTA BLOCK */
+.cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(201,168,76,0.08);border-radius:50%}
+.cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
+.cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
+.cta-card.highlight{border-color:var(--gold);position:relative}
+.cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
+.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
+.cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark:hover{background:#444}
+
+.print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
+.print-hint a{color:var(--gold-dk);text-decoration:none;cursor:pointer}
+
+@media(max-width:600px){
+  .cover{padding:2rem 1.5rem 1.75rem}
+  .body{padding:1.75rem 1.5rem}
+  .cta-cards{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:1fr}
+  .cover-title{font-size:28px}
+}
+@media print{
+  .cta-block{display:none}
+  .print-hint{display:none}
+  .site-header{display:none}
+  .site-footer{display:none}
+  .no-print{display:none}
+  body{padding-top:0}
+}
+</style>
+</head>
+<body data-nav="playbooks">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">FR Advisory · Layer 03 of 9</div>
+      <div class="cover-title">From Seats<br>to <em>Signals</em></div>
+      <div class="cover-sub">The Pricing &amp; Packaging playbook. Choose the value metric that survives your product getting better, build the case for it, and avoid the repricing spiral that's already cost Salesforce three attempts in eighteen months.</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <div class="cover-stat-n">3</div>
+          <div class="cover-stat-l">Metric types compared</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">5</div>
+          <div class="cover-stat-l">Failure signals</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">30</div>
+          <div class="cover-stat-l">Day validation plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="intro-block">
+      <div class="intro-block-title">Why this playbook exists</div>
+      <div class="intro-block-text">Salesforce has repriced Agentforce three times in eighteen months, per conversation, then per action, then back to per-seat bundles, because nobody had settled what an agent's unit of value actually is before the pricing page went live. HubSpot layered credits onto seats and got a model customers called "too much" to manage, not too expensive. This playbook exists so you settle the metric question once, with evidence, before you publish anything.</div>
+    </div>
+
+    <div class="section-label">The three metric types, compared</div>
+    <p class="lead">Every agentic pricing model reduces to one of three metric types. Most companies pick the first one that sounds intuitive without checking whether it will still make sense once the product gets better.</p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <span class="metric-badge">Type 1</span>
+        <div class="metric-name">Activity</div>
+        <div class="metric-eg">e.g. per conversation, per action, per API call</div>
+        <div class="metric-pro">Easy to instrument from day one</div>
+        <div class="metric-pro">Intuitive to explain on a pricing page</div>
+        <div class="metric-con">Measures attempts, not results</div>
+        <div class="metric-con">Punishes you when the product gets more efficient</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Type 2</span>
+        <div class="metric-name">Consumption</div>
+        <div class="metric-eg">e.g. tokens, compute credits, seat-hours</div>
+        <div class="metric-pro">Scales naturally with usage volume</div>
+        <div class="metric-pro">Familiar to buyers from cloud pricing</div>
+        <div class="metric-con">No ceiling for the buyer to budget against</div>
+        <div class="metric-con">Falls when customers optimise, even as value rises</div>
+      </div>
+      <div class="metric-card recommended">
+        <span class="metric-badge">Type 3 · Target state</span>
+        <div class="metric-name">Outcome</div>
+        <div class="metric-eg">e.g. per resolution, per decision automated</div>
+        <div class="metric-pro">Tracks what the customer actually recognises as value</div>
+        <div class="metric-pro">Survives your product becoming more efficient</div>
+        <div class="metric-con">Requires real measurement infrastructure to verify</div>
+        <div class="metric-con">Harder to build than it is to describe</div>
+      </div>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-title">Metric Explorer</div>
+      <div class="explorer-sub">Answer two questions about your product to get a starting recommendation. This isn't a final answer, it's a first hypothesis to pressure-test with willingness-to-pay conversations.</div>
+
+      <div class="explorer-q">What does your agent actually do?</div>
+      <div class="explorer-opts" id="q1-opts">
+        <button class="opt-btn" data-q="1" data-v="deflect">Deflects or resolves support tickets</button>
+        <button class="opt-btn" data-q="1" data-v="generate">Generates content or drafts</button>
+        <button class="opt-btn" data-q="1" data-v="decide">Makes or automates a decision (approve, route, price)</button>
+        <button class="opt-btn" data-q="1" data-v="research">Researches, summarises, or retrieves information</button>
+      </div>
+
+      <div class="explorer-q">Can you verify the result today, not just the attempt?</div>
+      <div class="explorer-opts" id="q2-opts">
+        <button class="opt-btn" data-q="2" data-v="yes">Yes — we can confirm the outcome happened</button>
+        <button class="opt-btn" data-q="2" data-v="no">No — we can only log that the agent ran</button>
+      </div>
+
+      <div class="explorer-result" id="explorer-result">
+        <div class="result-label">Starting recommendation</div>
+        <div class="result-metric" id="result-metric">—</div>
+        <div class="result-why" id="result-why">—</div>
+      </div>
+    </div>
+
+    <div class="section-label">Five signals your metric is already failing</div>
+    <p class="lead">Mark each one honestly. These are the signals that show up before a repricing crisis, not after it.</p>
+
+    <div class="checklist" id="checklist">
+      <div class="check-item" id="item-0">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Your revenue on an account can fall while that customer's satisfaction rises</div>
+          <div class="check-why">If a more efficient run of your product means a smaller bill, you're pricing activity, not outcomes — and you're being penalised on your income statement for making the product better.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(0,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(0,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-1">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Finance can't forecast next quarter's revenue from this line without guessing</div>
+          <div class="check-why">A metric with no floor and no ceiling isn't a pricing model, it's a liability. Enterprise buyers need a number for a spreadsheet; if finance can't produce one either, the model isn't done.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(1,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(1,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-2">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Customers ask what the unit actually means more than once per sales cycle</div>
+          <div class="check-why">If prospects keep asking "what counts as one conversation," the unit isn't legible. A metric that needs repeated explaining is a metric that isn't tracking real value.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(2,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(2,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-3">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">You've changed the pricing page more than once in the last twelve months</div>
+          <div class="check-why">One change is iteration. More than one, without a new product to justify it, is usually evidence the unit of value was never actually settled in the first place.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(3,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(3,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-4">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">SMB accounts are quietly reducing usage when their budgets tighten</div>
+          <div class="check-why">A metric with no committed floor invites cost optimisation the moment the macro turns. This is exactly what happened to early consumption-pricing companies once growth-era budgets tightened.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(4,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(4,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-score" id="signal-score">
+      <div class="ss-title" id="ss-title">—</div>
+      <div class="ss-desc" id="ss-desc">—</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The 30-day validation plan</div>
+    <div class="plan-grid">
+      <div class="plan-row"><div class="plan-week">Week 1</div><div class="plan-text"><b>Decompose current revenue</b> by pricing metric and product line. You cannot design the next metric without knowing exactly what the current one is actually charging for.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 2</div><div class="plan-text"><b>Run 5 willingness-to-pay conversations</b> with your most agentic accounts. Ask what they'd expect to pay if priced by the outcome, not the activity — the gap between that answer and your current bill is your risk.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 3</div><div class="plan-text"><b>Build the smallest possible outcome-verification check</b> for your top use case. It does not need to be complete, it needs to prove the outcome can be confirmed, not just attempted.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 4</div><div class="plan-text"><b>Pressure-test the model against your own efficiency roadmap.</b> If the product gets 30% more efficient next quarter, does revenue on this metric rise, hold, or fall? If it falls, the model isn't ready to publish.</div></div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Ready to build the full model?</div>
+      <div class="cta-title">Turn this into a custom<br>pricing architecture</div>
+      <div class="cta-sub">This playbook gets the metric question answered. The advisor session is where it becomes a complete hybrid pricing structure, base plus consumption, built for your specific product and customer base.</div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-name">Full Assessment</div>
+          <div class="cta-card-price">£995</div>
+          <div class="cta-card-desc">All nine layers scored, prioritised roadmap, PDF report within 48 hours.</div>
+          <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
+        </div>
+        <div class="cta-card highlight">
+          <div class="cta-card-badge">Most valuable</div>
+          <div class="cta-card-name">Assessment + Advisor</div>
+          <div class="cta-card-price">£2,495</div>
+          <div class="cta-card-desc">Full report plus 2-hour 1:1 session with Fessal. Custom model design included.</div>
+          <button class="btn-dark" onclick="window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the From Seats to Signals playbook and would like to book the Assessment + Advisor package.'">Book session →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-hint">
+      <a onclick="window.print()">Print or save as PDF</a> &nbsp;·&nbsp; FR Advisory &nbsp;·&nbsp; fragenticadvisor@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+var signals = [null,null,null,null,null];
+function setStatus(idx, status, btn){
+  signals[idx] = status;
+  var item = document.getElementById('item-'+idx);
+  item.className = 'check-item ' + (status === 'ready' ? 'done' : 'gap');
+  var icon = item.querySelector('.check-icon');
+  icon.textContent = status === 'ready' ? '✓' : '○';
+  var btns = item.querySelectorAll('.status-btn');
+  btns.forEach(function(b){ b.className = 'status-btn'; });
+  btn.className = 'status-btn active-' + status;
+  updateSignalScore();
+}
+function updateSignalScore(){
+  var assessed = signals.filter(function(s){return s!==null;}).length;
+  var failing = signals.filter(function(s){return s==='gap';}).length;
+  if(assessed === 0) return;
+  var box = document.getElementById('signal-score');
+  box.className = 'signal-score visible';
+  var title, desc;
+  if(failing === 0){
+    title = 'No active failure signals';
+    desc = 'Your current metric is holding. Re-run this check after every pricing change or major efficiency improvement to your product.';
+  } else if(failing <= 2){
+    title = failing + ' of 5 signals firing';
+    desc = 'Early warning territory. Use the 30-day plan below to validate before these compound into a repricing crisis.';
+  } else {
+    title = failing + ' of 5 signals firing';
+    desc = 'This is the pattern that preceded Salesforce\'s three pricing revisions. The unit of value needs to be re-settled, not patched.';
+  }
+  document.getElementById('ss-title').textContent = title;
+  document.getElementById('ss-desc').textContent = desc;
+}
+
+var explorerAnswers = {1:null, 2:null};
+document.querySelectorAll('.opt-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var q = this.getAttribute('data-q');
+    var v = this.getAttribute('data-v');
+    explorerAnswers[q] = v;
+    document.querySelectorAll('[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    updateExplorer();
+  });
+});
+function updateExplorer(){
+  if(!explorerAnswers[1] || !explorerAnswers[2]) return;
+  var metric, why;
+  var canVerify = explorerAnswers[2] === 'yes';
+  var type = explorerAnswers[1];
+  if(!canVerify){
+    metric = 'Consumption, as a bridge — with an outcome pilot running in parallel';
+    why = 'You can\'t verify outcomes yet, so pricing on activity alone would already show the efficiency-paradox problem. Price on consumption for now, but build outcome verification for your top use case before your next renewal cycle — that becomes your next pricing generation, not a fourth repricing crisis.';
+  } else if(type === 'deflect'){
+    metric = 'Per resolution, verified';
+    why = 'This is the closest any vendor has come to pricing what actually happened rather than what was attempted. Define "resolution" precisely and invest in the verification layer — the definition is the product, commercially speaking.';
+  } else if(type === 'decide'){
+    metric = 'Per decision automated, verified';
+    why = 'You can confirm outcomes and the work is a discrete decision, so price the decision itself, not the process that produced it. This is the cleanest outcome metric available and it will survive your product getting faster.';
+  } else if(type === 'generate'){
+    metric = 'Hybrid: seat or base fee, plus consumption ceiling';
+    why = 'Generated content is judged by a human before it creates value, so a pure outcome metric is hard to verify cleanly today. A base fee protects your floor while a consumption layer captures the upside, and you avoid the no-floor trap that hit early usage-based pricing.';
+  } else {
+    metric = 'Consumption, tied to a recognisable unit of retrieval';
+    why = 'Research and retrieval agents are judged on speed and relevance more than on a single verifiable outcome. Price consumption, but define the unit as something the customer recognises, a report, a brief, a query resolved, not a raw token count.';
+  }
+  document.getElementById('result-metric').textContent = metric;
+  document.getElementById('result-why').textContent = why;
+  document.getElementById('explorer-result').className = 'explorer-result visible';
+}
+</script>
+<div class="no-print" style="background:#122033;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,240,232,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.9)'" onmouseout="this.style.color='rgba(245,240,232,.55)'">← All Playbooks</a><a href="/assessment" style="font-size:11px;color:#C9A84C;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif">Take the Assessment →</a></div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Systems Coherence Audit — Commercial Systems Playbook | FR Advisory</title>
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/playbooks/the-systems-coherence-audit.html">
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/playbooks/the-systems-coherence-audit.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D1B2A;--paper:#F5F0E8;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#A8853A;
+  --dark:#122033;--darker:#0D1B2A;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+  --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
+}
+body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+.page{max-width:800px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
+.cover{background:var(--dark);padding:3.5rem 3rem 2.5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.cover::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border:1px solid rgba(201,168,76,0.07);border-radius:50%}
+.cover-inner{position:relative;z-index:1}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cover-title{font-family:'Spectral',serif;font-size:38px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
+.cover-title em{font-style:italic;color:var(--gold)}
+.cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:520px;margin-bottom:2rem}
+.cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.cover-stat{border-left:1px solid rgba(201,168,76,0.3);padding-left:0.85rem}
+.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.body{padding:2.5rem 3rem}
+.intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
+.intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
+.section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+p.lead{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:2.5rem}
+.metric-card{border:1px solid var(--border);border-radius:6px;padding:1.1rem;background:var(--white)}
+.metric-card.recommended{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.metric-badge{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:.5rem;display:block}
+.metric-name{font-family:'Spectral',serif;font-size:16px;color:var(--ink);margin-bottom:.5rem}
+.metric-eg{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:.6rem}
+.metric-pro,.metric-con{font-size:11px;line-height:1.6;margin-bottom:.3rem;padding-left:1.1rem;position:relative}
+.metric-pro::before{content:'+';position:absolute;left:0;color:var(--green-dk);font-weight:700}
+.metric-con::before{content:'\2013';position:absolute;left:0;color:var(--red-dk);font-weight:700}
+.explorer{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2.5rem}
+.explorer-title{font-family:'Spectral',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
+.explorer-sub{font-size:11px;color:rgba(245,242,236,.5);margin-bottom:1.25rem;line-height:1.6}
+.explorer-q{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;margin-top:1.1rem}
+.explorer-opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s}
+.opt-btn:hover{border-color:var(--gold)}
+.opt-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.explorer-result{margin-top:1.5rem;padding:1.25rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:6px;display:none}
+.explorer-result.visible{display:block}
+.result-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.result-metric{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
+.result-why{font-size:12px;color:rgba(245,242,236,.65);line-height:1.7}
+.checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:1rem}
+.check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
+.check-item:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.08)}
+.check-item.done{background:var(--green-lt);border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.check-item.gap{background:var(--red-lt);border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.check-box{width:22px;height:22px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;background:var(--paper)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.gap .check-box{background:var(--red);border-color:var(--red)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon,.check-item.gap .check-icon{display:block}
+.check-content{flex:1}
+.check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.check-status-row{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
+.status-btn:hover{border-color:var(--muted)}
+.status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
+.status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
+.signal-score{background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:none}
+.signal-score.visible{display:block}
+.ss-title{font-family:'Spectral',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
+.ss-desc{font-size:11px;color:rgba(245,242,236,.55);line-height:1.6}
+.plan-grid{display:flex;flex-direction:column;gap:0;margin-bottom:2.5rem;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.plan-row{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);background:var(--white)}
+.plan-row:last-child{border-bottom:none}
+.plan-week{font-family:'Spectral',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
+.plan-text{font-size:12px;color:var(--ink);line-height:1.6}
+.plan-text b{font-weight:600}
+.divider{height:1px;background:var(--border);margin:2rem 0}
+.cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(201,168,76,0.08);border-radius:50%}
+.cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
+.cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
+.cta-card.highlight{border-color:var(--gold);position:relative}
+.cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
+.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
+.cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark:hover{background:#444}
+.print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
+.print-hint a{color:var(--gold-dk);text-decoration:none;cursor:pointer}
+@media(max-width:600px){
+  .cover{padding:2rem 1.5rem 1.75rem}
+  .body{padding:1.75rem 1.5rem}
+  .cta-cards{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:1fr}
+  .cover-title{font-size:28px}
+}
+@media print{
+  .cta-block{display:none}
+  .print-hint{display:none}
+  .site-header{display:none}
+  .site-footer{display:none}
+  .no-print{display:none}
+  body{padding-top:0}
+}
+</style>
+</head>
+<body data-nav="playbooks">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">FR Advisory · Layer 09 of 9</div>
+      <div class="cover-title">The Systems<br>Coherence Audit</div>
+      <div class="cover-sub">The Commercial Systems playbook. Find out whether your CRM, CPQ, billing, and analytics stack can actually run the model you've designed, or whether it's quietly blocking every other layer you've rebuilt.</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <div class="cover-stat-n">1</div>
+          <div class="cover-stat-l">Calibration layer holding the whole model together</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">5</div>
+          <div class="cover-stat-l">Failure signals</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">30</div>
+          <div class="cover-stat-l">Day action plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="intro-block">
+      <div class="intro-block-title">Why this playbook exists</div>
+      <div class="intro-block-text">The other eight layers can be rebuilt correctly on paper and still fail in practice if the systems underneath can't run them. A new pricing model, a new comp plan, and a new metering approach all depend on the same underlying data being calibrated and consistent across CRM, CPQ, billing, and analytics — because it's that per-customer calibration, not any single tool, that becomes genuinely difficult for a competitor to copy. A fragmented stack doesn't just create friction, it silently reverts every other layer back to what the old systems know how to do.</div>
+    </div>
+
+    <div class="section-label">Two ways commercial systems are structured, compared</div>
+    <p class="lead">Only one of these can actually run a rebuilt commercial model rather than quietly reverting it.</p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <span class="metric-badge">Approach 1</span>
+        <div class="metric-name">Fragmented Stack</div>
+        <div class="metric-eg">CRM, CPQ, billing, and analytics maintained as separate systems of record</div>
+        <div class="metric-pro">Each tool is best-in-class for its own narrow job</div>
+        <div class="metric-pro">Easier to swap out any one piece independently</div>
+        <div class="metric-con">No single, calibrated view of a customer across systems</div>
+        <div class="metric-con">New pricing, comp, or metering models get quietly reverted to what old systems can handle</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Approach 2</span>
+        <div class="metric-name">Unified Calibration Layer</div>
+        <div class="metric-eg">A consistent, per-customer data layer underneath CRM, CPQ, billing, and analytics</div>
+        <div class="metric-pro">The hard-to-copy moat sits here, not in any single tool</div>
+        <div class="metric-pro">Every other layer you rebuild actually holds, because the systems can run it</div>
+        <div class="metric-con">Requires sustained investment, not a one-off integration project</div>
+        <div class="metric-con">Needs a clear owner, or coherence quietly decays as new tools get added</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Reality check</span>
+        <div class="metric-name">Integration Theater</div>
+        <div class="metric-eg">Systems technically connected via APIs, but the underlying data isn't actually calibrated</div>
+        <div class="metric-pro">Looks unified from an architecture diagram</div>
+        <div class="metric-con">Numbers still disagree between systems when anyone checks closely</div>
+        <div class="metric-con">The appearance of coherence delays the real fix</div>
+      </div>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-title">Systems Coherence Reality Check</div>
+      <div class="explorer-sub">Two questions to find out whether your systems can actually run the commercial model you've designed.</div>
+
+      <div class="explorer-q">If you pulled the same customer's data from CRM, billing, and analytics today, would the numbers agree?</div>
+      <div class="explorer-opts" id="q1-opts">
+        <button class="opt-btn" data-q="1" data-v="yes">Yes, they'd match</button>
+        <button class="opt-btn" data-q="1" data-v="no">Probably not, or we're not sure</button>
+      </div>
+
+      <div class="explorer-q">Has a new pricing, comp, or metering change ever been blocked or watered down because the systems couldn't support it?</div>
+      <div class="explorer-opts" id="q2-opts">
+        <button class="opt-btn" data-q="2" data-v="yes">Yes, this has happened</button>
+        <button class="opt-btn" data-q="2" data-v="no">Not that we've noticed</button>
+      </div>
+
+      <div class="explorer-result" id="explorer-result">
+        <div class="result-label">Starting recommendation</div>
+        <div class="result-metric" id="result-metric">—</div>
+        <div class="result-why" id="result-why">—</div>
+      </div>
+    </div>
+
+    <div class="section-label">Five signals your systems are quietly blocking the model you've designed</div>
+    <p class="lead">Mark each one honestly against your current stack.</p>
+
+    <div class="checklist" id="checklist">
+      <div class="check-item" id="item-0">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">The same customer's data disagrees across CRM, billing, and analytics when anyone checks closely</div>
+          <div class="check-why">This is the clearest sign the underlying calibration doesn't exist yet, whatever the integration diagram suggests.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(0,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(0,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-1">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">A pricing, comp, or metering change has been scaled back because the systems couldn't support the original design</div>
+          <div class="check-why">This is the failure mode in its most visible form: the commercial model gets quietly reverted to what the old systems already know how to do.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(1,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(1,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-2">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Reporting a single customer's full picture requires manually reconciling exports from multiple systems</div>
+          <div class="check-why">Manual reconciliation is a symptom of missing calibration, and it doesn't scale as the commercial model gets more complex.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(2,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(2,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-3">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Systems are connected via integrations, but no one owns whether the underlying data is actually consistent</div>
+          <div class="check-why">Integration Theater happens when connectivity is treated as equivalent to coherence — they are not the same thing.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(3,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(3,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-4">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">The per-customer calibration this stack could provide isn't treated as a competitive asset</div>
+          <div class="check-why">This calibration, done well, is genuinely hard for a competitor to replicate — treating it as plumbing rather than a moat leaves that advantage unbuilt.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(4,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(4,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-score" id="signal-score">
+      <div class="ss-title" id="ss-title">—</div>
+      <div class="ss-desc" id="ss-desc">—</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The 30-day action plan</div>
+    <div class="plan-grid">
+      <div class="plan-row"><div class="plan-week">Week 1</div><div class="plan-text"><b>Pick one customer and pull their data from every system.</b> Compare CRM, CPQ, billing, and analytics side by side and note every discrepancy.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 2</div><div class="plan-text"><b>Trace one discrepancy to its root cause.</b> Find out where in the pipeline the numbers actually diverge, not just that they do.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 3</div><div class="plan-text"><b>Identify what this blocks.</b> Map which planned or wished-for pricing, comp, or metering changes depend on this data being coherent.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 4</div><div class="plan-text"><b>Assign ownership of calibration as an ongoing responsibility.</b> This isn't a one-time project — someone needs to own keeping systems coherent as new tools and models get added.</div></div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Ready to build the full model?</div>
+      <div class="cta-title">Fix the layer that determines whether the other eight hold</div>
+      <div class="cta-sub">This playbook flags where your systems can't yet run the model you've designed. The advisor session rebuilds the calibration layer underneath CRM, CPQ, billing, and analytics so every other layer actually holds in production.</div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-name">Full Assessment</div>
+          <div class="cta-card-price">£995</div>
+          <div class="cta-card-desc">All nine layers scored, prioritised roadmap, PDF report within 48 hours.</div>
+          <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
+        </div>
+        <div class="cta-card highlight">
+          <div class="cta-card-badge">Most valuable</div>
+          <div class="cta-card-name">Assessment + Advisor</div>
+          <div class="cta-card-price">£2,495</div>
+          <div class="cta-card-desc">Full report plus 2-hour 1:1 session with Fessal. Custom model design included.</div>
+          <button class="btn-dark" onclick="window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the The Systems Coherence Audit playbook and would like to book the Assessment + Advisor package.'">Book session →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-hint">
+      <a onclick="window.print()">Print or save as PDF</a> &nbsp;·&nbsp; FR Advisory &nbsp;·&nbsp; fragenticadvisor@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+var signals = [null,null,null,null,null];
+function setStatus(idx, status, btn){
+  signals[idx] = status;
+  var item = document.getElementById('item-'+idx);
+  item.className = 'check-item ' + (status === 'ready' ? 'done' : 'gap');
+  var icon = item.querySelector('.check-icon');
+  icon.textContent = status === 'ready' ? '✓' : '○';
+  var btns = item.querySelectorAll('.status-btn');
+  btns.forEach(function(b){ b.className = 'status-btn'; });
+  btn.className = 'status-btn active-' + status;
+  updateSignalScore();
+}
+function updateSignalScore(){
+  var assessed = signals.filter(function(s){return s!==null;}).length;
+  var failing = signals.filter(function(s){return s==='gap';}).length;
+  if(assessed === 0) return;
+  var box = document.getElementById('signal-score');
+  box.className = 'signal-score visible';
+  var title, desc;
+  if(failing === 0){
+    title = 'No active failure signals';
+    desc = 'Your systems agree and haven\'t blocked a redesign. Keep auditing as new tools and pricing mechanics get added.';
+  } else if(failing <= 2){
+    title = failing + ' of 5 signals firing';
+    desc = 'Some signals are firing. A quiet mismatch is easiest to fix before it blocks the next commercial change.';
+  } else {
+    title = failing + ' of 5 signals firing';
+    desc = 'This is the pattern behind commercial redesigns that fail silently. Fix systems coherence before your next pricing, comp, or metering change.';
+  }
+  document.getElementById('ss-title').textContent = title;
+  document.getElementById('ss-desc').textContent = desc;
+}
+
+var explorerAnswers = {1:null, 2:null};
+document.querySelectorAll('.opt-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var q = this.getAttribute('data-q');
+    var v = this.getAttribute('data-v');
+    explorerAnswers[q] = v;
+    document.querySelectorAll('[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    updateExplorer();
+  });
+});
+function updateExplorer(){
+  if(!explorerAnswers[1] || !explorerAnswers[2]) return;
+  var metric, why;
+  if(explorerAnswers[1]==='yes' && explorerAnswers[2]==='no'){
+    metric = "Your systems are coherent enough to run the model you design";
+    why = "This is the quiet infrastructure work that makes every other layer possible. Keep auditing as you add new systems or new pricing mechanics.";
+  } else if(explorerAnswers[1]==='no' && explorerAnswers[2]==='yes'){
+    metric = "The pattern is confirmed — systems are actively blocking the model";
+    why = "You've already seen this happen once. Without fixing the underlying calibration, every future commercial redesign will hit the same wall.";
+  } else if(explorerAnswers[1]==='no' && explorerAnswers[2]==='no'){
+    metric = "The mismatch exists but hasn't blocked anything yet";
+    why = "Numbers disagreeing across systems is a latent risk — it's usually only discovered when a new model tries to run on top of it and fails.";
+  } else {
+    metric = "Confident but untested — worth a direct check";
+    why = "No known blocker is a good sign, but confirm the numbers actually match across systems rather than assuming coherence that hasn't been stress-tested.";
+  }
+  document.getElementById('result-metric').textContent = metric;
+  document.getElementById('result-why').textContent = why;
+  document.getElementById('explorer-result').className = 'explorer-result visible';
+}
+</script>
+<div class="no-print" style="background:#122033;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,240,232,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.9)'" onmouseout="this.style.color='rgba(245,240,232,.55)'">← All Playbooks</a><a href="/assessment" style="font-size:11px;color:#C9A84C;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif">Take the Assessment →</a></div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

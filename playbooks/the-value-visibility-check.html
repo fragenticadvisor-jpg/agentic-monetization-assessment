@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Value Visibility Check — Adoption & Customer Success Playbook | FR Advisory</title>
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/playbooks/the-value-visibility-check.html">
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/playbooks/the-value-visibility-check.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D1B2A;--paper:#F5F0E8;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#A8853A;
+  --dark:#122033;--darker:#0D1B2A;--muted:#6b6459;--border:#d4c9b8;--white:#ffffff;
+  --green:#1D9E75;--green-lt:#E1F5EE;--green-dk:#085041;
+  --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
+  --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
+  --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
+}
+body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+.page{max-width:800px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
+.cover{background:var(--dark);padding:3.5rem 3rem 2.5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.cover::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border:1px solid rgba(201,168,76,0.07);border-radius:50%}
+.cover-inner{position:relative;z-index:1}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cover-title{font-family:'Spectral',serif;font-size:38px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
+.cover-title em{font-style:italic;color:var(--gold)}
+.cover-sub{font-size:13px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:520px;margin-bottom:2rem}
+.cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.cover-stat{border-left:1px solid rgba(201,168,76,0.3);padding-left:0.85rem}
+.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.body{padding:2.5rem 3rem}
+.intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
+.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
+.intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
+.section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+p.lead{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:2.5rem}
+.metric-card{border:1px solid var(--border);border-radius:6px;padding:1.1rem;background:var(--white)}
+.metric-card.recommended{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.metric-badge{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:.5rem;display:block}
+.metric-name{font-family:'Spectral',serif;font-size:16px;color:var(--ink);margin-bottom:.5rem}
+.metric-eg{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:.6rem}
+.metric-pro,.metric-con{font-size:11px;line-height:1.6;margin-bottom:.3rem;padding-left:1.1rem;position:relative}
+.metric-pro::before{content:'+';position:absolute;left:0;color:var(--green-dk);font-weight:700}
+.metric-con::before{content:'\2013';position:absolute;left:0;color:var(--red-dk);font-weight:700}
+.explorer{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2.5rem}
+.explorer-title{font-family:'Spectral',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
+.explorer-sub{font-size:11px;color:rgba(245,242,236,.5);margin-bottom:1.25rem;line-height:1.6}
+.explorer-q{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;margin-top:1.1rem}
+.explorer-opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s}
+.opt-btn:hover{border-color:var(--gold)}
+.opt-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.explorer-result{margin-top:1.5rem;padding:1.25rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:6px;display:none}
+.explorer-result.visible{display:block}
+.result-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.result-metric{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
+.result-why{font-size:12px;color:rgba(245,242,236,.65);line-height:1.7}
+.checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:1rem}
+.check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
+.check-item:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.08)}
+.check-item.done{background:var(--green-lt);border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.check-item.gap{background:var(--red-lt);border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.check-box{width:22px;height:22px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;background:var(--paper)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.gap .check-box{background:var(--red);border-color:var(--red)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon,.check-item.gap .check-icon{display:block}
+.check-content{flex:1}
+.check-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
+.check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.check-status-row{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
+.status-btn:hover{border-color:var(--muted)}
+.status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
+.status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
+.signal-score{background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:none}
+.signal-score.visible{display:block}
+.ss-title{font-family:'Spectral',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
+.ss-desc{font-size:11px;color:rgba(245,242,236,.55);line-height:1.6}
+.plan-grid{display:flex;flex-direction:column;gap:0;margin-bottom:2.5rem;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.plan-row{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);background:var(--white)}
+.plan-row:last-child{border-bottom:none}
+.plan-week{font-family:'Spectral',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
+.plan-text{font-size:12px;color:var(--ink);line-height:1.6}
+.plan-text b{font-weight:600}
+.divider{height:1px;background:var(--border);margin:2rem 0}
+.cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(201,168,76,0.08);border-radius:50%}
+.cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
+.cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
+.cta-card.highlight{border-color:var(--gold);position:relative}
+.cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
+.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
+.cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold:hover{background:var(--gold-dk)}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark:hover{background:#444}
+.print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
+.print-hint a{color:var(--gold-dk);text-decoration:none;cursor:pointer}
+@media(max-width:600px){
+  .cover{padding:2rem 1.5rem 1.75rem}
+  .body{padding:1.75rem 1.5rem}
+  .cta-cards{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:1fr}
+  .cover-title{font-size:28px}
+}
+@media print{
+  .cta-block{display:none}
+  .print-hint{display:none}
+  .site-header{display:none}
+  .site-footer{display:none}
+  .no-print{display:none}
+  body{padding-top:0}
+}
+</style>
+</head>
+<body data-nav="playbooks">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">FR Advisory · Layer 07 of 9</div>
+      <div class="cover-title">The Value<br>Visibility Check</div>
+      <div class="cover-sub">The Adoption & Customer Success playbook. Find out whether your CS team can prove value was realised, or whether they only find out it wasn't at the renewal conversation.</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <div class="cover-stat-n">1</div>
+          <div class="cover-stat-l">Moment value should be visible before, not at, renewal</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">5</div>
+          <div class="cover-stat-l">Failure signals</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-n">30</div>
+          <div class="cover-stat-l">Day action plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="intro-block">
+      <div class="intro-block-title">Why this playbook exists</div>
+      <div class="intro-block-text">Customer success built around managing renewals treats the renewal date as the moment of truth. But by the time a renewal conversation happens, the customer has already decided, quietly, weeks or months earlier, based on whether they could feel and point to the value they were getting. Calibration and switching-cost visibility have to be built and proven continuously, not reconstructed defensively in the week before a contract ends.</div>
+    </div>
+
+    <div class="section-label">Two ways customer success is structured, compared</div>
+    <p class="lead">Only one of these catches an at-risk account while there's still time to act.</p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <span class="metric-badge">Approach 1</span>
+        <div class="metric-name">Renewal-Focused CS</div>
+        <div class="metric-eg">CS engagement concentrated in the weeks before contract end</div>
+        <div class="metric-pro">Efficient use of CS time — effort matches the calendar deadline</div>
+        <div class="metric-pro">Clear, familiar structure to run and staff against</div>
+        <div class="metric-con">Finds out value wasn't realised only when it's too late to fix</div>
+        <div class="metric-con">No visibility into quiet decline until the renewal call itself</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Approach 2</span>
+        <div class="metric-name">Value-Proving CS</div>
+        <div class="metric-eg">Continuous tracking and proof of realised value, calibrated over time</div>
+        <div class="metric-pro">Catches decline early enough to actually intervene</div>
+        <div class="metric-pro">Renewal becomes a formality, not a negotiation, because value was never in doubt</div>
+        <div class="metric-con">Requires ongoing measurement infrastructure, not just a renewal playbook</div>
+        <div class="metric-con">Needs a clear definition of what value looks like for each account, which takes real work upfront</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-badge">Reality check</span>
+        <div class="metric-name">Silent Erosion</div>
+        <div class="metric-eg">Usage quietly declines, nobody notices until the renewal conversation</div>
+        <div class="metric-pro">Looks calm — no alarms, no escalations, until suddenly there are</div>
+        <div class="metric-con">By the time it's visible, the customer has usually already decided</div>
+        <div class="metric-con">CS gets blamed for a decline they had no early warning of</div>
+      </div>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-title">Value Visibility Reality Check</div>
+      <div class="explorer-sub">Two questions to find out whether you'd catch an at-risk account in time to actually do something about it.</div>
+
+      <div class="explorer-q">Can you currently name which accounts have had declining usage or engagement in the last quarter?</div>
+      <div class="explorer-opts" id="q1-opts">
+        <button class="opt-btn" data-q="1" data-v="yes">Yes, we track this</button>
+        <button class="opt-btn" data-q="1" data-v="no">Not reliably, or only after the fact</button>
+      </div>
+
+      <div class="explorer-q">Do customers themselves have a way to see the value they're realising, independent of your renewal pitch?</div>
+      <div class="explorer-opts" id="q2-opts">
+        <button class="opt-btn" data-q="2" data-v="yes">Yes — ongoing reporting or a dashboard</button>
+        <button class="opt-btn" data-q="2" data-v="no">No — value is mostly asserted at renewal time</button>
+      </div>
+
+      <div class="explorer-result" id="explorer-result">
+        <div class="result-label">Starting recommendation</div>
+        <div class="result-metric" id="result-metric">—</div>
+        <div class="result-why" id="result-why">—</div>
+      </div>
+    </div>
+
+    <div class="section-label">Five signals value is eroding silently before your renewal conversations</div>
+    <p class="lead">Mark each one honestly against your last two renewal cycles.</p>
+
+    <div class="checklist" id="checklist">
+      <div class="check-item" id="item-0">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">You can't name which accounts have had declining usage without pulling a special report</div>
+          <div class="check-why">If usage decline isn't a standing, visible metric, it's discovered reactively, usually at the renewal conversation where there's no time left to act.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(0,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(0,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-1">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Value is proven mainly through a renewal-time business review, not ongoing reporting</div>
+          <div class="check-why">A single point-in-time pitch is a much weaker signal to a customer than value they've been able to see accumulate over the contract.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(1,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(1,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-2">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">CS engagement is concentrated in the weeks before contract end, not spread across the term</div>
+          <div class="check-why">By the time CS engages heavily, the customer has typically already formed their view of whether the product is worth renewing.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(2,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(2,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-3">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">There's no defined 'value realised' metric specific to what each customer actually needed</div>
+          <div class="check-why">Generic usage stats are a weak proxy for value — the customer's own definition of success is what actually predicts renewal.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(3,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(3,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+      <div class="check-item" id="item-4">
+        <div class="check-box"><span class="check-icon">✓</span></div>
+        <div class="check-content">
+          <div class="check-title">Switching cost is assumed rather than demonstrated to the customer</div>
+          <div class="check-why">If the customer doesn't feel the switching cost themselves, a competitor's pitch at renewal time can look deceptively easy to accept.</div>
+          <div class="check-status-row">
+            <button class="status-btn" onclick="setStatus(4,'ready',this)">✓ Not happening</button>
+            <button class="status-btn" onclick="setStatus(4,'gap',this)">○ This is happening</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-score" id="signal-score">
+      <div class="ss-title" id="ss-title">—</div>
+      <div class="ss-desc" id="ss-desc">—</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The 30-day action plan</div>
+    <div class="plan-grid">
+      <div class="plan-row"><div class="plan-week">Week 1</div><div class="plan-text"><b>Pull usage trends for your top-20 accounts by ARR.</b> Flag any account with declining engagement over the last two quarters, not just the ones already escalated.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 2</div><div class="plan-text"><b>Define value-realised for your three most common use cases.</b> Write down, specifically, what success looks like so it can be measured, not just asserted.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 3</div><div class="plan-text"><b>Build a lightweight ongoing report.</b> Even a quarterly summary of realised value, sent proactively, beats a renewal-week business review.</div></div>
+      <div class="plan-row"><div class="plan-week">Week 4</div><div class="plan-text"><b>Move CS touch points earlier in the contract term.</b> Shift effort from renewal-week firefighting to mid-term value checks where intervention is still possible.</div></div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Ready to build the full model?</div>
+      <div class="cta-title">Prove value before renewal, not at it</div>
+      <div class="cta-sub">This playbook flags where value is eroding silently. The advisor session rebuilds adoption tracking, CS structure, and renewal process together so decline is caught while there's still time to fix it.</div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-name">Full Assessment</div>
+          <div class="cta-card-price">£995</div>
+          <div class="cta-card-desc">All nine layers scored, prioritised roadmap, PDF report within 48 hours.</div>
+          <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
+        </div>
+        <div class="cta-card highlight">
+          <div class="cta-card-badge">Most valuable</div>
+          <div class="cta-card-name">Assessment + Advisor</div>
+          <div class="cta-card-price">£2,495</div>
+          <div class="cta-card-desc">Full report plus 2-hour 1:1 session with Fessal. Custom model design included.</div>
+          <button class="btn-dark" onclick="window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the The Value Visibility Check playbook and would like to book the Assessment + Advisor package.'">Book session →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-hint">
+      <a onclick="window.print()">Print or save as PDF</a> &nbsp;·&nbsp; FR Advisory &nbsp;·&nbsp; fragenticadvisor@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+var signals = [null,null,null,null,null];
+function setStatus(idx, status, btn){
+  signals[idx] = status;
+  var item = document.getElementById('item-'+idx);
+  item.className = 'check-item ' + (status === 'ready' ? 'done' : 'gap');
+  var icon = item.querySelector('.check-icon');
+  icon.textContent = status === 'ready' ? '✓' : '○';
+  var btns = item.querySelectorAll('.status-btn');
+  btns.forEach(function(b){ b.className = 'status-btn'; });
+  btn.className = 'status-btn active-' + status;
+  updateSignalScore();
+}
+function updateSignalScore(){
+  var assessed = signals.filter(function(s){return s!==null;}).length;
+  var failing = signals.filter(function(s){return s==='gap';}).length;
+  if(assessed === 0) return;
+  var box = document.getElementById('signal-score');
+  box.className = 'signal-score visible';
+  var title, desc;
+  if(failing === 0){
+    title = 'No active failure signals';
+    desc = 'You track decline early and customers can see their own value. Keep the reporting current as usage evolves.';
+  } else if(failing <= 2){
+    title = failing + ' of 5 signals firing';
+    desc = 'Some signals are firing. A visibility gap on either side is fixable before your next renewal cycle.';
+  } else {
+    title = failing + ' of 5 signals firing';
+    desc = 'This is silent erosion. Build early-warning tracking before your next renewal wave, not during it.';
+  }
+  document.getElementById('ss-title').textContent = title;
+  document.getElementById('ss-desc').textContent = desc;
+}
+
+var explorerAnswers = {1:null, 2:null};
+document.querySelectorAll('.opt-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var q = this.getAttribute('data-q');
+    var v = this.getAttribute('data-v');
+    explorerAnswers[q] = v;
+    document.querySelectorAll('[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    updateExplorer();
+  });
+});
+function updateExplorer(){
+  if(!explorerAnswers[1] || !explorerAnswers[2]) return;
+  var metric, why;
+  if(explorerAnswers[1]==='yes' && explorerAnswers[2]==='yes'){
+    metric = "You'd catch decline early and the customer already believes the value";
+    why = "This is the combination that makes renewal a formality rather than a negotiation. Keep the reporting current as usage patterns and agent behaviour evolve.";
+  } else if(explorerAnswers[1]==='yes' && explorerAnswers[2]==='no'){
+    metric = "You see the risk, the customer doesn't see the value";
+    why = "Internal tracking without customer-facing proof means you know there's a problem before they do, but the renewal conversation still starts from a values-asserted-not-shown position.";
+  } else if(explorerAnswers[1]==='no' && explorerAnswers[2]==='yes'){
+    metric = "Customers can see value, but you'd miss early warning signs";
+    why = "Good customer-facing visibility, but without your own tracking you're relying on the customer to raise a decline before you notice it yourself.";
+  } else {
+    metric = "Silent erosion — the riskiest combination";
+    why = "Neither you nor the customer has visibility into realised value until the renewal conversation, which is usually too late to change the outcome.";
+  }
+  document.getElementById('result-metric').textContent = metric;
+  document.getElementById('result-why').textContent = why;
+  document.getElementById('explorer-result').className = 'explorer-result visible';
+}
+</script>
+<div class="no-print" style="background:#122033;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem"><a href="/playbooks" style="font-size:11px;color:rgba(245,240,232,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.9)'" onmouseout="this.style.color='rgba(245,240,232,.55)'">← All Playbooks</a><a href="/assessment" style="font-size:11px;color:#C9A84C;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-family:Barlow,sans-serif">Take the Assessment →</a></div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="https://fragenticadvisor.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
