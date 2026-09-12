@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FR Advisory — SaaS to Agentic Readiness Assessment</title>
+<title>FR Advisory: SaaS to Agentic Readiness Assessment</title>
   <meta name="description" content="Discover whether your SaaS pricing model is ready for the agentic AI era. Free diagnostic assessment for SaaS founders, CPOs, CFOs and CROs.">
 <meta name="keywords" content="agentic AI pricing, SaaS monetisation, consumption pricing, agentic readiness, SaaS pricing model">
 <link rel="canonical" href="https://www.agenticcommercialmodel.com/assessment">
@@ -141,7 +141,7 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);min-height:100vh;ma
   <a href="/playbooks" style="position:absolute;top:1.4rem;right:1.6rem;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:500">Playbooks &#8594;</a>
   <div class="eyebrow">FR Advisory</div>
   <div class="h-title">SaaS to Agentic<br>Readiness Assessment</div>
-  <div class="h-sub">Diagnose whether your commercial model is built to capture value in the agentic AI era — or quietly losing ground with every agent you ship.</div>
+  <div class="h-sub">Diagnose whether your commercial model is built to capture value in the agentic AI era, or quietly losing ground with every agent you ship.</div>
   <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
   <div class="prog-meta"><span id="step-lbl">Dimension 1 of 5</span><span id="step-pct">0%</span></div>
 </div>
@@ -175,11 +175,11 @@ var DIMS=[
 ];
 
 var QS=[
-  {d:0,q:"How does your current primary pricing metric map to the value customers receive?",s:"Consider whether customers who deploy agents heavily pay more — or the same — as those who don't.",o:[
-    {t:"We price on a firmographic proxy — seats, users, sites, entities, or business units. AI usage has no bearing on what customers pay.",v:1},
+  {d:0,q:"How does your current primary pricing metric map to the value customers receive?",s:"Consider whether customers who deploy agents heavily pay more (or the same) as those who don't.",o:[
+    {t:"We price on a firmographic proxy: seats, users, sites, entities, or business units. AI usage has no bearing on what customers pay.",v:1},
     {t:"We price on a firmographic metric but recognise it may no longer reflect the value agentic AI delivers.",v:2},
     {t:"We've introduced a consumption or outcome layer alongside our base metric, but it's not yet the primary driver.",v:2},
-    {t:"Our primary metric directly reflects AI outcomes, actions, or compute consumed — not headcount or organisational structure.",v:3}
+    {t:"Our primary metric directly reflects AI outcomes, actions, or compute consumed, not headcount or organisational structure.",v:3}
   ]},
   {d:0,q:"Have you mapped which agentic workflows and automations now displace human tasks in your product?",s:"The more work agents do that humans once did manually, the more your firmographic revenue decouples from value delivered.",o:[
     {t:"We haven't systematically mapped this yet.",v:1},
@@ -187,17 +187,17 @@ var QS=[
     {t:"We've mapped key workflows and can estimate the productivity displacement.",v:2},
     {t:"We've modelled displacement across workflows and validated the impact on our pricing.",v:3}
   ]},
-  {d:0,q:"What evidence do you have that AI usage is affecting your licence or seat count trajectory?",s:"A canary in the coal mine: top customers deploying agents but not expanding headcount — or actively reducing it.",o:[
+  {d:0,q:"What evidence do you have that AI usage is affecting your licence or seat count trajectory?",s:"A canary in the coal mine: top customers deploying agents but not expanding headcount, or actively reducing it.",o:[
     {t:"We haven't looked for this signal.",v:1},
     {t:"We suspect it's happening but don't have clear data.",v:2},
-    {t:"We can see it in certain cohorts — seat growth is flattening despite rising AI usage.",v:2},
+    {t:"We can see it in certain cohorts: seat growth is flattening despite rising AI usage.",v:2},
     {t:"We have clear data and have presented this to leadership as a commercial risk.",v:3}
   ]},
-  {d:0,q:"How well-defined is your candidate consumption unit for a future agentic pricing model?",s:"The unit must be transparent, auditable, and directly connected to the value customers experience.",o:[
+  {d:0,q:"How well defined is your candidate consumption unit for a future agentic pricing model?",s:"The unit must be transparent, auditable, and directly connected to the value customers experience.",o:[
     {t:"We haven't defined a consumption unit.",v:1},
     {t:"We've had internal conversations but nothing is formally documented.",v:1},
     {t:"We have a hypothesis (e.g. tasks, agent runs, outcomes) but it's unvalidated.",v:2},
-    {t:"We've defined and customer-validated our consumption unit and can meter it.",v:3}
+    {t:"We've defined and customer validated our consumption unit and can meter it.",v:3}
   ]},
   {d:0,q:"To what degree have you validated your value metric hypothesis with customers?",s:"What customers say they'd pay for often differs sharply from what they actually value under an agentic model.",o:[
     {t:"No customer conversations on pricing have taken place.",v:1},
@@ -205,49 +205,49 @@ var QS=[
     {t:"We've run structured discovery with a sample of key accounts.",v:2},
     {t:"We've tested pricing concepts and have clear customer signal to build on.",v:3}
   ]},
-  {d:1,q:"How would you characterise your current revenue architecture?",s:"Firmographic-based models structurally cap upside when agents begin displacing human users.",o:[
-    {t:"Purely firmographic — seats, users, sites, entities, or business units — with no consumption element.",v:1},
-    {t:"Mostly firmographic-based with a small, informal consumption component.",v:2},
+  {d:1,q:"How would you characterise your current revenue architecture?",s:"Firmographic based models structurally cap upside when agents begin displacing human users.",o:[
+    {t:"Purely firmographic (seats, users, sites, entities, or business units) with no consumption element.",v:1},
+    {t:"Mostly firmographic based with a small, informal consumption component.",v:2},
     {t:"Hybrid: a platform or access fee plus some form of consumption layer.",v:2},
-    {t:"Primarily consumption or outcome-based, with a base commitment floor.",v:3}
+    {t:"Primarily consumption or outcome based, with a base commitment floor.",v:3}
   ]},
-  {d:1,q:"Have you modelled the revenue retention impact if agents begin displacing your customers' human users?",s:"GRR is the first casualty — customers reduce seats before you ever get to expansion. Most SaaS models assume firmographic growth tracks product value. Agentic AI inverts this assumption entirely.",o:[
-    {t:"No — we haven't stress-tested either GRR or NRR against agent-driven displacement.",v:1},
+  {d:1,q:"Have you modelled the revenue retention impact if agents begin displacing your customers' human users?",s:"GRR is the first casualty: customers reduce seats before you ever get to expansion. Most SaaS models assume firmographic growth tracks product value. Agentic AI inverts this assumption entirely.",o:[
+    {t:"No: we haven't stress tested either GRR or NRR against agent driven displacement.",v:1},
     {t:"We've considered the risk qualitatively but haven't modelled GRR or NRR impact.",v:2},
     {t:"We have scenario models covering both GRR and NRR but they haven't been reviewed by finance and leadership.",v:2},
-    {t:"We have board-reviewed models quantifying both GRR erosion risk and NRR upside scenarios.",v:3}
+    {t:"We have board reviewed models quantifying both GRR erosion risk and NRR upside scenarios.",v:3}
   ]},
-  {d:1,q:"How mature is your design for a hybrid pricing model (platform base + consumption layer)?",s:"The hybrid model is emerging as the structural answer: base ARR predictability plus consumption-driven upside.",o:[
+  {d:1,q:"How mature is your design for a hybrid pricing model (platform base + consumption layer)?",s:"The hybrid model is emerging as the structural answer: base ARR predictability plus consumption driven upside.",o:[
     {t:"We haven't designed anything beyond our current model.",v:1},
     {t:"We have a conceptual sketch but no formal model design.",v:2},
     {t:"We have a detailed model design including tier structure and commitment levels.",v:2},
     {t:"Our hybrid model is designed, commercially tested, and ready for broader rollout.",v:3}
   ]},
-  {d:1,q:"How are legacy customers handled in your transition planning?",s:"The migration path for existing customers is often the hardest and highest-risk part of any model transition.",o:[
+  {d:1,q:"How are legacy customers handled in your transition planning?",s:"The migration path for existing customers is often the hardest and highest risk part of any model transition.",o:[
     {t:"Legacy customers are not yet part of our thinking.",v:1},
     {t:"We know it's a challenge but haven't created a migration framework.",v:1},
     {t:"We have principles for the transition but no detailed customer playbook.",v:2},
-    {t:"We have a segmented transition plan with specific approaches for high-value cohorts.",v:3}
+    {t:"We have a segmented transition plan with specific approaches for high value cohorts.",v:3}
   ]},
   {d:1,q:"How clearly is minimum ARR commitment defined in your new model?",s:"A commitment floor protects base ARR while the consumption layer drives expansion. Without it, revenue becomes volatile.",o:[
-    {t:"Not defined — we're entirely on a firmographic model with no consumption or commitment floor.",v:1},
+    {t:"Not defined: we're entirely on a firmographic model with no consumption or commitment floor.",v:1},
     {t:"We have a vague concept of a base fee but it's not formally modelled.",v:2},
     {t:"We have minimum commitment levels designed and ready for commercial testing.",v:2},
     {t:"Minimum commitments are live, tested, and performing as modelled.",v:3}
   ]},
   {d:2,q:"Can you track AI agent activity and consumption at the action or task level in real time?",s:"Without granular telemetry, consumption pricing is a commercial ambition with no operational foundation.",o:[
-    {t:"No — we have no action-level usage tracking today.",v:1},
-    {t:"We have some logging but it's not real-time and not connected to billing.",v:1},
+    {t:"No: we have no action level usage tracking today.",v:1},
+    {t:"We have some logging but it's not real time and not connected to billing.",v:1},
     {t:"We have telemetry in place but it covers only a portion of AI workflows.",v:2},
-    {t:"Full real-time telemetry exists and feeds directly into billing without manual steps.",v:3}
+    {t:"Full real time telemetry exists and feeds directly into billing without manual steps.",v:3}
   ]},
-  {d:2,q:"How well do you understand agent adoption across your customer base — breadth, velocity, and variety of use cases?",s:"A single power user running one agent workflow is not adoption. True agentic value realisation shows up as expanding use case variety, accelerating automation velocity, and adoption spreading across teams and functions.",o:[
+  {d:2,q:"How well do you understand agent adoption across your customer base: breadth, velocity, and variety of use cases?",s:"A single power user running one agent workflow is not adoption. True agentic value realisation shows up as expanding use case variety, accelerating automation velocity, and adoption spreading across teams and functions.",o:[
     {t:"We have no visibility into how broadly or deeply agents are being adopted by customers.",v:1},
-    {t:"We rely on anecdotal signals — customer conversations and support tickets — rather than structured data.",v:2},
+    {t:"We rely on anecdotal signals (customer conversations and support tickets) rather than structured data.",v:2},
     {t:"We track basic adoption metrics (active agents, runs) but lack breadth and use case variety data.",v:2},
     {t:"We have a structured adoption framework tracking breadth, velocity, and use case variety across our customer base.",v:3}
   ]},
-  {d:2,q:"Can your billing platform handle variable consumption charges, credit models, and overage alerts?",s:"Most billing stacks are built for fixed recurring revenue — consumption requires a fundamentally different capability.",o:[
+  {d:2,q:"Can your billing platform handle variable consumption charges, credit models, and overage alerts?",s:"Most billing stacks are built for fixed recurring revenue: consumption requires a fundamentally different capability.",o:[
     {t:"Our billing platform only handles fixed subscription fees.",v:1},
     {t:"We've explored options but haven't implemented consumption billing.",v:2},
     {t:"We can handle basic variable charges but lack credits, caps, and alerts.",v:2},
@@ -255,116 +255,116 @@ var QS=[
   ]},
   {d:2,q:"Does your CPQ system have SKUs or structures that represent AI consumption?",s:"Sales teams can only sell what they can quote. Consumption SKUs are a prerequisite for commercial execution.",o:[
     {t:"No AI consumption SKUs exist in our CPQ system.",v:1},
-    {t:"We're managing it through workarounds — manual quotes, custom line items.",v:1},
+    {t:"We're managing it through workarounds: manual quotes, custom line items.",v:1},
     {t:"We have basic consumption SKUs but they're not fully integrated with contracts.",v:2},
     {t:"Consumption SKUs are live, integrated, and actively used by the sales team.",v:3}
   ]},
-  {d:2,q:"Can finance separately report and forecast consumption revenue versus base platform fees?",s:"Blended reporting hides the true growth lever — and makes investor conversations significantly harder.",o:[
-    {t:"Revenue reporting is entirely blended — we can't separate base from consumption.",v:1},
+  {d:2,q:"Can finance separately report and forecast consumption revenue versus base platform fees?",s:"Blended reporting hides the true growth lever, and makes investor conversations significantly harder.",o:[
+    {t:"Revenue reporting is entirely blended: we can't separate base from consumption.",v:1},
     {t:"We can approximate it manually but it's not automated.",v:2},
     {t:"We have separated reporting for some segments but not consistently.",v:2},
     {t:"Consumption and base fee revenue are fully separated in our financial reporting.",v:3}
   ]},
   {d:2,q:"How automated is the pipeline from usage telemetry to customer invoice?",s:"Manual processes between metering and billing introduce errors, delays, and audit risk at scale.",o:[
-    {t:"Entirely manual — someone on the team reconciles usage to billing periodically.",v:1},
+    {t:"Entirely manual: someone on the team reconciles usage to billing periodically.",v:1},
     {t:"Partially automated with manual review steps.",v:2},
     {t:"Mostly automated but with some manual interventions for edge cases.",v:2},
     {t:"Fully automated: telemetry flows to billing without manual intervention.",v:3}
   ]},
-  {d:3,q:"Can your sales team articulate why the hybrid model is better for the customer — not just the mechanics?",s:"Selling consumption requires a shift from licence coverage to ROI and value conversations.",o:[
-    {t:"Our sales team sells exclusively in firmographic terms — seats, sites, entities.",v:1},
+  {d:3,q:"Can your sales team articulate why the hybrid model is better for the customer, not just the mechanics?",s:"Selling consumption requires a shift from licence coverage to ROI and value conversations.",o:[
+    {t:"Our sales team sells exclusively in firmographic terms: seats, sites, entities.",v:1},
     {t:"A few individuals can have the conversation but it's not consistent across the team.",v:1},
     {t:"We have training materials but haven't run formal enablement programmes.",v:2},
     {t:"The full sales team is trained and actively selling hybrid models with confidence.",v:3}
   ]},
-  {d:3,q:"How equipped is your sales team to handle consumption-model objections — budget uncertainty, audit anxiety?",s:"The most common blockers: 'I can't predict spend' and 'I don't know what counts as billable'.",o:[
-    {t:"No objection-handling frameworks exist for consumption-specific concerns.",v:1},
-    {t:"Reps handle it ad hoc — inconsistently and without structured support.",v:2},
-    {t:"We have talk tracks and playbooks but they haven't been battle-tested in deals.",v:2},
+  {d:3,q:"How equipped is your sales team to handle consumption model objections: budget uncertainty, audit anxiety?",s:"The most common blockers: 'I can't predict spend' and 'I don't know what counts as billable'.",o:[
+    {t:"No objection handling frameworks exist for consumption specific concerns.",v:1},
+    {t:"Reps handle it ad hoc: inconsistently and without structured support.",v:2},
+    {t:"We have talk tracks and playbooks but they haven't been battle tested in deals.",v:2},
     {t:"Structured playbooks are live, tested in real deals, and regularly refined.",v:3}
   ]},
-  {d:3,q:"How deeply does your Customer Success team understand each customer's agentic health — consumption, breadth of adoption, and realised ROI?",s:"Consumption volume alone is a lagging and misleading signal. Healthy looks like expanding use case variety, cross-functional adoption, and measurable business outcomes customers can articulate back to you.",o:[
-    {t:"CS tracks renewal dates and NPS. Agentic health — consumption, breadth, or ROI — isn't monitored.",v:1},
+  {d:3,q:"How deeply does your Customer Success team understand each customer's agentic health: consumption, breadth of adoption, and realised ROI?",s:"Consumption volume alone is a lagging and misleading signal. Healthy looks like expanding use case variety, cross functional adoption, and measurable business outcomes customers can articulate back to you.",o:[
+    {t:"CS tracks renewal dates and NPS. Agentic health (consumption, breadth, or ROI) isn't monitored.",v:1},
     {t:"Some CSMs track basic consumption but breadth of adoption and ROI are not systematically measured.",v:2},
     {t:"We track consumption and adoption breadth but ROI quantification is inconsistent or anecdotal.",v:2},
-    {t:"CS has a structured agentic health framework covering consumption depth, adoption breadth, use case variety, and customer-validated ROI — reviewed in every QBR.",v:3}
+    {t:"CS has a structured agentic health framework covering consumption depth, adoption breadth, use case variety, and customer validated ROI: reviewed in every QBR.",v:3}
   ]},
   {d:3,q:"Does your compensation design reward behaviours aligned with consumption growth?",s:"Commission plans optimised purely for ACV will produce the wrong commercial behaviours in a consumption model.",o:[
-    {t:"Comp is entirely ACV/TCV-focused. Consumption growth isn't incentivised.",v:1},
+    {t:"Comp is entirely ACV/TCV focused. Consumption growth isn't incentivised.",v:1},
     {t:"We've discussed changing comp but nothing has changed yet.",v:2},
     {t:"We have experimental comp adjustments in select roles or territories.",v:2},
     {t:"Comp is redesigned across Sales and CS to align with consumption growth.",v:3}
   ]},
-  {d:3,q:"When did you last formally train commercial teams on consumption-based selling?",s:"Product and pricing model knowledge decays fast. Regular enablement is infrastructure, not a one-off event.",o:[
-    {t:"Never — no formal consumption selling training has taken place.",v:1},
-    {t:"More than 12 months ago, or a single ad-hoc session.",v:1},
+  {d:3,q:"When did you last formally train commercial teams on consumption based selling?",s:"Product and pricing model knowledge decays fast. Regular enablement is infrastructure, not a one off event.",o:[
+    {t:"Never: no formal consumption selling training has taken place.",v:1},
+    {t:"More than 12 months ago, or a single ad hoc session.",v:1},
     {t:"Within the last 12 months, structured but infrequent.",v:2},
-    {t:"Regular, structured enablement — at least quarterly — with clear learning objectives.",v:3}
+    {t:"Regular, structured enablement (at least quarterly) with clear learning objectives.",v:3}
   ]},
-  {d:4,q:"Do your customers have real-time visibility into AI consumption and the controls to actively govern their spend?",s:"Visibility without control is anxiety, not empowerment. Enterprise buyers need both — a real-time consumption dashboard and an admin console where they can set caps at the user, team, or workflow level on daily, weekly, or monthly cycles.",o:[
+  {d:4,q:"Do your customers have real time visibility into AI consumption and the controls to actively govern their spend?",s:"Visibility without control is anxiety, not empowerment. Enterprise buyers need both: a real time consumption dashboard and an admin console where they can set caps at the user, team, or workflow level on daily, weekly, or monthly cycles.",o:[
     {t:"Customers have no visibility into AI usage and no spend controls whatsoever.",v:1},
-    {t:"Customers receive periodic usage statements but have no real-time view and no self-serve controls.",v:2},
-    {t:"A real-time usage dashboard exists but spend controls are limited — no granular caps at user, team, or workflow level.",v:2},
-    {t:"Customers have a full admin console with real-time consumption visibility and granular spend caps configurable at user, team, and workflow level across daily, weekly, and monthly cycles.",v:3}
+    {t:"Customers receive periodic usage statements but have no real time view and no self serve controls.",v:2},
+    {t:"A real time usage dashboard exists but spend controls are limited: no granular caps at user, team, or workflow level.",v:2},
+    {t:"Customers have a full admin console with real time consumption visibility and granular spend caps configurable at user, team, and workflow level across daily, weekly, and monthly cycles.",v:3}
   ]},
-  {d:4,q:"How clearly have you defined and communicated what constitutes a billable AI action?",s:"'Audit anxiety' — not knowing what triggers charges — is a top adoption barrier for consumption models.",o:[
-    {t:"No customer-facing taxonomy of billable actions exists.",v:1},
+  {d:4,q:"How clearly have you defined and communicated what constitutes a billable AI action?",s:"'Audit anxiety' (not knowing what triggers charges) is a top adoption barrier for consumption models.",o:[
+    {t:"No customer facing taxonomy of billable actions exists.",v:1},
     {t:"It's buried in contract terms but not surfaced in the product or onboarding.",v:1},
     {t:"We have a taxonomy but customer awareness of it is low.",v:2},
-    {t:"A clear, customer-facing taxonomy is surfaced in-product, in docs, and in onboarding.",v:3}
+    {t:"A clear, customer facing taxonomy is surfaced in product, in docs, and in onboarding.",v:3}
   ]},
-  {d:4,q:"Do you have ROI dashboards that quantify the business impact of AI consumption?",s:"If customers can't see the return, consumption pricing feels like cost — not investment.",o:[
+  {d:4,q:"Do you have ROI dashboards that quantify the business impact of AI consumption?",s:"If customers can't see the return, consumption pricing feels like cost, not investment.",o:[
     {t:"No outcome or ROI visibility is provided to customers.",v:1},
-    {t:"We share data in QBRs but there's no self-serve ROI view in-product.",v:2},
+    {t:"We share data in QBRs but there's no self serve ROI view in product.",v:2},
     {t:"A basic ROI summary exists but it's not deeply connected to consumption data.",v:2},
-    {t:"In-product ROI dashboards connect AI consumption directly to measurable business outcomes.",v:3}
+    {t:"In product ROI dashboards connect AI consumption directly to measurable business outcomes.",v:3}
   ]},
-  {d:4,q:"Do you have customer-facing proof points or case studies demonstrating ROI from consumption-based pricing?",s:"Social proof is the fastest way to shift buyer psychology from cost-anxiety to value-confidence.",o:[
+  {d:4,q:"Do you have customer facing proof points or case studies demonstrating ROI from consumption based pricing?",s:"Social proof is the fastest way to shift buyer psychology from cost anxiety to value confidence.",o:[
     {t:"No case studies or ROI proof points exist for our agentic or consumption model.",v:1},
-    {t:"We have internal anecdotes but nothing formalised or customer-approved.",v:2},
+    {t:"We have internal anecdotes but nothing formalised or customer approved.",v:2},
     {t:"One or two case studies exist but they're not systematically used in sales.",v:2},
     {t:"A library of ROI case studies is actively deployed across sales and marketing.",v:3}
   ]},
   {d:4,q:"How proactively do you communicate pricing model changes and consumption updates to customers?",s:"Trust erodes fast when customers feel surprised by charges or left in the dark about model changes. Proactive, transparent communication is a commercial capability, not a courtesy.",o:[
-    {t:"We communicate reactively — customers hear about changes when they receive an invoice or raise a query.",v:1},
+    {t:"We communicate reactively: customers hear about changes when they receive an invoice or raise a query.",v:1},
     {t:"We notify customers of changes but it's inconsistent and not tied to a structured communication framework.",v:2},
-    {t:"We have a communication process for major changes but consumption updates and in-period alerts are lacking.",v:2},
-    {t:"We have a proactive communication framework covering model changes, in-period consumption alerts, and regular value updates — customers are never surprised.",v:3}
+    {t:"We have a communication process for major changes but consumption updates and in period alerts are lacking.",v:2},
+    {t:"We have a proactive communication framework covering model changes, in period consumption alerts, and regular value updates: customers are never surprised.",v:3}
   ]}
 ];
 
 var AQ=[
-  {q:"How well can you decompose your current ARR by pricing metric, customer segment, and product line?",s:"Building a custom pricing model without clean ARR decomposition is guesswork. We need to understand what you're earning, from whom, and on what basis — before we can design what comes next.",o:[
-    {t:"Our ARR is reported as a single blended number — we can't decompose it meaningfully.",v:1},
+  {q:"How well can you decompose your current ARR by pricing metric, customer segment, and product line?",s:"Building a custom pricing model without clean ARR decomposition is guesswork. We need to understand what you're earning, from whom, and on what basis: before we can design what comes next.",o:[
+    {t:"Our ARR is reported as a single blended number: we can't decompose it meaningfully.",v:1},
     {t:"We can split by customer segment or product line but not by pricing metric or consumption type.",v:2},
     {t:"We can decompose ARR across most dimensions but some data requires manual extraction.",v:2},
     {t:"We have clean, readily accessible ARR decomposition by segment, product line, and pricing metric.",v:3}
   ]},
-  {q:"Do you have historical usage and consumption data that could inform a new value metric?",s:"The best consumption unit is rarely invented — it's discovered in your existing usage data. Without it, value metric design is based on assumption rather than evidence.",o:[
+  {q:"Do you have historical usage and consumption data that could inform a new value metric?",s:"The best consumption unit is rarely invented: it's discovered in your existing usage data. Without it, value metric design is based on assumption rather than evidence.",o:[
     {t:"We have no historical usage data at the action, task, or workflow level.",v:1},
     {t:"We have some usage logs but they're inconsistent, incomplete, or hard to access.",v:2},
     {t:"We have reasonably clean usage data but it hasn't been analysed through a pricing lens.",v:2},
     {t:"We have comprehensive, accessible usage data that has been mapped to customer value and outcomes.",v:3}
   ]},
-  {q:"How well segmented is your customer base in terms of agentic maturity, use case variety, and commercial potential?",s:"A custom pricing model needs to work across your customer spectrum — from early adopters running complex multi-agent workflows to customers yet to deploy a single agent.",o:[
-    {t:"We have basic firmographic segmentation — size, industry, geography — but nothing agentic-specific.",v:1},
+  {q:"How well segmented is your customer base in terms of agentic maturity, use case variety, and commercial potential?",s:"A custom pricing model needs to work across your customer spectrum: from early adopters running complex multi agent workflows to customers yet to deploy a single agent.",o:[
+    {t:"We have basic firmographic segmentation (size, industry, geography) but nothing agentic specific.",v:1},
     {t:"We can identify heavy AI users versus light users but lack structured segmentation by maturity or use case.",v:2},
     {t:"We have a segmentation framework but it hasn't been validated against commercial potential or pricing sensitivity.",v:2},
     {t:"We have a robust, validated segmentation model covering agentic maturity, use case variety, and commercial potential.",v:3}
   ]},
-  {q:"Do you have any willingness-to-pay research or pricing sensitivity data for your agentic features?",s:"Willingness-to-pay data is the difference between a pricing model built on evidence and one built on internal opinion. Even directional research — a handful of structured customer conversations — is significantly better than nothing.",o:[
-    {t:"No willingness-to-pay or pricing sensitivity research exists.",v:1},
+  {q:"Do you have any willingness to pay research or pricing sensitivity data for your agentic features?",s:"Willingness to pay data is the difference between a pricing model built on evidence and one built on internal opinion. Even directional research (a handful of structured customer conversations) is significantly better than nothing.",o:[
+    {t:"No willingness to pay or pricing sensitivity research exists.",v:1},
     {t:"We have informal signals from sales conversations but nothing structured or documented.",v:2},
     {t:"We have conducted some pricing research but it predates our agentic feature set.",v:2},
-    {t:"We have recent, structured willingness-to-pay research specific to our agentic capabilities and consumption model.",v:3}
+    {t:"We have recent, structured willingness to pay research specific to our agentic capabilities and consumption model.",v:3}
   ]},
-  {q:"How well do you understand the competitive pricing landscape for agentic AI in your category?",s:"Pricing in a vacuum is dangerous. Understanding how competitors are monetising agentic capabilities — and where the market is heading — is essential context for designing a model that wins commercially.",o:[
+  {q:"How well do you understand the competitive pricing landscape for agentic AI in your category?",s:"Pricing in a vacuum is dangerous. Understanding how competitors are monetising agentic capabilities (and where the market is heading) is essential context for designing a model that wins commercially.",o:[
     {t:"We have no structured view of how competitors are pricing agentic capabilities.",v:1},
     {t:"We have anecdotal awareness from sales calls and win/loss conversations but nothing systematic.",v:2},
     {t:"We have conducted competitive pricing research but it's not current or comprehensive enough to act on.",v:2},
     {t:"We have a current, structured view of competitive agentic pricing across our category that is actively used in our pricing decisions.",v:3}
   ]},
-  {q:"How readily available are your core commercial performance metrics — ARR growth, GRR, NRR, CAC, and LTV — and do they reflect the impact of agentic AI on your business?",s:"These metrics are the diagnostic baseline for any pricing transformation. Critically, we need to know whether they're already showing the strain of agentic displacement — or whether that signal is yet to appear.",o:[
+  {q:"How readily available are your core commercial performance metrics (ARR growth, GRR, NRR, CAC, and LTV) and do they reflect the impact of agentic AI on your business?",s:"These metrics are the diagnostic baseline for any pricing transformation. Critically, we need to know whether they're already showing the strain of agentic displacement, or whether that signal is yet to appear.",o:[
     {t:"We don't have consistent, accessible reporting across these metrics.",v:1},
     {t:"We can access most of these metrics but they're not tracked with agentic impact in mind.",v:2},
     {t:"We have clean reporting across all key metrics but haven't isolated the agentic AI effect on them.",v:2},
@@ -404,10 +404,10 @@ function updateProg(){
   document.getElementById('prog').style.width=pct+'%';
   document.getElementById('step-pct').textContent=pct+'%';
   if(phase==='audit'){
-    document.getElementById('step-lbl').textContent='Pricing Audit Readiness — Q'+(aCur+1)+' of '+AQ.length;
+    document.getElementById('step-lbl').textContent='Pricing Audit Readiness: Q'+(aCur+1)+' of '+AQ.length;
   } else if(cur<QS.length){
     var d=QS[cur].d;
-    document.getElementById('step-lbl').textContent='Dimension '+(d+1)+' of 5 — '+DIMS[d].n;
+    document.getElementById('step-lbl').textContent='Dimension '+(d+1)+' of 5: '+DIMS[d].n;
   }
 }
 
@@ -452,7 +452,7 @@ function renderAQ(){
   if(aCur===0){
     var intro=document.createElement('div');
     intro.className='audit-intro';
-    intro.innerHTML='<div class="audit-intro-title">Pricing Audit Readiness — 6 questions</div><div class="audit-intro-text">These questions determine how prepared you are for a custom pricing model. Your answers shape the data readiness score and preparation checklist shown in your results — and directly inform the advisor session agenda.</div>';
+    intro.innerHTML='<div class="audit-intro-title">Pricing Audit Readiness: 6 questions</div><div class="audit-intro-text">These questions determine how prepared you are for a custom pricing model. Your answers shape the data readiness score and preparation checklist shown in your results, and directly inform the advisor session agenda.</div>';
     ol.insertAdjacentElement('beforebegin',intro);
   }
   q.o.forEach(function(opt,i){
@@ -509,20 +509,20 @@ function scoreLabel(pct){
 
 function dimNote(d,pct){
   var n=[
-    ['Value metric is well-aligned to agentic delivery. Focus on optimisation and tier design.',
-     'Formalise the consumption unit — your value metric is partially aligned but needs structure.',
+    ['Value metric is well aligned to agentic delivery. Focus on optimisation and tier design.',
+     'Formalise the consumption unit: your value metric is partially aligned but needs structure.',
      'Firmographic pricing is decoupling from value. Map agent displacement workflows urgently.'],
     ['Revenue architecture is structured to capture consumption upside. Optimise commitment tiers.',
-     'Hybrid model is underway — prioritise minimum commitment levels and ARR floor design.',
+     'Hybrid model is underway: prioritise minimum commitment levels and ARR floor design.',
      'Firmographic architecture is exposed. Model the GRR and NRR risk at board level now.'],
     ['Operational infrastructure can support consumption billing at scale.',
-     'Core plumbing exists — telemetry-to-billing automation and CPQ SKUs need attention.',
+     'Core plumbing exists: telemetry to billing automation and CPQ SKUs need attention.',
      'Critical infrastructure gaps will block consumption pricing from launching. Prioritise now.'],
     ['Commercial teams are equipped to sell and retain on a consumption model.',
-     'Enablement exists — comp design and CS agentic health motion need realignment.',
-     'GTM teams are still in seat-selling mode. Transformation required before any model rollout.'],
+     'Enablement exists: comp design and CS agentic health motion need realignment.',
+     'GTM teams are still in seat selling mode. Transformation required before any model rollout.'],
     ['Customers have visibility, spend control, and ROI evidence to adopt consumption pricing.',
-     'Customer trust infrastructure is partial — ROI dashboards and spend controls are the priority.',
+     'Customer trust infrastructure is partial: ROI dashboards and spend controls are the priority.',
      'Consumption opacity will drive objections and slow adoption. Build visibility and control tools first.']
   ];
   return n[d][pct>=70?0:pct>=40?1:2];
@@ -558,7 +558,7 @@ if(locked){
     '<div style="text-align:center;padding:1rem 0 0.5rem">'
     +'<div class="gate-badge">Dimension 1 complete</div>'
     +'<div style="font-family:\'Spectral\',serif;font-size:22px;color:var(--ink);margin-bottom:0.6rem;line-height:1.2">You\'ve completed the first<br>diagnostic dimension</div>'
-    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 1rem">Dimensions 2–5 and the full Pricing Audit Readiness section are unlocked with the full assessment. Enter your details below to save your progress — then choose your path.</div>'
+    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 1rem">Dimensions 2 to 5 and the full Pricing Audit Readiness section are unlocked with the full assessment. Enter your details below to save your progress: then choose your path.</div>'
     +thtml
     +'</div>'
 
@@ -630,7 +630,7 @@ function bookAdvisor(){
     });
     return;
   }
-  window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package — Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name)+'. Please send me next steps.';
+  window.location.href='mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name)+'. Please send me next steps.';
   document.getElementById('gpanel').classList.add('hidden');
   document.getElementById('qpanel').classList.remove('hidden');
   cur=5;renderQ();
@@ -655,9 +655,9 @@ function showResults(){
   var adash=Math.round(as.pct/100*circ);
 
   var desc=ts.pct>=80?'Strong commercial foundations. Focus shifts to optimisation, packaging, and competitive differentiation.'
-    :ts.pct>=60?'Key foundations exist but gaps remain. Address your lowest-scoring dimension before enabling commercial teams.'
+    :ts.pct>=60?'Key foundations exist but gaps remain. Address your lowest scoring dimension before enabling commercial teams.'
     :ts.pct>=40?'Significant work required. Sequence carefully: infrastructure before enablement, value metric before architecture.'
-    :'Your model is structurally misaligned for the agentic era. This warrants board-level attention, not a project team.';
+    :'Your model is structurally misaligned for the agentic era. This warrants board level attention, not a project team.';
 
   var adesc=as.pct>=80?'Your data is in excellent shape. An advisor session can move directly to model design and scenario planning.'
     :as.pct>=60?'Most data assets are available. A few gaps to address before or during the advisory session.'
@@ -668,7 +668,7 @@ function showResults(){
     {lbl:'ARR decomposition by segment, pricing metric & product line',key:0},
     {lbl:'Historical usage & consumption data mapped to customer value',key:1},
     {lbl:'Customer segmentation by agentic maturity & commercial potential',key:2},
-    {lbl:'Willingness-to-pay research for agentic features',key:3},
+    {lbl:'Willingness to pay research for agentic features',key:3},
     {lbl:'Competitive agentic pricing landscape analysis',key:4},
     {lbl:'Core metrics (ARR growth, GRR, NRR, CAC, LTV) with agentic impact isolated',key:5}
   ];
@@ -679,7 +679,7 @@ function showResults(){
     var ready=v>=3,partial=v===2,gap=v<=1;
     var icon=ready?'&#10003;':partial?'&#9679;':'&#9675;';
     var iconCol=ready?'var(--green)':partial?'var(--amber)':'var(--red)';
-    var note=ready?'Ready to bring to session':partial?'Partial — gather remaining data before session':'Gap — build into session agenda';
+    var note=ready?'Ready to bring to session':partial?'Partial: gather remaining data before session':'Gap: build into session agenda';
     var noteCol=ready?'var(--green)':partial?'var(--amber)':'var(--red)';
     clHtml+='<li class="cl-item">'
       +'<span class="cl-icon" style="color:'+iconCol+'">'+icon+'</span>'
@@ -710,7 +710,7 @@ function showResults(){
         +'<div class="ring" style="width:80px;height:80px">'
           +'<svg width="80" height="80" viewBox="0 0 80 80">'
             +'<circle cx="40" cy="40" r="34" fill="none" stroke="rgba(245,242,236,0.08)" stroke-width="5"/>'
-            +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+band.c+'" stroke-width="5" stroke-dasharray="'+dash+' '+circ+'" stroke-linecap="round" transform="rotate(-90 40 40)"/>'
+            +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+band.c+'" stroke width="5" stroke dasharray="'+dash+' '+circ+'" stroke linecap="round" transform="rotate(-90 40 40)"/>'
           +'</svg>'
           +'<div class="ring-num" style="font-size:21px">'+ts.pct+'</div>'
         +'</div>'
@@ -739,7 +739,7 @@ function showResults(){
             +'<div class="ring" style="width:60px;height:60px">'
               +'<svg width="60" height="60" viewBox="0 0 80 80">'
                 +'<circle cx="40" cy="40" r="34" fill="none" stroke="var(--border)" stroke-width="5"/>'
-                +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+aband.c+'" stroke-width="5" stroke-dasharray="'+adash+' '+circ+'" stroke-linecap="round" transform="rotate(-90 40 40)"/>'
+                +'<circle cx="40" cy="40" r="34" fill="none" stroke="'+aband.c+'" stroke width="5" stroke dasharray="'+adash+' '+circ+'" stroke linecap="round" transform="rotate(-90 40 40)"/>'
               +'</svg>'
               +'<div class="ring-num" style="font-size:15px;color:var(--ink)">'+as.pct+'</div>'
             +'</div>'
@@ -784,7 +784,7 @@ function showResults(){
             +'<li>Checklist actioned together in session</li>'
             +'<li>30-day follow-up Q&amp;A by email</li>'
           +'</ul>'
-          +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.location.href=\'mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package — Agentic Readiness&body=Hi Fessal, I have completed the assessment and would like to book the Assessment + Advisor package (£2,495). Please send me next steps.\'">Book advisor session &#8594;</button>'
+          +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.location.href=\'mailto:fragenticadvisor@gmail.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed the assessment and would like to book the Assessment + Advisor package (£2,495). Please send me next steps.\'">Book advisor session &#8594;</button>'
         +'</div>'
       +'</div>'
 
@@ -792,7 +792,7 @@ function showResults(){
         +'<div style="font-size:20px;color:var(--gold);flex-shrink:0;margin-top:1px">&#128161;</div>'
         +'<div>'
           +'<div class="upsell-t">Every agentic feature you ship without a matching commercial model trains customers to expect AI for free</div>'
-          +'<div class="upsell-s">The pricing problem compounds with every release. The companies winning in the agentic era aren\'t those with the best AI — they\'re those who know how to price it.</div>'
+          +'<div class="upsell-s">The pricing problem compounds with every release. The companies winning in the agentic era aren\'t those with the best AI: they\'re those who know how to price it.</div>'
         +'</div>'
       +'</div>'
 
@@ -805,7 +805,7 @@ function showResults(){
     +'<div class="mkt">'
       +'<div class="mkt-title">Where to reach SaaS leaders</div>'
       +'<div class="mkt-tags">'
-        +'<span class="mkt-tag">LinkedIn — CPO / CFO / CRO targeting</span>'
+        +'<span class="mkt-tag">LinkedIn: CPO / CFO / CRO targeting</span>'
         +'<span class="mkt-tag">Pavilion (SaaS exec community)</span>'
         +'<span class="mkt-tag">SaaStr / SaaS Open</span>'
         +'<span class="mkt-tag">PE &amp; VC portfolio newsletters</span>'
@@ -813,7 +813,7 @@ function showResults(){
         +'<span class="mkt-tag">RevOps Co-op</span>'
         +'<span class="mkt-tag">OpenView Partners content</span>'
         +'<span class="mkt-tag">CFO Connect</span>'
-        +'<span class="mkt-tag">Substack — pricing &amp; monetisation niche</span>'
+        +'<span class="mkt-tag">Substack: pricing &amp; monetisation niche</span>'
       +'</div>'
     +'</div>';
 }
@@ -824,7 +824,7 @@ renderQ();
   <div class="site-footer-inner">
     <div class="site-footer-brand">
       <p class="site-footer-name">Fessal Rahman</p>
-      <p class="site-footer-tag">Originator of the Agentic Commercial Model — the commercial operating model for the agentic AI era.</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model: the commercial operating model for the agentic AI era.</p>
     </div>
     <div class="site-footer-cols">
       <div>
