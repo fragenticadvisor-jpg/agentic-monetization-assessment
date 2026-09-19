@@ -64,3 +64,14 @@
     d.body.appendChild(s2);
   } else { v(); }
 })();
+
+/* Newsletter nav link (site-wide) */
+(function () {
+var nav = document.getElementById('siteNav');
+if (!nav || nav.querySelector('a[href="/newsletter"]')) return;
+var c = nav.querySelector('a[href="/content"]');
+var a = document.createElement('a');
+a.href = '/newsletter';
+a.textContent = 'Newsletter';
+if (c && c.nextSibling) nav.insertBefore(a, c.nextSibling); else nav.appendChild(a);
+})();
