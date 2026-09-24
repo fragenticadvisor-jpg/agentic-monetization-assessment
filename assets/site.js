@@ -65,13 +65,29 @@
   } else { v(); }
 })();
 
-/* Newsletter nav link (site-wide) */
+/* Site nav: buyer-first structure (site-wide) */
 (function () {
 var nav = document.getElementById('siteNav');
-if (!nav || nav.querySelector('a[href="/newsletter"]')) return;
-var c = nav.querySelector('a[href="/content"]');
-var a = document.createElement('a');
-a.href = '/newsletter';
-a.textContent = 'Newsletter';
-if (c && c.nextSibling) nav.insertBefore(a, c.nextSibling); else nav.appendChild(a);
+if (!nav) return;
+var items = [
+  ['/agentic-commercial-model', 'Framework'],
+  ['/portfolio', 'For PE Firms', 'nav-pe'],
+  ['/assessment', 'Assessment'],
+  ['/report', 'Report'],
+  ['/teardowns', 'Teardowns'],
+  ['/content', 'Resources'],
+  ['/about', 'About']
+];
+nav.innerHTML = '';
+items.forEach(function (it) {
+  var a = document.createElement('a');
+  a.href = it[0]; a.textContent = it[1];
+  if (it[2]) a.className = it[2];
+  nav.appendChild(a);
+});
+var cta = document.querySelector('.site-header .site-cta');
+if (cta) {
+  cta.href = '/portfolio';
+  cta.innerHTML = '<span class="cta-long">Benchmark your portfolio</span><span class="cta-short">For PE firms</span> <span aria-hidden="true">\u2192</span>';
+}
 })();

@@ -79,6 +79,11 @@ body{
   white-space: nowrap;
 }
 .site-cta:hover{ background: var(--gold-lt); transform: translateY(-1px); }
+.site-nav a.nav-pe{ color: var(--gold-lt); }
+.site-nav a.nav-pe::before{ content:''; width:6px; height:6px; border-radius:50%; background: var(--gold); margin-right:.15em; }
+.site-nav a.nav-pe:hover{ color: var(--white); }
+.site-cta .cta-short{ display:none; }
+@media (max-width: 520px){ .site-cta .cta-long{ display:none; } .site-cta .cta-short{ display:inline; } }
 
 /* active-page highlight: <body data-nav="model|layers|content|news|teardowns|about"> */
 body[data-nav="model"] .site-nav a[href="/agentic-commercial-model"],
@@ -88,6 +93,9 @@ body[data-nav="playbooks"] .site-nav a[href="/content"],
 body[data-nav="news"] .site-nav a[href="/news"],
 body[data-nav="teardowns"] .site-nav a[href="/teardowns"],
 body[data-nav="about"] .site-nav a[href="/about"],
+body[data-nav="portfolio"] .site-nav a[href="/portfolio"],
+body[data-nav="report"] .site-nav a[href="/report"],
+body[data-nav="assessment"] .site-nav a[href="/assessment"],
 body[data-nav="contact"] .site-nav a[href="/about"]{
   color: var(--gold);
 }
