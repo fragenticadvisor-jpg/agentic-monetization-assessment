@@ -122,6 +122,28 @@
   .hero-link{ margin-top:1.1rem; font-size:.85rem; }
   .hero-link a{ color:var(--mist); text-decoration:underline; text-underline-offset:3px; }
   .hero-link a:hover{ color:var(--gold); }
+  .record{ margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid var(--rule-lt); }
+  .record-h{ font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:1.5rem; }
+  .record-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; background:var(--rule-lt); border:1px solid var(--rule-lt); }
+  .record-grid > div{ background:var(--white); padding:1.6rem 1.4rem; }
+  .record-n{ font-family:var(--serif); font-weight:700; font-size:1.55rem; color:var(--ink); line-height:1.15; margin-bottom:.35rem; }
+  .record-v{ font-size:.74rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:.7rem; }
+  .record-d{ font-size:.86rem; color:var(--stone); line-height:1.6; }
+  .record-heard{ margin-top:1.5rem; font-size:.88rem; color:var(--stone); }
+  .record-heard a{ color:var(--gold-dk); text-decoration:none; font-weight:600; }
+  .ladder-band{ background:var(--navy); color:var(--cream); }
+  .ladder{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2.5rem; }
+  .rung{ display:flex; flex-direction:column; text-decoration:none; border:1px solid var(--rule); padding:1.75rem 1.5rem; background:var(--navy2); transition:border-color .2s, transform .2s; }
+  .rung:hover{ border-color:var(--gold); transform:translateY(-2px); }
+  .rung-p{ font-family:var(--serif); font-weight:700; font-size:1.5rem; color:var(--gold); margin-bottom:.4rem; }
+  .rung h3{ font-family:var(--serif); font-size:1.15rem; color:var(--white); margin-bottom:.6rem; }
+  .rung p:not(.rung-p){ font-size:.88rem; color:var(--mist); line-height:1.6; flex:1; }
+  .rung span{ margin-top:1.25rem; font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); }
+  .rung-pe{ border-color:var(--gold); }
+  .ladder-foot{ margin-top:1.75rem; font-size:.9rem; color:var(--mist); }
+  .ladder-foot a{ color:var(--gold); }
+  @media (max-width:980px){ .record-grid, .ladder{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .record-grid, .ladder{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body data-nav="home">
@@ -229,6 +251,32 @@
         <div style="text-align:right;"><a class="btn btn-ghost" href="/content" style="border-color:var(--rule-lt);color:var(--stone);">Books, Ebooks &amp; Writing →</a></div>
       </div>
     </div>
+
+    <div class="record">
+      <p class="record-h">The operating record behind FR Advisory</p>
+      <div class="record-grid">
+        <div><p class="record-n">$50m to $105m</p><p class="record-v">Usage-priced developer platform</p><p class="record-d">Doubled in 2.5 years. NRR up 15%, win rates up 10%, unit economics up 25%. Consumption model rebuilt, growth pricing built into every contract.</p></div>
+        <div><p class="record-n">121% NRR</p><p class="record-v">Marketing automation SaaS</p><p class="record-d">NRR from the low 100s to 121%. New business ACV up 25% through a new sales methodology and packaging.</p></div>
+        <div><p class="record-n">90% converted</p><p class="record-v">Enterprise data platform</p><p class="record-d">90% of the installed base moved from perpetual to subscription inside four years, with new comp design and territory management. Growth returned.</p></div>
+        <div><p class="record-n">20 companies</p><p class="record-v">PE-backed software group</p><p class="record-d">Commercial function across 20 businesses, around £1bn combined. NRR up 4%, GRR up 2%, forecast accuracy improved.</p></div>
+      </div>
+      <p class="record-heard">As heard on <a href="https://www.listennotes.com/podcasts/building-great-tech/how-to-price-your-saas-in-dLhDavbB5uc/" target="_blank" rel="noopener"><em>Building Great Tech</em>: How to Price Your SaaS in the Age of AI →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH -->
+<section class="ladder-band">
+  <div class="section">
+    <p class="eyebrow">Work with FR Advisory</p>
+    <h2 class="display">Start free. Go as deep as the problem needs.</h2>
+    <div class="ladder">
+      <a class="rung" href="/assessment"><p class="rung-p">Free</p><h3>Readiness check</h3><p>Dimension 1 of the diagnostic. Five minutes, scored on screen.</p><span>Start now →</span></a>
+      <a class="rung" href="/assessment"><p class="rung-p">£995</p><h3>Full assessment</h3><p>All five dimensions plus pricing audit readiness. PDF report within 48 hours.</p><span>Take the assessment →</span></a>
+      <a class="rung" href="/playbooks#bundle"><p class="rung-p">£2,495</p><h3>Assessment + advisor</h3><p>The full report plus a two-hour working session on your pricing model and 30 days of follow-up.</p><span>See what's included →</span></a>
+      <a class="rung rung-pe" href="/portfolio"><p class="rung-p">For PE firms</p><h3>Portfolio Benchmark</h3><p>Every portco scored across all nine layers. Value at risk ranked. Three weeks to the readout.</p><span>Benchmark your portfolio →</span></a>
+    </div>
+    <p class="ladder-foot">Want to go it alone? Playbooks, ebooks and both books are in <a href="/content">Resources</a>.</p>
   </div>
 </section>
 
