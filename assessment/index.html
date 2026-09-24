@@ -114,6 +114,7 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);min-height:100vh;ma
 .mkt-tags{display:flex;flex-wrap:wrap;gap:7px}
 .mkt-tag{font-size:10px;padding:4px 11px;border:1px solid var(--border);border-radius:3px;color:var(--muted)}
 </style>
+<script src="https://tally.so/widgets/embed.js" async></script>
 </head>
 <body data-nav="assessment">
 
@@ -558,17 +559,11 @@ if(locked){
     '<div style="text-align:center;padding:1rem 0 0.5rem">'
     +'<div class="gate-badge">Dimension 1 complete</div>'
     +'<div style="font-family:\'Spectral\',serif;font-size:22px;color:var(--ink);margin-bottom:0.6rem;line-height:1.2">You\'ve completed the first<br>diagnostic dimension</div>'
-    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 1rem">Dimensions 2 to 5 and the full Pricing Audit Readiness section are unlocked with the full assessment. Enter your details below to save your progress: then choose your path.</div>'
+    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 1rem">Dimensions 2 to 5 and the full Pricing Audit Readiness section are unlocked with the full assessment. Choose your path below. We\'ll save your Dimension 1 score against your details before you continue.</div>'
     +thtml
     +'</div>'
 
     +'<div style="max-width:420px;margin:0 auto">'
-
-    +'<div style="margin-bottom:1rem">'
-    +'<input class="inp" type="text" id="gname" placeholder="Your first name">'
-    +'<input class="inp" type="email" id="gemail" placeholder="Work email address">'
-    +'<input class="inp" type="text" id="gco" placeholder="Company name">'
-    +'</div>'
 
     +'<div style="background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1rem">'
     +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem">'
@@ -579,7 +574,7 @@ if(locked){
     +'<div style="background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-top:4px">Recommended</div>'
     +'</div>'
     +'<div style="font-size:11px;color:rgba(245,242,236,0.55);line-height:1.6;margin-bottom:1rem">All 5 scored dimensions · Prioritised transformation roadmap · Dimension-by-dimension recommendations · PDF report within 48 hours</div>'
-    +'<button class="btn-gold" onclick="payAndContinue()" style="font-size:13px;padding:12px">Pay £995 &amp; unlock full assessment &#8594;</button>'
+    +'<button class="btn-gold" onclick="openLeadForm(\'pay\')" style="font-size:13px;padding:12px">Pay £995 &amp; unlock full assessment &#8594;</button>'
     +'<div style="font-size:11px;text-align:center;margin-top:0.6rem"><a href="mailto:fessal@agenticcommercialmodel.com?subject=Invoice request: Full Assessment (£995)&body=Hi Fessal, please send an invoice for the Full Assessment (£995). Company name: . Billing address: . PO number (if needed): ." style="color:rgba(245,242,236,0.7);text-decoration:underline">Buying through your company? Request an invoice</a></div>'
     +'</div>'
 
@@ -592,7 +587,7 @@ if(locked){
     +'</div>'
     +'</div>'
     +'<div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:1rem">Everything in Full Assessment · 2-hour 1:1 session with Fessal · Live results walkthrough · Custom pricing model design · Preparation checklist actioned together · 30-day follow-up Q&amp;A</div>'
-    +'<button class="btn-gold" onclick="bookAdvisor()" style="font-size:13px;padding:12px;background:var(--ink);border-color:var(--ink)">Book Assessment + Advisor session &#8594;</button>'
+    +'<button class="btn-gold" onclick="openLeadForm(\'advisor\')" style="font-size:13px;padding:12px;background:var(--ink);border-color:var(--ink)">Book Assessment + Advisor session &#8594;</button>'
     +'</div>'
 
     +'<div style="font-size:10px;color:var(--muted);text-align:center;padding-bottom:1.5rem">No spam. Your details are used solely to send your results and follow up on your assessment.</div>'
@@ -601,42 +596,66 @@ if(locked){
   updateProg();
 }
 
-function payAndContinue(){
-  var name=document.getElementById('gname').value.trim();
-  var email=document.getElementById('gemail').value.trim();
-  if(!name||!email||email.indexOf('@')<0){
-    ['gname','gemail'].forEach(function(id){
-      var el=document.getElementById(id);
-      if(!el.value.trim()||(el.type==='email'&&el.value.indexOf('@')<0)){
-        el.style.borderColor='var(--red)';setTimeout(function(){el.style.borderColor='';},700);
+var LEAD_FORM='2E0bZb';
+var PAY_995='https://checkout.revolut.com/pay/4c6573b6-6902-4a79-92e0-0fca1bd2af02';
+
+function leadName(p){
+  try{
+    var f=(p&&p.fields)||[];
+    for(var i=0;i<f.length;i++){
+      var t=String(f[i].title||f[i].label||'').toLowerCase();
+      if(t.indexOf('name')>=0&&t.indexOf('company')<0){
+        var a=f[i].answer; var v=(a&&a.value!=null)?a.value:a;
+        return typeof v==='string'?v:'';
       }
-    });
-    return;
-  }
-  window.open('https://checkout.revolut.com/pay/4c6573b6-6902-4a79-92e0-0fca1bd2af02','_blank');
+    }
+  }catch(e){}
+  return '';
+}
+
+function unlockQuestions(){
   document.getElementById('gpanel').classList.add('hidden');
   document.getElementById('qpanel').classList.remove('hidden');
   cur=5;renderQ();
 }
 
-function bookAdvisor(){
-  var name=document.getElementById('gname').value.trim();
-  var email=document.getElementById('gemail').value.trim();
-  if(!name||!email||email.indexOf('@')<0){
-    ['gname','gemail'].forEach(function(id){
-      var el=document.getElementById(id);
-      if(!el.value.trim()||(el.type==='email'&&el.value.indexOf('@')<0)){
-        el.style.borderColor='var(--red)';setTimeout(function(){el.style.borderColor='';},700);
-      }
-    });
-    return;
-  }
-  window.location.href='mailto:fessal@agenticcommercialmodel.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name)+'. Please send me next steps.';
-  document.getElementById('gpanel').classList.add('hidden');
-  document.getElementById('qpanel').classList.remove('hidden');
-  cur=5;renderQ();
+function payNow(){
+  window.open(PAY_995,'_blank');
+  unlockQuestions();
 }
 
+function continuePath(path,name){
+  if(path==='advisor'){
+    window.location.href='mailto:fessal@agenticcommercialmodel.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name||'')+'. Please send me next steps.';
+    unlockQuestions();
+    return;
+  }
+  var gp=document.getElementById('gpanel');
+  gp.innerHTML='<div style="text-align:center;padding:2rem 0">'
+    +'<div class="gate-badge">Details saved</div>'
+    +'<div style="font-family:\'Spectral\',serif;font-size:22px;color:var(--ink);margin:0.6rem 0">'+(name?'Thanks '+name.replace(/[<>&"]/g,'')+'. ':'')+'One step left</div>'
+    +'<div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto 1.25rem">Payment opens in a new tab. Your assessment continues here with Dimension 2.</div>'
+    +'<div style="max-width:420px;margin:0 auto"><button class="btn-gold" onclick="payNow()" style="font-size:13px;padding:12px">Pay £995 &amp; continue &#8594;</button>'
+    +'<div style="font-size:11px;margin-top:0.75rem"><a href="mailto:fessal@agenticcommercialmodel.com?subject=Invoice request: Full Assessment (£995)&body=Hi Fessal, please send an invoice for the Full Assessment (£995). Company name: . Billing address: . PO number (if needed): ." style="color:var(--muted);text-decoration:underline">Buying through your company? Request an invoice</a></div></div>'
+    +'</div>';
+}
+
+function openLeadForm(path){
+  var s=dimScores()[0];
+  var pct=s.max?Math.round(s.raw/s.max*100):0;
+  if(window.Tally&&typeof Tally.openPopup==='function'){
+    Tally.openPopup(LEAD_FORM,{
+      layout:'modal',width:480,doNotShowAfterSubmit:false,
+      hiddenFields:{path:path,dim1_score:s.raw+'/'+s.max,dim1_pct:pct},
+      onSubmit:function(p){
+        var n=leadName(p);
+        setTimeout(function(){try{Tally.closePopup(LEAD_FORM);}catch(e){} continuePath(path,n);},700);
+      }
+    });
+  } else {
+    continuePath(path,'');
+  }
+}
 
 
 function showResults(){
