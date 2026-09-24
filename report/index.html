@@ -7,7 +7,7 @@
 <meta name="description" content="A first-edition report: 34 software vendors audited for real agent access across the nine layers of the Agentic Commercial Model. 53% ship an MCP server. Two layers that decide price and pay have none." />
 <link rel="canonical" href="https://www.agenticcommercialmodel.com/report" />
 <meta property="og:title" content="The State of Agentic Commercial Readiness" />
-<meta property="og:description" content="34 vendors, 8 categories, one documentation audit: where agent access is real, and where it stops the moment money is involved." />
+<meta property="og:description" content="34 vendors, 9 categories, one documentation audit: where agent access is real, and where it stops the moment money is involved." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.agenticcommercialmodel.com/report" />
 
@@ -67,6 +67,31 @@
   .nl-strip-copy p{ font-size:.92rem; color:var(--mist); max-width:42ch; line-height:1.65; }
   .nl-strip-form iframe{ display:block; }
 
+  .report-tools{ display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:1.1rem; font-size:.85rem; font-weight:600; letter-spacing:.02em; }
+  .report-tools a{ color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,168,76,.4); padding-bottom:2px; }
+  .report-tools a:hover{ border-color:var(--gold); }
+  .cite-block{ max-width:900px; margin:0 auto; padding:3.25rem 2.25rem 0; }
+  .cite-block h3{ font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:.85rem; }
+  .cite-block p{ font-size:.88rem; color:var(--stone); line-height:1.75; margin-bottom:.9rem; }
+  .cite-box{ display:flex; gap:1rem; align-items:flex-start; background:var(--cream2); border:1px solid var(--rule-lt); padding:1rem 1.25rem; margin-bottom:1.5rem; }
+  .cite-box code{ flex:1; font-family:inherit; font-size:.88rem; color:var(--ink); line-height:1.6; }
+  .cite-box button{ flex-shrink:0; font:inherit; font-size:.75rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-dk); background:none; border:1px solid var(--gold-dk); padding:.4rem .75rem; cursor:pointer; }
+  .chart-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .chart-grid a{ display:block; text-decoration:none; color:var(--gold-dk); font-size:.82rem; font-weight:600; }
+  .chart-grid img{ display:block; width:100%; height:auto; border:1px solid var(--rule-lt); margin-bottom:.5rem; }
+  @media (max-width:640px){ .chart-grid{ grid-template-columns:1fr; } .cite-box{ flex-direction:column; } }
+  @media print{
+    .site-header, .site-footer, .nl-strip, .report-cta, .report-tools, .cite-block, .site-nav-toggle{ display:none !important; }
+    .report-hero{ padding:2.5rem 2rem 2rem; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .stat-band, .lr-score{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ padding-top:0 !important; }
+    .band-light{ padding-top:0 !important; padding-bottom:0 !important; }
+    .report-wrap{ padding:1.25rem 1.5rem 0; }
+    .report-wrap h2{ break-after:avoid; }
+    .report-meta a{ color:inherit; }
+    .cat-table tr, .lr-row, .report-callout{ break-inside:avoid; }
+    .method-note{ padding:1.5rem 1.5rem 0; }
+  }
   .method-note{ max-width:900px; margin:0 auto; padding:3.25rem 2.25rem 5.25rem; }
   .method-note h3{ font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:.85rem; }
   .method-note p{ font-size:.88rem; color:var(--stone); line-height:1.75; margin-bottom:.9rem; }
@@ -105,12 +130,13 @@
     <h1>The State of Agentic Commercial Readiness</h1>
     <p class="lede">Thirty four commercial software vendors, audited against their own developer documentation for one question: can an AI agent actually act inside this system, not just chat next to it. The pattern that emerges maps almost exactly onto where the money is.</p>
     <p class="report-meta">First edition · September 2026 · Fessal Rahman · Vendor data from the Agentic Tech Stack registry, which he also maintains (<a href="#sources">disclosure</a>)</p>
+    <p class="report-tools"><a href="/report/state-of-agentic-commercial-readiness-2026.pdf" download>Download PDF</a><a href="#cite">Charts &amp; citation</a></p>
   </div>
 </section>
 
 <div class="stat-band">
   <div class="stat-grid">
-    <div class="stat-item"><p class="num">34</p><p>Vendors audited across 8 commercial software categories, mapped to the nine layers of the Agentic Commercial Model.</p></div>
+    <div class="stat-item"><p class="num">34</p><p>Vendors audited across 9 commercial software categories, mapped to the nine layers of the Agentic Commercial Model.</p></div>
     <div class="stat-item"><p class="num">53%</p><p>Publish an official, documented MCP server or first party agent interface, not a roadmap promise, a verified one.</p></div>
     <div class="stat-item"><p class="num">74%</p><p>Offer some documented path for an agent to write, not just read: via MCP or a scoped API.</p></div>
     <div class="stat-item"><p class="num">0%</p><p>Of vendors in Pricing &amp; Packaging or Sales Compensation publish any official agent interface at all.</p></div>
@@ -188,9 +214,21 @@
   </div>
 </section>
 
+<section class="cite-block" id="cite">
+  <h3>Cite this report</h3>
+  <div class="cite-box"><code id="citeText">Rahman, F. (2026). <i>The State of Agentic Commercial Readiness</i> (1st ed.). FR Advisory. https://www.agenticcommercialmodel.com/report</code><button type="button" id="citeCopy">Copy</button></div>
+  <p>Journalists and analysts are welcome to quote the figures and reuse the charts below with attribution to Fessal Rahman and a link to this page. Questions or data requests: <a href="mailto:fessal@agenticcommercialmodel.com?subject=State of Agentic Commercial Readiness: media enquiry" style="color:var(--gold-dk)">fessal@agenticcommercialmodel.com</a>.</p>
+  <div class="chart-grid">
+    <a href="/report/assets/key-findings.png" download><img src="/report/assets/key-findings.png" alt="Key findings: 34 vendors audited, 53% publish an official MCP server, 74% offer a documented write path, 0% of pricing and sales compensation vendors offer an official agent interface" width="1200" height="675" loading="lazy">Download key findings (PNG)</a>
+    <a href="/report/assets/agent-access-by-category.png" download><img src="/report/assets/agent-access-by-category.png" alt="Bar chart: share of vendors with an official agent interface by category, from 5 of 5 in marketing automation to 0 of 3 in pricing and 0 of 4 in sales compensation" width="1200" height="675" loading="lazy">Download category chart (PNG)</a>
+  </div>
+  <p style="margin-top:1.25rem"><a href="/report/state-of-agentic-commercial-readiness-2026.pdf" download style="color:var(--gold-dk);font-weight:600">Download the full report (PDF)</a></p>
+</section>
+
 <div class="method-note" id="sources">
   <h3>Methodology &amp; sourcing</h3>
-  <p>Vendor level findings are drawn from the Agentic Tech Stack's Agent Access Registry, a documentation audit covering 34 commercial software vendors across 8 categories, verified 21 August 2026 against each vendor's own developer documentation rather than marketing claims: distinguishing an official, documented MCP server from a press release claim, a third party wrapper, or a scoped API with no MCP layer at all. Category and layer roll ups above are calculated directly from that vendor level data. Full vendor by vendor evidence, including source links and verification dates, is maintained in the <a href="https://agenticreadystack.com/registry.html" target="_blank" rel="noopener">public registry</a>, with ongoing findings published in <a href="https://agenticreadystack.com/signal" target="_blank" rel="noopener">Signal</a>.</p>
+  <p>Vendor level findings are drawn from the Agentic Tech Stack's Agent Access Registry, a documentation audit covering 34 commercial software vendors across 9 categories, verified 21 August 2026 against each vendor's own developer documentation rather than marketing claims: distinguishing an official, documented MCP server from a press release claim, a third party wrapper, or a scoped API with no MCP layer at all. Category and layer roll ups above are calculated directly from that vendor level data. Full vendor by vendor evidence, including source links and verification dates, is maintained in the <a href="https://agenticreadystack.com/registry.html" target="_blank" rel="noopener">public registry</a>, with ongoing findings published in <a href="https://agenticreadystack.com/signal" target="_blank" rel="noopener">Signal</a>.</p>
+  <p>Vendors were selected to cover each category's market leaders alongside the challenger tools most commonly run by PE and VC backed SaaS businesses. This edition is a snapshot of the registry as verified on 21 August 2026; the live registry has since expanded to more vendors and categories, and every figure in this report refers to the 34 vendors covered at that date.</p>
   <p>The Agentic Tech Stack and the Agentic Commercial Model are both maintained by Fessal Rahman. Inclusion in the registry isn't for sale and doesn't determine a vendor's score; full disclosure is published on the Agentic Tech Stack's <a href="https://agenticreadystack.com/disclosure.html" target="_blank" rel="noopener">disclosure page</a>. This report will be re issued as the underlying registry is re audited.</p>
 </div>
 
@@ -229,5 +267,26 @@
   <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
 </footer>
 <script src="/assets/site.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Report",
+  "name": "The State of Agentic Commercial Readiness",
+  "headline": "The State of Agentic Commercial Readiness: First Edition",
+  "description": "34 commercial software vendors across 9 categories audited against their own developer documentation for official AI agent access, mapped to the nine layers of the Agentic Commercial Model.",
+  "url": "https://www.agenticcommercialmodel.com/report",
+  "datePublished": "2026-09",
+  "dateModified": "2026-09-24",
+  "bookEdition": "1",
+  "author": {"@type": "Person", "@id": "https://www.agenticcommercialmodel.com/#person", "name": "Fessal Rahman", "url": "https://www.agenticcommercialmodel.com/about"},
+  "publisher": {"@type": "Organization", "name": "FR Advisory"},
+  "image": ["https://www.agenticcommercialmodel.com/report/assets/key-findings.png", "https://www.agenticcommercialmodel.com/report/assets/agent-access-by-category.png"],
+  "encoding": {"@type": "MediaObject", "contentUrl": "https://www.agenticcommercialmodel.com/report/state-of-agentic-commercial-readiness-2026.pdf", "encodingFormat": "application/pdf"},
+  "about": {"@type": "DefinedTerm", "name": "Agentic Commercial Model", "url": "https://www.agenticcommercialmodel.com/agentic-commercial-model"}
+}
+</script>
+<script>
+(function(){var b=document.getElementById('citeCopy');if(!b)return;b.addEventListener('click',function(){var t=document.getElementById('citeText').innerText;var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1800);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}else{var r=document.createRange();r.selectNodeContents(document.getElementById('citeText'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);}});})();
+</script>
 </body>
 </html>
