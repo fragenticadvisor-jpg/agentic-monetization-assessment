@@ -453,7 +453,7 @@ function renderAQ(){
   if(aCur===0){
     var intro=document.createElement('div');
     intro.className='audit-intro';
-    intro.innerHTML='<div class="audit-intro-title">Pricing Audit Readiness: 6 questions</div><div class="audit-intro-text">These questions determine how prepared you are for a custom pricing model. Your answers shape the data readiness score and preparation checklist shown in your results, and directly inform the advisor session agenda.</div>';
+    intro.innerHTML='<div class="audit-intro-title">Pricing Audit Readiness: 6 questions</div><div class="audit-intro-text">These questions determine how prepared you are for a custom pricing model. Your answers shape the data readiness score and preparation checklist shown in your results, and show you what to gather first.</div>';
     ol.insertAdjacentElement('beforebegin',intro);
   }
   q.o.forEach(function(opt,i){
@@ -578,19 +578,8 @@ if(locked){
     +'<div style="font-size:11px;text-align:center;margin-top:0.6rem"><a href="mailto:fessal@agenticcommercialmodel.com?subject=Invoice request: Full Assessment (£995)&body=Hi Fessal, please send an invoice for the Full Assessment (£995). Company name: . Billing address: . PO number (if needed): ." style="color:rgba(245,242,236,0.7);text-decoration:underline">Buying through your company? Request an invoice</a></div>'
     +'</div>'
 
-    +'<div style="background:var(--white);border:2px solid var(--gold);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1rem;position:relative">'
-    +'<div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap">Most valuable</div>'
-    +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem">'
-    +'<div>'
-    +'<div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Assessment + Expert Advisor</div>'
-    +'<div style="font-family:\'Spectral\',serif;font-size:26px;color:var(--ink)">£2,495</div>'
-    +'</div>'
-    +'</div>'
-    +'<div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:1rem">Everything in Full Assessment · 2-hour 1:1 session with Fessal · Live results walkthrough · Custom pricing model design · Preparation checklist actioned together · 30-day follow-up Q&amp;A</div>'
-    +'<button class="btn-gold" onclick="openLeadForm(\'advisor\')" style="font-size:13px;padding:12px;background:var(--ink);border-color:var(--ink)">Book Assessment + Advisor session &#8594;</button>'
-    +'</div>'
 
-    +'<div style="font-size:10px;color:var(--muted);text-align:center;padding-bottom:1.5rem">No spam. Your details are used solely to send your results and follow up on your assessment.</div>'
++'<div style="font-size:10px;color:var(--muted);text-align:center;padding-bottom:1.5rem">No spam. Your details are used solely to send your results and follow up on your assessment.</div>'
     +'</div>';
 
   updateProg();
@@ -625,11 +614,6 @@ function payNow(){
 }
 
 function continuePath(path,name){
-  if(path==='advisor'){
-    window.location.href='mailto:fessal@agenticcommercialmodel.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed Dimension 1 of the assessment and would like to book the Assessment + Advisor package (£2,495). My name is '+encodeURIComponent(name||'')+'. Please send me next steps.';
-    unlockQuestions();
-    return;
-  }
   var gp=document.getElementById('gpanel');
   gp.innerHTML='<div style="text-align:center;padding:2rem 0">'
     +'<div class="gate-badge">Details saved</div>'
@@ -679,10 +663,10 @@ function showResults(){
     :ts.pct>=40?'Significant work required. Sequence carefully: infrastructure before enablement, value metric before architecture.'
     :'Your model is structurally misaligned for the agentic era. This warrants board level attention, not a project team.';
 
-  var adesc=as.pct>=80?'Your data is in excellent shape. An advisor session can move directly to model design and scenario planning.'
-    :as.pct>=60?'Most data assets are available. A few gaps to address before or during the advisory session.'
-    :as.pct>=40?'Partial data available. The preparation checklist below outlines what to gather before your session.'
-    :'Significant data gaps exist. The advisor session will include a data collection framework to get you ready.';
+  var adesc=as.pct>=80?'Your data is in excellent shape. You can move straight to model design and scenario planning.'
+    :as.pct>=60?'Most data assets are available. A few gaps to close before you redesign the model.'
+    :as.pct>=40?'Partial data available. The checklist below outlines what to gather first.'
+    :'Significant data gaps exist. Build the data collection framework before touching the pricing model.';
 
   var clItems=[
     {lbl:'ARR decomposition by segment, pricing metric & product line',key:0},
@@ -769,7 +753,7 @@ function showResults(){
             +'</div>'
           +'</div>'
         +'</div>'
-        +'<div style="font-size:11px;font-weight:500;color:var(--ink);margin-bottom:8px">Advisor session preparation checklist</div>'
+        +'<div style="font-size:11px;font-weight:500;color:var(--ink);margin-bottom:8px">Data readiness checklist</div>'
         +'<ul class="checklist">'+clHtml+'</ul>'
       +'</div>'
 
@@ -792,22 +776,7 @@ function showResults(){
           +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.open(\'https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058\',\'_blank\')">Pay &amp; get full report &#8594;</button>'
           +'<div style="font-size:11px;text-align:center;margin-top:0.5rem"><a href="mailto:fessal@agenticcommercialmodel.com?subject=Invoice request: Full Assessment (£995)&body=Hi Fessal, please send an invoice for the Full Assessment (£995). Company name: . Billing address: . PO number (if needed): ." style="color:var(--muted);text-decoration:underline">Request an invoice instead</a></div>'
         +'</div>'
-        +'<div class="pc feat">'
-          +'<div class="pc-badge">Most valuable</div>'
-          +'<div class="pc-name">Assessment + Advisor</div>'
-          +'<div class="pc-price">£2,495</div>'
-          +'<div class="pc-desc">Full report plus 2 hours of dedicated advisory time with Fessal.</div>'
-          +'<ul class="pc-feats">'
-            +'<li>Everything in Full Assessment</li>'
-            +'<li>2-hour 1:1 session with Fessal</li>'
-            +'<li>Live results walkthrough</li>'
-            +'<li>Custom pricing model design input</li>'
-            +'<li>Checklist actioned together in session</li>'
-            +'<li>30-day follow-up Q&amp;A by email</li>'
-          +'</ul>'
-          +'<button class="btn-gold" style="font-size:12px;padding:10px" onclick="window.location.href=\'mailto:fessal@agenticcommercialmodel.com?subject=Assessment + Advisor Package: Agentic Readiness&body=Hi Fessal, I have completed the assessment and would like to book the Assessment + Advisor package (£2,495). Please send me next steps.\'">Book advisor session &#8594;</button>'
-        +'</div>'
-      +'</div>'
+              +'</div>'
 
       +'<div class="upsell">'
         +'<div style="font-size:20px;color:var(--gold);flex-shrink:0;margin-top:1px">&#128161;</div>'
