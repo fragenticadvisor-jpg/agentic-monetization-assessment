@@ -119,7 +119,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
 .cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
 .cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
 .cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
-.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-cards{display:grid;grid-template-columns:1fr;gap:10px;max-width:340px}
 .cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
 .cta-card.highlight{border-color:var(--gold);position:relative}
 .cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
@@ -189,7 +189,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
     <div class="cover-inner">
       <div class="eyebrow">FR Advisory</div>
       <div class="cover-title">Pricing Audit<br><em>Prep Kit</em></div>
-      <div class="cover-sub">Six data assets every SaaS company needs before designing an agentic pricing model. Mark your readiness, identify your gaps, and arrive at your advisor session ready to build.</div>
+      <div class="cover-sub">Six data assets every SaaS company needs before designing an agentic pricing model. Mark your readiness, identify your gaps, and close them before you redesign anything.</div>
       <div class="cover-meta">
         <div class="cover-stat">
           <div class="cover-stat-n">6</div>
@@ -221,7 +221,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
 
     <div class="intro-block">
       <div class="intro-block-title">Why this checklist exists</div>
-      <div class="intro-block-text">Building a custom agentic pricing model without clean commercial data is guesswork. These six assets form the diagnostic foundation: they determine which pricing structures are viable, which customer segments to prioritise, and where the transition risks are highest. For each item, mark your current readiness. Gaps become your preparation agenda before any advisor session or model design work begins.</div>
+      <div class="intro-block-text">Building a custom agentic pricing model without clean commercial data is guesswork. These six assets form the diagnostic foundation: they determine which pricing structures are viable, which customer segments to prioritise, and where the transition risks are highest. For each item, mark your current readiness. Gaps become your build agenda before any model design work begins.</div>
     </div>
 
     <div class="section-label">The six data assets</div>
@@ -394,7 +394,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
       <div class="tip-card">
         <div class="tip-num">06</div>
         <div class="tip-title">Bring what you have</div>
-        <div class="tip-text">Gaps are expected. An advisor session is designed to work with partial data: the prep kit ensures you arrive knowing what you have, what's missing, and what to prioritise building.</div>
+        <div class="tip-text">Gaps are expected. Partial data is normal. The point of the kit is to know what you have, what is missing, and what to build first.</div>
       </div>
     </div>
 
@@ -402,7 +402,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
     <div class="cta-block">
       <div class="cta-eyebrow">Ready to build your model?</div>
       <div class="cta-title">Turn this checklist into<br>a custom pricing model</div>
-      <div class="cta-sub">The prep kit gets you ready. The advisor session is where the model gets built: working through your data, your customer segments, and your competitive position to design a hybrid pricing structure you can actually take to market.</div>
+      <div class="cta-sub">The prep kit gets you ready. The full assessment scores all nine layers so you can see where this sits against the rest of the model.</div>
       <div class="cta-cards">
         <div class="cta-card">
           <div class="cta-card-name">Full Assessment</div>
@@ -410,14 +410,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
           <div class="cta-card-desc">All 5 scored dimensions, prioritised roadmap, PDF report within 48 hours.</div>
           <button class="btn-gold" onclick="window.open('https://checkout.revolut.com/pay/5573f7d4-dd93-4f77-945b-42b90c28e058','_blank')">Get full report →</button>
         </div>
-        <div class="cta-card highlight">
-          <div class="cta-card-badge">Most valuable</div>
-          <div class="cta-card-name">Assessment + Advisor</div>
-          <div class="cta-card-price">£2,495</div>
-          <div class="cta-card-desc">Full report plus 2 hour 1:1 session with Fessal. Custom model design included.</div>
-          <button class="btn-dark" onclick="window.location.href='mailto:fessal@agenticcommercialmodel.com?subject=Assessment + Advisor Package&body=Hi Fessal, I have completed the Pricing Audit Prep Kit and would like to book the Assessment + Advisor package.'">Book session →</button>
         </div>
-      </div>
     </div>
 
     <div class="print-hint">
@@ -508,19 +501,19 @@ function updateScore(){
   // band
   var band, bandBg, bandCol, title, desc;
   if(pct >= 80){
-    band='Session ready'; bandBg='var(--green-lt)'; bandCol='var(--green-dk)';
+    band='Build ready'; bandBg='var(--green-lt)'; bandCol='var(--green-dk)';
     title='Your data is in strong shape';
-    desc='The advisor session can move directly into model design and scenario planning. Bring your assets and we\'ll build from day one.';
+    desc='You have what you need to move straight into model design and scenario planning.';
     document.getElementById('rc-arc').setAttribute('stroke','var(--green)');
   } else if(pct >= 60){
     band='Mostly ready'; bandBg='var(--amber-lt)'; bandCol='var(--amber-dk)';
     title='A few gaps to close first';
-    desc='Most assets are available. Address the partial and gap items using the actions above before your session: it will significantly accelerate the model design work.';
+    desc='Most assets are available. Address the partial and gap items using the actions above before you redesign the model.';
     document.getElementById('rc-arc').setAttribute('stroke','var(--amber)');
   } else {
     band='Preparation needed'; bandBg='var(--red-lt)'; bandCol='var(--red-dk)';
     title='Significant gaps to address';
-    desc='The advisor session will include a data collection framework to get you ready. Use the action notes above to close gaps in priority order before we meet.';
+    desc='Build a data collection framework first. Use the action notes above to close gaps in priority order.';
     document.getElementById('rc-arc').setAttribute('stroke','var(--red)');
   }
 

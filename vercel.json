@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/portfolio", "destination": "/layers", "permanent": true },
+    { "source": "/portfolio/:path*", "destination": "/layers", "permanent": true }
+  ]
+}
