@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=optional">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -19,7 +24,7 @@
   --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
   --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
 }
-body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
+body{font-family:'Barlow','Barlow Fallback',sans-serif;background:var(--darker);min-height:100vh;margin:0;color:var(--ink)}
 .page{max-width:920px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative}
 .cover{background:var(--dark);padding:3.75rem 3.5rem 2.75rem;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
@@ -27,17 +32,17 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);min-height:100vh;m
 .cover-inner{position:relative;z-index:1}
 .eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
 .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
-.cover-title{font-family:'Spectral',serif;font-size:43px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
+.cover-title{font-family:'Spectral','Spectral Fallback',serif;font-size:43px;line-height:1.1;color:#F5F0E8;margin-bottom:0.75rem}
 .cover-title em{font-style:italic;color:var(--gold)}
 .cover-sub{font-size:14px;color:rgba(245,242,236,0.55);line-height:1.7;max-width:580px;margin-bottom:2rem}
 .cover-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
 .cover-stat{border-left:1px solid rgba(201,168,76,0.3);padding-left:0.85rem}
-.cover-stat-n{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.cover-stat-n{font-family:'Spectral','Spectral Fallback',serif;font-size:22px;color:var(--gold)}
 .cover-stat-l{font-size:10px;color:rgba(245,242,236,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
 .body{padding:2.75rem 3.5rem}
 .intro-block{background:var(--dark);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .intro-block::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
-.intro-block-title{font-family:'Spectral',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
+.intro-block-title{font-family:'Spectral','Spectral Fallback',serif;font-size:17px;color:#F5F0E8;margin-bottom:0.5rem}
 .intro-block-text{font-size:12px;color:rgba(245,242,236,0.55);line-height:1.75}
 .section-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
@@ -46,23 +51,23 @@ p.lead{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
 .metric-card{border:1px solid var(--border);border-radius:6px;padding:1.3rem;background:var(--white)}
 .metric-card.recommended{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .metric-badge{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-bottom:.5rem;display:block}
-.metric-name{font-family:'Spectral',serif;font-size:17px;color:var(--ink);margin-bottom:.5rem}
+.metric-name{font-family:'Spectral','Spectral Fallback',serif;font-size:17px;color:var(--ink);margin-bottom:.5rem}
 .metric-eg{font-size:10px;color:var(--muted);font-style:italic;margin-bottom:.6rem}
 .metric-pro,.metric-con{font-size:11px;line-height:1.6;margin-bottom:.3rem;padding-left:1.1rem;position:relative}
 .metric-pro::before{content:'+';position:absolute;left:0;color:var(--green-dk);font-weight:700}
 .metric-con::before{content:'\2013';position:absolute;left:0;color:var(--red-dk);font-weight:700}
 .explorer{background:var(--dark);border-radius:6px;padding:2rem;margin-bottom:2.5rem}
-.explorer-title{font-family:'Spectral',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
+.explorer-title{font-family:'Spectral','Spectral Fallback',serif;font-size:19px;color:#F5F0E8;margin-bottom:.4rem}
 .explorer-sub{font-size:11px;color:rgba(245,242,236,.5);margin-bottom:1.25rem;line-height:1.6}
 .explorer-q{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;margin-top:1.1rem}
 .explorer-opts{display:flex;gap:8px;flex-wrap:wrap}
-.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s}
+.opt-btn{font-size:11px;padding:8px 14px;border-radius:4px;border:1px solid rgba(245,242,236,.18);background:rgba(245,242,236,.04);color:rgba(245,242,236,.75);cursor:pointer;font-family:'Barlow','Barlow Fallback',sans-serif;transition:all .15s}
 .opt-btn:hover{border-color:var(--gold)}
 .opt-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
 .explorer-result{margin-top:1.5rem;padding:1.25rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:6px;display:none}
 .explorer-result.visible{display:block}
 .result-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
-.result-metric{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
+.result-metric{font-family:'Spectral','Spectral Fallback',serif;font-size:20px;color:#F5F0E8;margin-bottom:.6rem}
 .result-why{font-size:12px;color:rgba(245,242,236,.65);line-height:1.7}
 .checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:1rem}
 .check-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:1.15rem 1.4rem;cursor:pointer;transition:all 0.2s ease;display:flex;gap:14px;align-items:flex-start;position:relative}
@@ -78,36 +83,36 @@ p.lead{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
 .check-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4}
 .check-why{font-size:11px;color:var(--muted);line-height:1.65;margin-bottom:8px}
 .check-status-row{display:flex;gap:6px;flex-wrap:wrap}
-.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow',sans-serif;letter-spacing:0.04em}
+.status-btn{font-size:10px;padding:3px 10px;border-radius:3px;border:1px solid var(--border);background:var(--paper);color:var(--muted);cursor:pointer;transition:all 0.15s ease;font-family:'Barlow','Barlow Fallback',sans-serif;letter-spacing:0.04em}
 .status-btn:hover{border-color:var(--muted)}
 .status-btn.active-ready{background:var(--green);border-color:var(--green);color:#fff}
 .status-btn.active-gap{background:var(--red);border-color:var(--red);color:#fff}
 .signal-score{background:var(--dark);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:none}
 .signal-score.visible{display:block}
-.ss-title{font-family:'Spectral',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
+.ss-title{font-family:'Spectral','Spectral Fallback',serif;font-size:15px;color:#F5F0E8;margin-bottom:.3rem}
 .ss-desc{font-size:11px;color:rgba(245,242,236,.55);line-height:1.6}
 .plan-grid{display:flex;flex-direction:column;gap:0;margin-bottom:2.5rem;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .plan-row{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);background:var(--white)}
 .plan-row:last-child{border-bottom:none}
-.plan-week{font-family:'Spectral',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
+.plan-week{font-family:'Spectral','Spectral Fallback',serif;font-size:13px;color:var(--gold-dk);flex-shrink:0;width:80px}
 .plan-text{font-size:13px;color:var(--ink);line-height:1.6}
 .plan-text b{font-weight:600}
 .divider{height:1px;background:var(--border);margin:2rem 0}
 .cta-block{background:var(--dark);border-radius:6px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .cta-block::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:1px solid rgba(201,168,76,0.08);border-radius:50%}
 .cta-eyebrow{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
-.cta-title{font-family:'Spectral',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
+.cta-title{font-family:'Spectral','Spectral Fallback',serif;font-size:20px;color:#F5F0E8;margin-bottom:0.5rem;line-height:1.2}
 .cta-sub{font-size:12px;color:rgba(245,242,236,0.5);line-height:1.7;margin-bottom:1.25rem;max-width:460px}
 .cta-cards{display:grid;grid-template-columns:1fr;gap:10px;max-width:340px}
 .cta-card{border-radius:5px;padding:1.1rem;border:1px solid rgba(245,242,236,0.1)}
 .cta-card.highlight{border-color:var(--gold);position:relative}
 .cta-card-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
 .cta-card-name{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:4px}
-.cta-card-price{font-family:'Spectral',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
+.cta-card-price{font-family:'Spectral','Spectral Fallback',serif;font-size:24px;color:#F5F0E8;margin-bottom:4px}
 .cta-card-desc{font-size:11px;color:rgba(245,242,236,0.45);line-height:1.6;margin-bottom:0.85rem}
-.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-gold{display:block;background:var(--gold);color:#fff;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow','Barlow Fallback',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
 .btn-gold:hover{background:var(--gold-dk)}
-.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
+.btn-dark{display:block;background:#333;color:#F5F0E8;text-align:center;padding:10px;border-radius:4px;font-size:11px;font-weight:500;letter-spacing:0.04em;text-decoration:none;font-family:'Barlow','Barlow Fallback',sans-serif;cursor:pointer;border:none;width:100%;transition:background 0.15s ease}
 .btn-dark:hover{background:#444}
 .print-hint{text-align:center;padding:1rem;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--border)}
 .print-hint a{color:var(--gold-dk);text-decoration:none;cursor:pointer}
@@ -153,7 +158,7 @@ p.lead{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem}
   <div class="cover">
     <div class="cover-inner">
       <div class="eyebrow">FR Advisory · Layer 02 of 9</div>
-      <div class="cover-title">The Shortlist<br><em>Audit</em></div>
+      <h1 class="cover-title">The Shortlist<br><em>Audit</em></h1>
       <div class="cover-sub">The Go to Market playbook. Find out whether your positioning survives contact with a buyer's own research agent, before it quietly filters you out of a shortlist you never knew existed.</div>
       <div class="cover-meta">
         <div class="cover-stat">

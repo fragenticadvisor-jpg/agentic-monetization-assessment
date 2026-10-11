@@ -10,6 +10,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=optional">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -21,7 +26,7 @@
 }
 
 html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);margin:0;overflow-x:hidden}
+body{font-family:'Barlow','Barlow Fallback',sans-serif;background:var(--darker);color:var(--ink);margin:0;overflow-x:hidden}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -32,31 +37,31 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .hero{background:var(--darker);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:7rem 0 5rem;border-bottom:1px solid rgba(201,168,76,.15)}
 .hero-inner{max-width:980px;margin:0 auto;padding:0 2.5rem;text-align:center;position:relative;z-index:1}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.75rem;padding:5px 14px;border:1px solid rgba(201,168,76,.2);border-radius:20px;background:rgba(201,168,76,.05)}
-.hero-title{font-family:'Spectral',serif;font-size:61px;line-height:1.1;color:#F5F0E8;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
+.hero-title{font-family:'Spectral','Spectral Fallback',serif;font-size:61px;line-height:1.1;color:#F5F0E8;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
 .hero-title em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:18px;color:rgba(245,242,236,.45);line-height:1.75;max-width:640px;margin:0 auto 2.5rem;animation:fadeUp .8s .15s ease both}
 .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;margin-bottom:3.5rem}
-.btn-primary{background:var(--gold);color:#fff;font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Barlow',sans-serif}
+.btn-primary{background:var(--gold);color:#fff;font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Barlow','Barlow Fallback',sans-serif}
 .btn-primary:hover{background:var(--gold-dk);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
 .btn-secondary{background:transparent;color:rgba(245,242,236,.65);font-size:13px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(245,242,236,.15)}
 .btn-secondary:hover{border-color:rgba(245,242,236,.35);color:#F5F0E8}
 .hero-stats{display:flex;gap:0;justify-content:center;border:1px solid rgba(201,168,76,.12);border-radius:6px;overflow:hidden;max-width:560px;margin:0 auto;animation:fadeUp .8s .45s ease both;background:rgba(255,255,255,.02)}
 .hero-stat{flex:1;padding:1.25rem;text-align:center;border-right:1px solid rgba(201,168,76,.1)}
 .hero-stat:last-child{border-right:none}
-.hs-n{font-family:'Spectral',serif;font-size:28px;color:var(--gold);display:block;margin-bottom:3px}
+.hs-n{font-family:'Spectral','Spectral Fallback',serif;font-size:28px;color:var(--gold);display:block;margin-bottom:3px}
 .hs-l{font-size:10px;color:rgba(245,242,236,.3);letter-spacing:.1em;text-transform:uppercase}
 
 /* ── PROBLEM STRIP ── */
 .problem-strip{background:var(--gold);padding:1rem 2.5rem;text-align:center}
 .ps-text{font-size:13px;color:#fff;font-weight:500;letter-spacing:.02em}
-.ps-text em{font-style:italic;font-family:'Spectral',serif;font-size:15px}
+.ps-text em{font-style:italic;font-family:'Spectral','Spectral Fallback',serif;font-size:15px}
 
 /* ── SECTION BASE ── */
 .section{padding:6rem 0}
 .container{max-width:1220px;margin:0 auto;padding:0 2.5rem}
 .section-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
 .section-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,168,76,.3),transparent)}
-.section-title{font-family:'Spectral',serif;font-size:42px;color:#F5F0E8;line-height:1.1;margin-bottom:.75rem}
+.section-title{font-family:'Spectral','Spectral Fallback',serif;font-size:42px;color:#F5F0E8;line-height:1.1;margin-bottom:.75rem}
 .section-title em{font-style:italic;color:var(--gold)}
 .section-sub{font-size:15px;color:rgba(245,242,236,.45);line-height:1.75;max-width:600px}
 
@@ -68,7 +73,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .pg-icon{font-size:28px;margin-bottom:1rem}
 .pg-title{font-size:14px;font-weight:600;color:#F5F0E8;margin-bottom:.5rem}
 .pg-text{font-size:12px;color:rgba(245,242,236,.4);line-height:1.75}
-.pg-stat{font-family:'Spectral',serif;font-size:32px;color:var(--gold);display:block;margin-bottom:.4rem}
+.pg-stat{font-family:'Spectral','Spectral Fallback',serif;font-size:32px;color:var(--gold);display:block;margin-bottom:.4rem}
 
 /* ── ASSESSMENT SECTION ── */
 .assessment-section{background:var(--darker)}
@@ -76,7 +81,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .ac-top{padding:2.5rem;display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap}
 .ac-left{flex:1;min-width:280px}
 .ac-badge{display:inline-block;background:var(--gold);color:#fff;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:1rem;font-weight:500}
-.ac-title{font-family:'Spectral',serif;font-size:28px;color:#F5F0E8;line-height:1.1;margin-bottom:.6rem}
+.ac-title{font-family:'Spectral','Spectral Fallback',serif;font-size:28px;color:#F5F0E8;line-height:1.1;margin-bottom:.6rem}
 .ac-title em{font-style:italic;color:var(--gold)}
 .ac-sub{font-size:13px;color:rgba(245,242,236,.45);line-height:1.7}
 .ac-right{display:flex;flex-direction:column;gap:10px;min-width:200px}
@@ -85,7 +90,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .ac-dim-name{font-size:11px;color:rgba(245,242,236,.55)}
 .ac-bottom{border-top:1px solid rgba(245,242,236,.06);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:rgba(0,0,0,.2)}
 .ac-price-row{display:flex;align-items:baseline;gap:.5rem}
-.ac-price{font-family:'Spectral',serif;font-size:32px;color:var(--gold)}
+.ac-price{font-family:'Spectral','Spectral Fallback',serif;font-size:32px;color:var(--gold)}
 .ac-price-label{font-size:11px;color:rgba(245,242,236,.3);letter-spacing:.06em;text-transform:uppercase}
 .ac-free{font-size:11px;color:rgba(245,242,236,.35);margin-top:4px}
 
@@ -96,17 +101,17 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .pb-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transition:opacity .25s}
 .pb-card:hover{border-color:rgba(201,168,76,.2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .pb-card:hover::before{opacity:1}
-.pb-num{font-family:'Spectral',serif;font-size:48px;color:rgba(201,168,76,.12);position:absolute;top:1rem;right:1.25rem;line-height:1}
+.pb-num{font-family:'Spectral','Spectral Fallback',serif;font-size:48px;color:rgba(201,168,76,.12);position:absolute;top:1rem;right:1.25rem;line-height:1}
 .pb-tag{display:inline-block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:.85rem;font-weight:500}
-.pb-title{font-family:'Spectral',serif;font-size:21px;color:#F5F0E8;margin-bottom:.5rem;line-height:1.2;position:relative;z-index:1}
+.pb-title{font-family:'Spectral','Spectral Fallback',serif;font-size:21px;color:#F5F0E8;margin-bottom:.5rem;line-height:1.2;position:relative;z-index:1}
 .pb-sub{font-size:12px;color:rgba(245,242,236,.4);line-height:1.65;margin-bottom:1.1rem;position:relative;z-index:1}
 .pb-features{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:1.25rem}
 .pb-features li{font-size:11px;color:rgba(245,242,236,.35);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
 .pb-features li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:10px;margin-top:1px}
 .pb-footer{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid rgba(245,242,236,.06)}
-.pb-price{font-family:'Spectral',serif;font-size:22px;color:var(--gold)}
+.pb-price{font-family:'Spectral','Spectral Fallback',serif;font-size:22px;color:var(--gold)}
 .pb-price-sub{font-size:10px;color:rgba(245,242,236,.25);letter-spacing:.06em;text-transform:uppercase}
-.pb-btn{font-size:11px;font-weight:500;padding:7px 16px;border-radius:3px;background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.2);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .15s;text-decoration:none;display:inline-block;letter-spacing:.04em}
+.pb-btn{font-size:11px;font-weight:500;padding:7px 16px;border-radius:3px;background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.2);cursor:pointer;font-family:'Barlow','Barlow Fallback',sans-serif;transition:all .15s;text-decoration:none;display:inline-block;letter-spacing:.04em}
 .pb-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
 .pb-card.free-card{border-color:rgba(201,168,76,.15);background:rgba(201,168,76,.03)}
 .pb-card.free-card::before{background:var(--gold);opacity:1}
@@ -118,7 +123,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .bc-body{padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .bc-left{}
 .bc-eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;font-weight:500}
-.bc-title{font-family:'Spectral',serif;font-size:32px;color:#F5F0E8;line-height:1.1;margin-bottom:.75rem}
+.bc-title{font-family:'Spectral','Spectral Fallback',serif;font-size:32px;color:#F5F0E8;line-height:1.1;margin-bottom:.75rem}
 .bc-title em{font-style:italic;color:var(--gold)}
 .bc-desc{font-size:13px;color:rgba(245,242,236,.45);line-height:1.75;margin-bottom:1.5rem}
 .bc-includes{display:flex;flex-direction:column;gap:8px}
@@ -126,7 +131,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .bc-item::before{content:'✓';color:var(--green);flex-shrink:0;font-weight:600;margin-top:1px}
 .bc-right{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .bc-price-block{margin-bottom:1.5rem}
-.bc-price{font-family:'Spectral',serif;font-size:48px;color:var(--gold);line-height:1}
+.bc-price{font-family:'Spectral','Spectral Fallback',serif;font-size:48px;color:var(--gold);line-height:1}
 .bc-price-period{font-size:13px;color:rgba(245,242,236,.3);margin-top:4px;letter-spacing:.04em}
 .bc-saving{display:inline-block;background:var(--green-lt);color:var(--green-dk);font-size:11px;font-weight:500;padding:4px 12px;border-radius:3px;margin-top:.5rem}
 .bc-bottom{border-top:1px solid rgba(245,242,236,.06);padding:1.5rem 2.5rem;background:rgba(0,0,0,.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
@@ -144,8 +149,8 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 /* ── TESTIMONIAL / QUOTE ── */
 .quote-section{background:var(--darker);padding:5rem 0}
 .quote-inner{max-width:780px;margin:0 auto;padding:0 2.5rem;text-align:center}
-.quote-mark{font-family:'Spectral',serif;font-size:80px;color:rgba(201,168,76,.15);line-height:.5;margin-bottom:1.5rem;display:block}
-.quote-text{font-family:'Spectral',serif;font-size:26px;color:#F5F0E8;line-height:1.4;margin-bottom:1.5rem}
+.quote-mark{font-family:'Spectral','Spectral Fallback',serif;font-size:80px;color:rgba(201,168,76,.15);line-height:.5;margin-bottom:1.5rem;display:block}
+.quote-text{font-family:'Spectral','Spectral Fallback',serif;font-size:26px;color:#F5F0E8;line-height:1.4;margin-bottom:1.5rem}
 .quote-text em{font-style:italic;color:var(--gold)}
 .quote-attr{font-size:11px;color:rgba(245,242,236,.3);letter-spacing:.1em;text-transform:uppercase}
 
@@ -154,18 +159,18 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
 .about-left{}
 .about-tag{display:inline-block;background:rgba(201,168,76,.1);color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:1rem;font-weight:500}
-.about-title{font-family:'Spectral',serif;font-size:28px;color:#F5F0E8;line-height:1.2;margin-bottom:1rem}
+.about-title{font-family:'Spectral','Spectral Fallback',serif;font-size:28px;color:#F5F0E8;line-height:1.2;margin-bottom:1rem}
 .about-title em{font-style:italic;color:var(--gold)}
 .about-text{font-size:13px;color:rgba(245,242,236,.45);line-height:1.8;margin-bottom:1rem}
 .about-credentials{display:flex;flex-direction:column;gap:8px;margin-top:1.5rem}
 .ac2{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:rgba(245,242,236,.45);line-height:1.5}
 .ac2::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px}
 .about-right{background:var(--darker);border:1px solid rgba(201,168,76,.12);border-radius:6px;padding:2rem}
-.ar-title{font-family:'Spectral',serif;font-size:18px;color:#F5F0E8;margin-bottom:1.25rem}
+.ar-title{font-family:'Spectral','Spectral Fallback',serif;font-size:18px;color:#F5F0E8;margin-bottom:1.25rem}
 .ar-stats{display:flex;flex-direction:column;gap:1rem}
 .ar-stat{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid rgba(245,242,236,.06)}
 .ar-stat:last-child{border-bottom:none}
-.ar-stat-n{font-family:'Spectral',serif;font-size:26px;color:var(--gold)}
+.ar-stat-n{font-family:'Spectral','Spectral Fallback',serif;font-size:26px;color:var(--gold)}
 .ar-stat-l{font-size:11px;color:rgba(245,242,236,.35);text-align:right;max-width:160px;line-height:1.45}
 
 /* ── FAQ ── */
@@ -186,7 +191,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 .fc-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border:1px solid rgba(201,168,76,.04);border-radius:50%}
 .fc-inner{max-width:740px;margin:0 auto;padding:0 2.5rem;text-align:center;position:relative;z-index:1}
 .fc-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;font-weight:500}
-.fc-title{font-family:'Spectral',serif;font-size:48px;color:#F5F0E8;line-height:1.05;margin-bottom:1rem}
+.fc-title{font-family:'Spectral','Spectral Fallback',serif;font-size:48px;color:#F5F0E8;line-height:1.05;margin-bottom:1rem}
 .fc-title em{font-style:italic;color:var(--gold)}
 .fc-sub{font-size:14px;color:rgba(245,242,236,.4);line-height:1.75;margin-bottom:2.5rem}
 .fc-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -195,7 +200,7 @@ body{font-family:'Barlow',sans-serif;background:var(--darker);color:var(--ink);m
 
 /* ── FOOTER ── */
 footer{background:var(--darker);padding:2.5rem;border-top:1px solid rgba(245,242,236,.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-family:'Spectral',serif;font-size:16px;color:rgba(245,242,236,.4)}
+.footer-logo{font-family:'Spectral','Spectral Fallback',serif;font-size:16px;color:rgba(245,242,236,.4)}
 .footer-logo span{color:var(--gold)}
 .footer-links{display:flex;gap:1.5rem}
 .footer-link{font-size:11px;color:rgba(245,242,236,.25);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
