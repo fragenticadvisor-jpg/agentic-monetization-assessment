@@ -1,7 +1,26 @@
 /* ============================================================
    Fessal Rahman / Agentic Commercial Model — shared design system
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=optional');
+
+/* Metric-matched local fallbacks for Barlow/Spectral: remapped to the exact
+   ascent/descent/line-gap box of the real webfont, so the page renders in
+   its final layout from first paint and the fonts carry font-display:
+   optional — eliminating font-swap layout shift (CLS). */
+@font-face {
+  font-family: 'Barlow Fallback';
+  src: local('Arial'), local('Helvetica'), local('Liberation Sans');
+  ascent-override: 100%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Spectral Fallback';
+  src: local('Georgia'), local('Times New Roman'), local('Liberation Serif');
+  ascent-override: 105.9%;
+  descent-override: 46.3%;
+  line-gap-override: 0%;
+}
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -25,8 +44,8 @@ html { scroll-behavior: smooth; }
   --red:#D85A30;--red-lt:#FAECE7;--red-dk:#712B13;
   --amber:#BA7517;--amber-lt:#FAEEDA;--amber-dk:#633806;
   --blue:#185FA5;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
-  --serif:'Spectral',Georgia,serif;
-  --sans:'Barlow',Arial,sans-serif;
+  --serif:'Spectral','Spectral Fallback',Georgia,serif;
+  --sans:'Barlow','Barlow Fallback',Arial,sans-serif;
   --header-h:72px;
 }
 
