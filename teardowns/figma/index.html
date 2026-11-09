@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agentic Layer Check: Figma | Fessal Rahman</title>
+<meta name="description" content="Figma gave customers more AI capacity at the same price, usage took off, and the market marked the shares down anyway. What that does to the people selling it, read against the nine layers." />
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/teardowns/figma" />
+<meta property="og:title" content="Agentic Layer Check: Figma" />
+<meta property="og:description" content="More capacity, same price, record usage, and a share price that fell on the day guidance went up. How Figma reads against the nine layers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/teardowns/figma" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
+
+<style>
+  .td-hero{ background:var(--navy); color:var(--cream); padding:7rem 2.5rem 4.25rem; }
+  .td-hero-inner{ max-width:960px; margin:0 auto; }
+  .td-hero .eyebrow{ color:var(--gold); }
+  .td-hero h1{ font-family:var(--serif); font-weight:700; font-size:clamp(2.3rem,5vw,3.5rem); line-height:1.12; color:var(--white); margin:.6rem 0 1.15rem; }
+  .td-hero .lede{ max-width:70ch; color:var(--mist); font-size:1.12rem; line-height:1.75; }
+  .td-meta{ font-size:.78rem; color:var(--gold-lt); margin-top:1.5rem; letter-spacing:.03em; }
+
+  .snap-band{ background:var(--navy2); border-bottom:1px solid var(--rule); }
+  .snap-grid{ max-width:1320px; margin:0 auto; padding:2.75rem 2.5rem; display:grid; grid-template-columns:repeat(3,1fr); gap:2.25rem; }
+  .snap-item .snap-label{ font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); font-weight:700; margin-bottom:.6rem; }
+  .snap-item p{ font-size:.9rem; color:var(--mist); line-height:1.65; }
+
+  .td-wrap{ max-width:900px; margin:0 auto; padding:3.75rem 2.25rem 2rem; }
+  .td-wrap h2{ font-family:var(--serif); font-weight:600; font-size:1.66rem; color:var(--ink); margin:3rem 0 .5rem; }
+  .td-wrap h2:first-child{ margin-top:0; }
+  .td-wrap > p.section-sub{ font-size:.92rem; color:var(--stone); line-height:1.7; margin-bottom:1.75rem; max-width:64ch; }
+  .td-wrap p{ font-size:1.06rem; color:var(--stone); line-height:1.8; margin-bottom:0; }
+
+  .layers-touched{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 0; }
+  .lr-score{ font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; font-weight:700; padding:.35rem .7rem; border-radius:2px; white-space:nowrap; text-decoration:none; display:inline-block; }
+  .lr-score.high{ background:#e8f0e6; color:#3a6b34; }
+  .lr-score.mid{ background:#f3ecd9; color:var(--gold-dk); }
+  .lr-score.na{ background:var(--rule-lt); color:var(--stone); }
+
+  .td-block{ padding:1.5rem 0; border-bottom:1px solid var(--rule-lt); }
+  .td-block:last-child{ border-bottom:none; }
+  .td-block .lr-score{ margin-bottom:.75rem; }
+  .td-block h3{ font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--ink); margin-bottom:.6rem; }
+  .td-block p{ font-size:.98rem; }
+
+  .ripple-box{ border:1px solid var(--rule-lt); background:var(--cream2); padding:1.75rem 2rem; margin:1.5rem 0 1rem; }
+  .ripple-box p{ margin-bottom:0; font-size:.95rem; }
+  .ripple-box .ripple-label{ font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold-dk); font-weight:700; margin-bottom:.85rem; display:block; }
+
+  .td-cta{ display:flex; gap:1rem; flex-wrap:wrap; padding-top:1.75rem; margin-top:2.5rem; border-top:1px solid var(--rule-lt); }
+  .td-series-note{ font-size:.85rem; color:var(--stone); margin-top:1rem; }
+  .td-series-note a{ color:var(--gold-dk); }
+
+  .method-note{ max-width:900px; margin:0 auto; padding:3.25rem 2.25rem 5.25rem; }
+  .method-note h3{ font-family:var(--serif); font-size:1.1rem; color:var(--ink); margin-bottom:.85rem; }
+  .method-note p{ font-size:.85rem; color:var(--stone); line-height:1.75; margin-bottom:.9rem; }
+  .method-note a{ color:var(--gold-dk); }
+
+  @media (max-width:760px){
+    .snap-grid{ grid-template-columns:1fr; }
+    .td-wrap{ padding:2.5rem 1.5rem 1rem; }
+  }
+</style>
+</head>
+<body data-nav="teardowns">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="td-hero">
+  <div class="td-hero-inner">
+    <p class="eyebrow">Agentic Layer Check</p>
+    <h1>Figma</h1>
+    <p class="lede">Figma sells seats. Its customers now spend on something else entirely. More than 80% of its paying customers above $10,000 a year were using up artificial intelligence allowances by the end of October, and two thirds were using the new assistant every week. The seller still closes a seat count. The usage that follows lands on a separate meter the buyer manages with an administrator, long after the deal is signed. On 4 November the company reported 43% growth, raised its outlook, and the shares fell anyway. Here's what that does to the commercial model, layer by layer.</p>
+    <p class="td-meta">Agentic Layer Check &middot; Public signal read &middot; November 2026</p>
+  </div>
+</section>
+
+<div class="snap-band">
+  <div class="snap-grid">
+    <div class="snap-item">
+      <p class="snap-label">What they sell</p>
+      <p>Design and collaboration software used by product teams to design, prototype, build and hand off work, now with an assistant and build tools that generate and change work on request.</p>
+    </div>
+    <div class="snap-item">
+      <p class="snap-label">Who they sell to</p>
+      <p>Individual designers and small teams self serve, then design, product and engineering organisations buying by seat count, with larger companies on annual agreements and administrator controlled settings.</p>
+    </div>
+    <div class="snap-item">
+      <p class="snap-label">How they price</p>
+      <p>Per editor a month, $12 on Professional billed annually and $45 on Organization, with every seat carrying a monthly allowance for the assistant: 3,000 on a full Professional seat, 3,500 on Organization, 4,250 on Enterprise, and 500 on the lighter seat types. Administrators buy more for the team as a monthly package or as pay as you go.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section band-light">
+<div class="td-wrap">
+
+  <h2>What's working</h2>
+  <p class="section-sub">Figma made the generous call twice, and both times it was the right one.</p>
+
+  <div class="td-block">
+    <a class="lr-score high" href="/layers/pricing-packaging">Layer 3 &middot; Pricing &amp; Packaging</a>
+    <h3>Costs fell, so customers got more rather than a discount</h3>
+    <p>In August the purchased allowances grew: twice as much on the Professional plan and 1.6 times as much on Organization and Enterprise, with Figma stating plainly that customers were getting more at their existing cost, and existing invoices adjusted so the total bill stayed the same while the amount included went up. That is the correct response to delivery costs falling. A price cut is permanent and invisible within a month. More capability for the same money raises what the customer gets out of the relationship and leaves the price intact, which is the difference between improving the exchange and simply giving the gain away.</p>
+  </div>
+
+  <div class="td-block">
+    <a class="lr-score high" href="/layers/metering-entitlement">Layer 6 &middot; Metering &amp; Entitlement</a>
+    <h3>Routine work stays free, and the meter only counts the expensive part</h3>
+    <p>Searching, renaming layers and tidying up notes cost nothing. Simple picture tasks carry a small fixed cost. Only the heavy, open ended work varies with the request. Figma also publishes the monthly allowance for every seat type, pools everything an administrator buys across the whole team, spends the cheaper package before the pay as you go rate, and lets administrators set a monthly ceiling and per person limits. For a buyer trying to work out what this will cost, that is a far more answerable question than most of this market allows.</p>
+  </div>
+
+  <h2 style="margin-top:3.5rem;">Where there's room to extend it</h2>
+  <p class="section-sub">The gap is not in the pricing. It is in what the person selling has to work with.</p>
+
+  <div class="td-block">
+    <a class="lr-score mid" href="/layers/sales-strategy-enablement">Layer 4 &middot; Sales Strategy &amp; Enablement &middot; Opportunity</a>
+    <h3>The seller closes seats while the value shows up on another meter</h3>
+    <p>The public pricing page does not mention the allowances at all. A buyer has to leave it and go into the help pages to find out what a seat includes, which means the fastest growing part of the product is absent from the conversation where the deal is agreed. The seller commits a seat count, the usage arrives afterwards, and the first time anyone discusses it is when an administrator is deciding whether to buy more for the team. By then the renewal, not the rep, owns the outcome. Putting the allowance on the pricing page and into the deal, with a sizing conversation at the point of sale, turns a surprise into a planned expansion, and gives the person carrying the number something to sell beyond headcount.</p>
+  </div>
+
+  <div class="td-block">
+    <a class="lr-score mid" href="/layers/revenue-architecture">Layer 8 &middot; Revenue Architecture &middot; Opportunity</a>
+    <h3>The company proves sharing works, then withholds it from what the seat includes</h3>
+    <p>Anything an administrator buys is pooled across the whole team. What comes with each seat is not: per Figma's own documentation it cannot be shared or transferred between people, it expires monthly, and it does not carry over. So the same company runs two rules on the same product, and the more generous one is the one you pay extra for. In practice the heaviest users run dry while quieter colleagues' allowances expire untouched, and the resolution is to buy a shared pool. Letting the included allowance pool across the team, or carry for a month, would turn the most common pattern in any team from a monthly write off into a reason to grow usage rather than a reason to ration it.</p>
+  </div>
+
+  <div class="ripple-box">
+    <span class="ripple-label">How this moves through the model</span>
+    <p>Both findings land first on <strong>Compensation (Layer 5)</strong>. If the seat count is what gets closed and the allowance is what grows, then the number a seller is paid against stops tracking the value the customer is taking, and nobody is rewarded for the part of the account that is expanding fastest. It then lands on <strong>Revenue Architecture (Layer 8)</strong> in public: the quarter showed 43% growth to $391.4m with the outlook raised, and the shares still fell on the day, because usage growth in this shape costs money to serve and the market can see it arriving before the pricing has caught up. That is the whole argument of this series in one print. The technology worked. The adoption is real and measurable, with most large customers now using the allowances every month. What the market marked down was the commercial model around it, and the fix for that sits in the deal, the comp plan and the packaging, not in the product.</p>
+  </div>
+
+  <div class="layers-touched">
+    <a class="lr-score high" href="/layers/pricing-packaging">Layer 3</a>
+    <a class="lr-score high" href="/layers/metering-entitlement">Layer 6</a>
+    <a class="lr-score mid" href="/layers/sales-strategy-enablement">Layer 4</a>
+    <a class="lr-score mid" href="/layers/revenue-architecture">Layer 8</a>
+    <a class="lr-score mid" href="/layers/compensation">Layer 5</a>
+  </div>
+
+  <div class="td-cta">
+    <a class="btn btn-gold" href="/assessment">Take the Free Assessment →</a>
+    <a class="btn btn-ghost" href="/layers">Explore the Nine Layers →</a>
+    <a class="btn btn-ghost" href="https://tally.so/r/dWMyzV" target="_blank" rel="noopener">Request a Teardown →</a>
+  </div>
+  <p class="td-series-note">Part of the <a href="/teardowns">Agentic Layer Check</a> series: named companies, read against the nine layers. Want your own read? <a href="https://tally.so/r/dWMyzV" target="_blank" rel="noopener">Request a teardown &rarr;</a></p>
+
+</div>
+</section>
+
+<div class="method-note">
+  <h3>Methodology &amp; sourcing</h3>
+  <p>This is a public signal read: Figma's own pricing page, its own help centre articles on how allowances work and how administrators manage them, its own announcement of the changes, and its published third quarter results and earnings call, not a private briefing or company input. It reflects what's publicly documented as of the date above: pricing pages and allowance terms change, and this piece will note it if Figma's do. The share price reaction is as reported in press coverage of the results; the financial and adoption figures are Figma's own. Nothing here is investment advice. Figma was not consulted on or paid for inclusion; see the <a href="https://agenticreadystack.com/disclosure.html" target="_blank" rel="noopener">disclosure approach</a> this work is run under.</p>
+  <p>Sources: <a href="https://www.figma.com/pricing/" target="_blank" rel="noopener nofollow">Figma: pricing &rarr;</a> &middot; <a href="https://help.figma.com/hc/en-us/articles/33459875669015-How-Figma-AI-credits-work" target="_blank" rel="noopener nofollow">Figma: how AI credits work &rarr;</a> &middot; <a href="https://help.figma.com/hc/en-us/articles/35865276858647-Manage-AI-credits" target="_blank" rel="noopener nofollow">Figma: manage AI credits &rarr;</a> &middot; <a href="https://help.figma.com/hc/en-us/articles/42614902212887-AI-credit-updates-FAQ" target="_blank" rel="noopener nofollow">Figma: AI credit updates FAQ &rarr;</a> &middot; <a href="https://www.figma.com/blog/updates-to-ai-credits-in-figma/" target="_blank" rel="noopener nofollow">Figma: updates to AI credits &rarr;</a></p>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model: the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="/newsletter">Newsletter</a>
+<a href="/newsletter/value-realised-selling">Value-Realised Selling</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
