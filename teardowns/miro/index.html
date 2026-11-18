@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agentic Layer Check: Miro | Fessal Rahman</title>
+<meta name="description" content="Miro pools its AI allowance across the whole company and publishes what it buys in real work, then sizes it for a trial rather than a job. Read against the nine layers." />
+<link rel="canonical" href="https://www.agenticcommercialmodel.com/teardowns/miro" />
+<meta property="og:title" content="Agentic Layer Check: Miro" />
+<meta property="og:description" content="About ten screens a month per person, then the upgrade is unlimited, priced per seat. How Miro reads against the nine layers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.agenticcommercialmodel.com/teardowns/miro" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/assets/site.css" />
+
+<style>
+  .td-hero{ background:var(--navy); color:var(--cream); padding:7rem 2.5rem 4.25rem; }
+  .td-hero-inner{ max-width:960px; margin:0 auto; }
+  .td-hero .eyebrow{ color:var(--gold); }
+  .td-hero h1{ font-family:var(--serif); font-weight:700; font-size:clamp(2.3rem,5vw,3.5rem); line-height:1.12; color:var(--white); margin:.6rem 0 1.15rem; }
+  .td-hero .lede{ max-width:70ch; color:var(--mist); font-size:1.12rem; line-height:1.75; }
+  .td-meta{ font-size:.78rem; color:var(--gold-lt); margin-top:1.5rem; letter-spacing:.03em; }
+
+  .snap-band{ background:var(--navy2); border-bottom:1px solid var(--rule); }
+  .snap-grid{ max-width:1320px; margin:0 auto; padding:2.75rem 2.5rem; display:grid; grid-template-columns:repeat(3,1fr); gap:2.25rem; }
+  .snap-item .snap-label{ font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); font-weight:700; margin-bottom:.6rem; }
+  .snap-item p{ font-size:.9rem; color:var(--mist); line-height:1.65; }
+
+  .td-wrap{ max-width:900px; margin:0 auto; padding:3.75rem 2.25rem 2rem; }
+  .td-wrap h2{ font-family:var(--serif); font-weight:600; font-size:1.66rem; color:var(--ink); margin:3rem 0 .5rem; }
+  .td-wrap h2:first-child{ margin-top:0; }
+  .td-wrap > p.section-sub{ font-size:.92rem; color:var(--stone); line-height:1.7; margin-bottom:1.75rem; max-width:64ch; }
+  .td-wrap p{ font-size:1.06rem; color:var(--stone); line-height:1.8; margin-bottom:0; }
+
+  .layers-touched{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 0; }
+  .lr-score{ font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; font-weight:700; padding:.35rem .7rem; border-radius:2px; white-space:nowrap; text-decoration:none; display:inline-block; }
+  .lr-score.high{ background:#e8f0e6; color:#3a6b34; }
+  .lr-score.mid{ background:#f3ecd9; color:var(--gold-dk); }
+  .lr-score.na{ background:var(--rule-lt); color:var(--stone); }
+
+  .td-block{ padding:1.5rem 0; border-bottom:1px solid var(--rule-lt); }
+  .td-block:last-child{ border-bottom:none; }
+  .td-block .lr-score{ margin-bottom:.75rem; }
+  .td-block h3{ font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--ink); margin-bottom:.6rem; }
+  .td-block p{ font-size:.98rem; }
+
+  .ripple-box{ border:1px solid var(--rule-lt); background:var(--cream2); padding:1.75rem 2rem; margin:1.5rem 0 1rem; }
+  .ripple-box p{ margin-bottom:0; font-size:.95rem; }
+  .ripple-box .ripple-label{ font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold-dk); font-weight:700; margin-bottom:.85rem; display:block; }
+
+  .td-cta{ display:flex; gap:1rem; flex-wrap:wrap; padding-top:1.75rem; margin-top:2.5rem; border-top:1px solid var(--rule-lt); }
+  .td-series-note{ font-size:.85rem; color:var(--stone); margin-top:1rem; }
+  .td-series-note a{ color:var(--gold-dk); }
+
+  .method-note{ max-width:900px; margin:0 auto; padding:3.25rem 2.25rem 5.25rem; }
+  .method-note h3{ font-family:var(--serif); font-size:1.1rem; color:var(--ink); margin-bottom:.85rem; }
+  .method-note p{ font-size:.85rem; color:var(--stone); line-height:1.75; margin-bottom:.9rem; }
+  .method-note a{ color:var(--gold-dk); }
+
+  @media (max-width:760px){
+    .snap-grid{ grid-template-columns:1fr; }
+    .td-wrap{ padding:2.5rem 1.5rem 1rem; }
+  }
+</style>
+</head>
+<body data-nav="teardowns">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-brand">Fessal Rahman</a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/agentic-commercial-model">Model</a>
+      <a href="/layers">Layers</a>
+      <a href="/content">Content</a>
+      <a href="/news">News</a>
+      <a href="/teardowns">Teardowns</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="site-header-actions">
+      <a href="/assessment" class="site-cta">Take the Assessment <span aria-hidden="true">→</span></a>
+      <button class="site-nav-toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="td-hero">
+  <div class="td-hero-inner">
+    <p class="eyebrow">Agentic Layer Check</p>
+    <h1>Miro</h1>
+    <p class="lede">Miro tells you exactly what its artificial intelligence allowance buys, in real work: about twelve document summaries a month on the cheaper plan, about ten screens or slides a month on the main one. Read that twice. The seller closes a plan at $20 a person, and the thing the whole product is being marketed on runs out inside a morning. More can be bought, though the price of more is published nowhere. Here's what that does to the deal, and to the layers underneath it.</p>
+    <p class="td-meta">Agentic Layer Check &middot; Public signal read &middot; November 2026</p>
+  </div>
+</section>
+
+<div class="snap-band">
+  <div class="snap-grid">
+    <div class="snap-item">
+      <p class="snap-label">What they sell</p>
+      <p>A shared online whiteboard where teams run workshops, map processes, plan projects and sketch products together, now with tools that generate diagrams, summaries, slides and working screens from a prompt.</p>
+    </div>
+    <div class="snap-item">
+      <p class="snap-label">Who they sell to</p>
+      <p>Product, design, engineering and consulting teams, self serve from Free through Starter and Business, then larger organisations on a negotiated agreement from thirty people upwards.</p>
+    </div>
+    <div class="snap-item">
+      <p class="snap-label">How they price</p>
+      <p>Per person a month, $8 on Starter and $20 on Business billed yearly, with a monthly allowance that is shared across the whole company: 25 a person on Starter, 50 on Business, and 100 a licence at the top, which moves as the headcount moves. Extra can be bought, and larger customers can buy an add on with no limit.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section band-light">
+<div class="td-wrap">
+
+  <h2>What's working</h2>
+  <p class="section-sub">Two choices here are better than the rest of this market, and the second one is close to unique.</p>
+
+  <div class="td-block">
+    <a class="lr-score high" href="/layers/metering-entitlement">Layer 6 &middot; Metering &amp; Entitlement</a>
+    <h3>The allowance is quoted in work, not in points</h3>
+    <p>Miro's own pricing page translates the number into the job: the cheaper plan is "about 12 document summaries, or 5 diagrams, tables, and more" a month for each person, and the main one "about 10 prototype screens or slides per member each month". That is the question every buyer in this category asks and almost nobody answers. The usual approach is an abstract balance with no published exchange rate, which leaves the customer unable to size anything. Miro states the exchange rate in plain terms, on the page where the decision gets made.</p>
+  </div>
+
+  <div class="td-block">
+    <a class="lr-score high" href="/layers/revenue-architecture">Layer 8 &middot; Revenue Architecture</a>
+    <h3>The allowance is shared, so nobody's unused share dies alone</h3>
+    <p>The balance is pooled across the whole organisation, and at the top of the range it moves automatically as the headcount changes. This series has watched two other companies refuse exactly that: one allows sharing only on the allowance you pay extra for, the other forbids transfers between people entirely. Miro pools by default. That single decision turns the most common pattern in any team, where a few people do most of the work, from a monthly write off into capacity that reaches whoever needs it. Larger customers also get a soft ceiling rather than a hard stop, so going over occasionally does not break anything.</p>
+  </div>
+
+  <h2 style="margin-top:3.5rem;">Where there's room to extend it</h2>
+  <p class="section-sub">The design is sound. The size of the number is the problem, and it lands on the person carrying the quota.</p>
+
+  <div class="td-block">
+    <a class="lr-score mid" href="/layers/sales-strategy-enablement">Layer 4 &middot; Sales Strategy &amp; Enablement &middot; Opportunity</a>
+    <h3>Sized for a trial, sold as a capability</h3>
+    <p>Ten screens a month, per person, is a demonstration. It is not a way of working. A team that adopts this properly exhausts the month in an afternoon, which means the moment of greatest enthusiasm, the week the thing actually starts producing, is also the week it stops. Extra packages can be bought on every paid plan, which is the right mechanism. However, the price of those packages is published nowhere: not on the pricing page, not in the help centre. So a buyer can see exactly what the allowance buys, about ten screens, and cannot find out what the eleventh costs until they have already stopped. The company that publishes its exchange rate in plain English does not publish the price of more. The route that removes the limit entirely is sales only, and priced per person. Putting a top up price next to the allowance, visible before anyone commits, turns the wall from a surprise into a planned purchase.</p>
+  </div>
+
+  <div class="td-block">
+    <a class="lr-score mid" href="/layers/pricing-packaging">Layer 3 &middot; Pricing &amp; Packaging &middot; Opportunity</a>
+    <h3>The upgrade from a meter is no meter at all, priced per person</h3>
+    <p>Teams that regularly run over are told to buy an add on that removes the limit, obtained through the account team and priced per licence across every paid person in the agreement. So the heaviest users leave the usage model entirely and go back to paying by headcount. The meter only exists in the middle of the range, which is an honest admission that measuring this kind of creative work is hard, and also a structure where the customer's bill stops tracking the value they take at exactly the point the value gets large. A tiered rate, cheaper per unit as volume rises, would keep the connection between what the customer gets and what they pay without forcing a return to seats. There is a second, quieter meter too: machine access is capped by a daily count, from 100 a day on the free plan to 10,000 at the top, which is a different clock from the monthly one humans are on, and nobody is selling it.</p>
+  </div>
+
+  <div class="ripple-box">
+    <span class="ripple-label">How this moves through the model</span>
+    <p>A monthly allowance that empties in an afternoon lands first on <strong>Compensation (Layer 5)</strong>. The expansion it should trigger has no visible price attached, so a customer at the wall is choosing in the dark, and nobody is paid for turning that moment into a purchase. It lands next on <strong>Adoption &amp; Customer Success (Layer 7)</strong>, because a team that hits the wall in week one learns to use the feature sparingly, and sparing use never builds the habit that justifies the next plan. Miro has made two decisions better than almost anyone in this market: it publishes what the allowance buys in real work, and it shares that allowance across the company. Then it set the number at a level that teaches people to stop. Generosity in the design, scarcity in the dial. The dial is the cheaper thing to change.</p>
+  </div>
+
+  <div class="layers-touched">
+    <a class="lr-score high" href="/layers/metering-entitlement">Layer 6</a>
+    <a class="lr-score high" href="/layers/revenue-architecture">Layer 8</a>
+    <a class="lr-score mid" href="/layers/sales-strategy-enablement">Layer 4</a>
+    <a class="lr-score mid" href="/layers/pricing-packaging">Layer 3</a>
+    <a class="lr-score mid" href="/layers/compensation">Layer 5</a>
+    <a class="lr-score mid" href="/layers/adoption-customer-success">Layer 7</a>
+  </div>
+
+  <div class="td-cta">
+    <a class="btn btn-gold" href="/assessment">Take the Free Assessment →</a>
+    <a class="btn btn-ghost" href="/layers">Explore the Nine Layers →</a>
+    <a class="btn btn-ghost" href="https://tally.so/r/dWMyzV" target="_blank" rel="noopener">Request a Teardown →</a>
+  </div>
+  <p class="td-series-note">Part of the <a href="/teardowns">Agentic Layer Check</a> series: named companies, read against the nine layers. Want your own read? <a href="https://tally.so/r/dWMyzV" target="_blank" rel="noopener">Request a teardown &rarr;</a></p>
+
+</div>
+</section>
+
+<div class="method-note">
+  <h3>Methodology &amp; sourcing</h3>
+  <p>This is a public signal read: Miro's own pricing page and its own help centre documentation on how the allowance works for larger customers, not a private briefing or company input. It reflects what's publicly documented as of the date above: pricing pages and allowance terms change, and this piece will note it if Miro's do. One detail is worth flagging: at the time of writing Miro's pricing page describes the free allowance as a limited trial in its comparison table and as ten a month in its questions section, and describes the allowance as both per person and pooled across the organisation in different places on the same page. Miro was not consulted on or paid for inclusion; see the <a href="https://agenticreadystack.com/disclosure.html" target="_blank" rel="noopener">disclosure approach</a> this work is run under.</p>
+  <p>Sources: <a href="https://miro.com/pricing/" target="_blank" rel="noopener nofollow">Miro: pricing &rarr;</a> &middot; <a href="https://help.miro.com/hc/en-us/articles/19973211245586-Miro-AI-Credits-for-Enterprise-Plans" target="_blank" rel="noopener nofollow">Miro: AI credits for larger plans &rarr;</a> &middot; <a href="https://help.miro.com/hc/en-us/articles/19756209116178-Miro-AI-credits" target="_blank" rel="noopener nofollow">Miro: AI credits &rarr;</a></p>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <p class="site-footer-name">Fessal Rahman</p>
+      <p class="site-footer-tag">Originator of the Agentic Commercial Model: the commercial operating model for the agentic AI era.</p>
+    </div>
+    <div class="site-footer-cols">
+      <div>
+        <p class="site-footer-h">Framework</p>
+        <a href="/agentic-commercial-model">The Model</a>
+        <a href="/layers">The Nine Layers</a>
+        <a href="/assessment">Take the Assessment</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Content</p>
+        <a href="/content#books">Books</a>
+        <a href="/content#ebooks">Ebooks</a>
+        <a href="/content#writing">Writing</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="/newsletter">Newsletter</a>
+<a href="/newsletter/value-realised-selling">Value-Realised Selling</a>
+      </div>
+      <div>
+        <p class="site-footer-h">Connect</p>
+        <a href="/news">News</a>
+        <a href="/teardowns">Teardowns</a>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/in/fessal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://medium.com/@fragenticadvisor" target="_blank" rel="noopener">Medium</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Fessal Rahman. All rights reserved.</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
